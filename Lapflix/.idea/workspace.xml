@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8aa194cf-7950-416c-94b9-cc46daa86485" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="spring-beans.schema" />
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1jlp4w4e1hoynEHLc2WR4U26qWc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.14746094" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8aa194cf-7950-416c-94b9-cc46daa86485" name="Default Changelist" comment="" />
+      <created>1604388344849</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604388344849</updated>
+      <workItem from="1604388351348" duration="454000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="574" y="262" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1604388668185">
+      <screen x="0" y="23" width="1920" height="1087" />
+    </state>
+    <state x="574" y="262" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.23.1920.1087@0.23.1920.1087" timestamp="1604388668185" />
+    <state x="698" y="328" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1604388592058">
+      <screen x="0" y="23" width="1920" height="1087" />
+    </state>
+    <state x="698" y="328" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.23.1920.1087@0.23.1920.1087" timestamp="1604388592058" />
+    <state x="448" y="148" key="SettingsEditor" timestamp="1604388819019">
+      <screen x="0" y="23" width="1920" height="1087" />
+    </state>
+    <state x="448" y="148" key="SettingsEditor/0.23.1920.1087@0.23.1920.1087" timestamp="1604388819019" />
+  </component>
+</project>
