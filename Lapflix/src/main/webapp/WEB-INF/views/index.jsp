@@ -83,7 +83,7 @@
         <!-- 첫번째 설문-->
         <div class= "firstPage" id="indexPostion">
             <div class="firstBg">
-                <img src="./res/1.jpg"/>
+                <img src="res/1.jpg"/>
             </div>
             <div class="firstQ">
                 <h1>질문1</h1>
