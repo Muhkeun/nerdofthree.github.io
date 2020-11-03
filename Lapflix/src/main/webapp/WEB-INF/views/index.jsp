@@ -83,7 +83,7 @@
         <!-- 첫번째 설문-->
         <div class= "firstPage" id="indexPostion">
             <div class="firstBg">
-                <img src="res/1.jpg"/>
+                <img src="resources/res/1.jpg"/>
             </div>
             <div class="firstQ">
                 <h1>질문1</h1>
@@ -98,7 +98,7 @@
         <!-- 두번째 설문-->
         <div class= "firstPage" id="target1">
             <div class="firstBg">
-                <img src="./res/2.jpg"/>
+                <img src="resources/res/2.jpg"/>
             </div>
             <div class="firstQ">
                 <h1>질문2</h1>
@@ -113,7 +113,7 @@
         <!-- 세번째 설문-->
         <div class= "firstPage" id="target2">
             <div class="firstBg">
-                <img src="./res/3.jpg"/>
+                <img src="resources/res/3.jpg"/>
             </div>
             <div class="firstQ">
                 <h1>질문3</h1>
@@ -128,7 +128,7 @@
         <!-- 네번째 설문-->
         <div class= "firstPage" id="target3">
             <div class="firstBg">
-                <img src="./res/1.jpg"/>
+                <img src="resources/res/1.jpg"/>
             </div>
             <div class="firstQ">
                 <h1>질문4</h1>
@@ -143,7 +143,7 @@
         <!-- 다섯번째 설문-->
         <div class= "firstPage" id="target4">
             <div class="firstBg">
-                <img src="./res/4.jpg"/>
+                <img src="resources/res/4.jpg"/>
             </div>
             <div class="firstQ">
                 <h1>질문5</h1>
@@ -158,7 +158,7 @@
         <!-- 여섯번째 설문-->
         <div class= "firstPage" id="target5">
             <div class="firstBg">
-                <img src="./res/6.jpg"/>
+                <img src="resources/res/6.jpg"/>
             </div>
             <div class="firstQ">
                 <h1>질문6</h1>
