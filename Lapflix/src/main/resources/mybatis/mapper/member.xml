@@ -11,6 +11,6 @@
 	<!-- 회원가입 -->
 	<insert id="add" parameterType="java.util.Map">
   		INSERT INTO laptopmember(member_name, member_age, member_gender, f_key,	email, profile_image)
-  		VALUES(#{member_name}, #{member_age}, #{member_gender}, #{f_key}, #{email}, #{profile_image})
+  		VALUES(#{name}, #{age}, #{gender}, #{f_key}, #{email}, #{p_image})
   	</insert>
 </mapper>
