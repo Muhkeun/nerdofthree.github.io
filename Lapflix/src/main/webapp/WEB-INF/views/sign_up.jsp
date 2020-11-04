@@ -11,6 +11,20 @@
     <title>Lapflix | 회원가입</title>
 </head>
 <body>
+<div>
+    <form>
+        <label for="email">email</label>
+        <input type="email" name="email" id="email">
 
+        <input type="button" value="확인" onclick="backTo(this.form)">
+
+    </form>
+</div>
+<script>
+    function backTo(frm) {
+        frm.submit();
+        location.href = "signIn";
+    }
+</script>
 </body>
 </html>

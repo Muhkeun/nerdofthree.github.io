@@ -168,7 +168,7 @@
                     <input type="radio" name="1" id=""/>2.답변2</br>
                     <input type="radio" name="1" id=""/>3.답변3</br>
                 </form>
-                <a href="/sign_in">설문 끝! 결과 보러가기</a>
+                <a href="/signIn">설문 끝! 결과 보러가기</a>
             </div>
         </div>기
     </main>

@@ -12,13 +12,14 @@
 </head>
 <body>
             <div>
-                <form action="post">
+                <form action="result" method="post">
                     <label for="email">아이디</label>
                     <input type="email" name="email" id="email"></br>
                     <label for="password">비밀번호</label>
                     <input type="password" name="password" id="password">
                     <input type="button" value="Sign-in" onclick="submit(this.form)">
                 </form>
+                <a href="signUp"><input type="button" value="회원가입"> </a>
             </div>
             <div>
                 <a>

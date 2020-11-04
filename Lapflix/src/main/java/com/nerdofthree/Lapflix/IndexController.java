@@ -11,10 +11,7 @@ public class IndexController {
         return "index";
     }
 
-    @RequestMapping("/sign_in")
-    public String signIn(){
-        return "sign_in";
-    }
+
 
 }
 
