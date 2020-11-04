@@ -10,6 +10,7 @@ CREATE TABLE laptopmember
     member_Gender    VARCHAR2(10)    NULL, 
     f_Key            INT             NULL, 
     email            VARCHAR2(40)    NULL, 
+    profile_image    VARCHAR2(80)    NULL, 
     CONSTRAINT LAPTOPMEMBER_PK PRIMARY KEY (email)
 )
 /
