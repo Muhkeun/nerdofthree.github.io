@@ -16,9 +16,9 @@ public class signInController {
     private HttpSession httpSession;
 
     @RequestMapping("signIn")
-    public String signIn(String Email){
+    public String signIn(String Email,String Age, String Gender){
 
-        System.out.println(Email);
+        System.out.println(Email + Age + Gender);
 
         return "sign_in";
     }
