@@ -72,11 +72,12 @@
         <!-- 스크롤 -->
         <div>
             <div class="scrollBtn">
-                <a href="#indexPostion">❤</a><br/>
-                <a href="#target1">❤</a><br/>
-                <a href="#target2">❤</a><br/>
-                <a href="#target3">❤</a><br/>
-                <a href="#target4">❤</a><br/>
+                <a href="#indexPostion">*</a><br/>
+                <a href="#target1">*</a><br/>
+                <a href="#target2">*</a><br/>
+                <a href="#target3">*</a><br/>
+                <a href="#target4">*</a><br/>
+                <a href="#target5">*</a>
             </div>
         </div>
         <!-- 설문페이지 -->

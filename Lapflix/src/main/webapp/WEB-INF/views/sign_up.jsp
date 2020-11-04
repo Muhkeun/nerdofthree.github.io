@@ -12,9 +12,9 @@
 </head>
 <body>
 <div>
-    <form>
+    <form action="signIn" method="post">
         <label for="email">email</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="Email" id="Email">
 
         <input type="button" value="확인" onclick="backTo(this.form)">
 
@@ -22,8 +22,9 @@
 </div>
 <script>
     function backTo(frm) {
+
         frm.submit();
-        location.href = "signIn";
+
     }
 </script>
 </body>

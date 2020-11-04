@@ -11,10 +11,14 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class signInController {
-    @RequestMapping("signIn")
-    public String signIn(){
 
-        
+    @Autowired
+    private HttpSession httpSession;
+
+    @RequestMapping("signIn")
+    public String signIn(String Email){
+
+        System.out.println(Email);
 
         return "sign_in";
     }

@@ -21,11 +21,7 @@
                 </form>
                 <a href="signUp"><input type="button" value="회원가입"> </a>
             </div>
-            <div>
-                <a>
-                <img src="/res/sign_b/kakao_login_medium.png"/>
-                </a>
-            </div>
+
     <script>
         function submit(frm) {
             frm.submit();
