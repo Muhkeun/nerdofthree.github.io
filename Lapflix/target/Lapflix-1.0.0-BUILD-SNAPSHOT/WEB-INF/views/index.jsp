@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나만의 노트북 찾기</title>
+    <title>Lapflix | 나만의 노트북 찾기</title>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <style>
         body{
@@ -93,7 +93,7 @@
                     <input type="radio" name="1" id=""/>2.답변2</br>
                     <input type="radio" name="1" id=""/>3.답변3</br>
                 </form>
-                <a href="#target1">아래로</a>
+                <a href="#target1">다음</a>
             </div>
         </div>
         <!-- 두번째 설문-->
@@ -108,7 +108,7 @@
                     <input type="radio" name="1" id=""/>2.답변2</br>
                     <input type="radio" name="1" id=""/>3.답변3</br>
                 </form>
-                <a href="#target2">아래로</a>
+                <a href="#target2">다</a>
             </div>
         </div>
         <!-- 세번째 설문-->
@@ -123,7 +123,7 @@
                     <input type="radio" name="1" id=""/>2.답변2</br>
                     <input type="radio" name="1" id=""/>3.답변3</br>
                 </form>
-                <a href="#target3">아래로</a>
+                <a href="#target3">다음</a>
             </div>
         </div>
         <!-- 네번째 설문-->
@@ -138,9 +138,9 @@
                     <input type="radio" name="1" id=""/>2.답변2</br>
                     <input type="radio" name="1" id=""/>3.답변3</br>
                 </form>
-                <a href="#target4">아래로</a>
+                <a href="#target4">다음</a>
             </div>
-        </div>
+        </div>음
         <!-- 다섯번째 설문-->
         <div class= "firstPage" id="target4">
             <div class="firstBg">
@@ -153,7 +153,7 @@
                     <input type="radio" name="1" id=""/>2.답변2</br>
                     <input type="radio" name="1" id=""/>3.답변3</br>
                 </form>
-                <a href="#target5">아래로</a>
+                <a href="#target5">다음</a>
             </div>
         </div>
         <!-- 여섯번째 설문-->
@@ -168,9 +168,9 @@
                     <input type="radio" name="1" id=""/>2.답변2</br>
                     <input type="radio" name="1" id=""/>3.답변3</br>
                 </form>
-                <a href="login.html">아래로</a>
+                <a href="/sign_in">설문 끝! 결과 보러가기</a>
             </div>
-        </div>
+        </div>기
     </main>
 </div>
 </div>
