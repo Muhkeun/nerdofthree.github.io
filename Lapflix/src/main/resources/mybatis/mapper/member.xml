@@ -13,4 +13,10 @@
   		INSERT INTO laptopmember(member_name, member_age, member_gender, f_key,	email, profile_image)
   		VALUES(#{name}, #{age}, #{gender}, #{f_key}, #{email}, #{p_image})
   	</insert>
+  	
+  	<!-- f_Key 저장 -->
+  	<insert id="add_f_Key" parameterType="java.util.Map">
+  		INSERT INTO favorite(f_Key, laptop_Name)
+  		VALUES(#{f_Key}, #{laptop_Name})
+  	</insert>
 </mapper>

@@ -1,25 +1,25 @@
 package mybatis.dao;
 
 import java.util.Hashtable;
-import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import mybatis.vo.LaptopVO;
-
-public class LaptopDAO {
+public class FavoriteDAO {
 	
 	@Autowired
 	private SqlSessionTemplate sst;
-
-	public List<LaptopVO> getlist(String laptop_MonitorSize, String laptop_OS, String program_Name) {
+	
+	public void addFavorite(String f_Key, String laptop_Name) {
 		
 		Map<String, String> map = new Hashtable<String, String>();
 		
-		List<LaptopVO> list = sst.selectList("laptop.list", map);
-		return null;
+		map.put("f_Key", f_Key);
+		map.put("laptop_Name", laptop_Name);
+		
+		sst.insert("member.add_f_Key", map);
+		
 	}
 	
 }
