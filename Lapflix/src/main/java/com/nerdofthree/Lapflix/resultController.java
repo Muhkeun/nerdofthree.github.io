@@ -9,7 +9,7 @@ public class resultController {
 	
 	
     @RequestMapping("/result")
-    public String result(String m_size, String cpu){
+    public String result(String m_Size, String l_OS, String p_name, String m_status){
     	
     	
     }
