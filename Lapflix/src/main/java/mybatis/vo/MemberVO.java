@@ -7,7 +7,25 @@ public class MemberVO {
 			member_gender,
 			f_key,
 			email,
-			profile_image;
+			profile_image,
+			password,
+			seq;
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getSeq() {
+		return seq;
+	}
+
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
 
 	public String getMember_name() {
 		return member_name;
