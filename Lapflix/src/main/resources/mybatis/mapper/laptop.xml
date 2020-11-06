@@ -4,7 +4,21 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="laptop">
 
-	<select id = "list" resultType = "mybatis.vo.MemberVO">
-		SELECT * FROM laptop
+	<select id = "list" resultType="mybatis.vo.LaptopVO" parameterType="java.util.Map">
+		SELECT * FROM laptop WHERE laptop_OS=#{laptop_OS} AND laptop_MonitorSize=#{laptop_MonitorSize}
+		AND cpu_Name=#{cpu_Name} AND gpu_Name=#{gpu_Name}
 	</select>
+	
+	<select id="cpuList" resultType="mybatis.vo.Cpu_BenchVO" parameterType="mybatis.vo.Cpu_BenchVO">
+		SELECT cpu_Name FROM cpu_Bench WHERE cpu_Point >= #{cpu_Point}
+	</select>
+	
+	<select id="gpuList" resultType="mybatis.vo.Gpu_BenchVO" parameterType="mybatis.vo.Gpu_BenchVO">
+		SELECT gpu_Name FROM gpu_Bench WHERE gpu_Point >= #{gpu_Point}
+	</select>
+	
+	<select id="program" resultType="mybatis.vo.Program_BenchVO" parameterType="java.util.Map">
+		SELECT * FROM program_Bench WHERE program_Name=#{program_Name}
+	</select>
+	
 </mapper>

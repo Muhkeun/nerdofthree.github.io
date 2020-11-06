@@ -169,12 +169,28 @@
                     <input type="radio" name="1" id=""/>2.답변2</br>
                     <input type="radio" name="1" id=""/>3.답변3</br>
                 </form>
-                <a href="/signIn">설문 끝! 결과 보러가기</a>
+                <a href="/result?laptop_MonitorSize=15.6인치&laptop_OS=윈도우10&program_Name=battleground">설문 끝! 결과 보러가기</a>
             </div>
         </div>기
     </main>
 </div>
-</div>
+	<!-- test용 -->
+	<h1>첫화면</h1>
+		<div>
+			<form action="/result" method="get">
+				<label for="laptop_MonitorSize">모니터사이즈:</label>
+				<input type="text" id="laptop_MonitorSize" name="laptop_MonitorSize"/><br/>
+				
+				<label for="program_Name">프로그램명: </label>
+				<input type="text" id="program_Name" name="program_Name"/><br/>
+				
+				<label for="laptop_OS">OS: </label>
+				<input type="text" id="laptop_OS" name="laptop_OS"/><br/>
+				
+				<input type="button" value="보내기" onclick="exe(this.form)"/>
+				
+			</form>
+		</div>
 </body>
 <script>
     $(document).ready(function () {
@@ -189,6 +205,10 @@
             $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
         });
     });
-
+    
+	//테스트용
+    function exe(frm){
+		frm.submit();
+	}
 </script>
 </html>

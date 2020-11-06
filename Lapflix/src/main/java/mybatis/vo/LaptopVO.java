@@ -1,13 +1,12 @@
 package mybatis.vo;
 
 public class LaptopVO {
-	String  laptop_Name, 
+	private String  laptop_Name, 
     		cpu_Name, 
     		gpu_Name, 
     		laptop_Memory, 
     		laptop_OS, 
-    		laptop_MonitorSize, 
-    		laptop_ImageURL;
+    		laptop_MonitorSize;
 
 	public String getLaptop_Name() {
 		return laptop_Name;
@@ -56,12 +55,5 @@ public class LaptopVO {
 	public void setLaptop_MonitorSize(String laptop_MonitorSize) {
 		this.laptop_MonitorSize = laptop_MonitorSize;
 	}
-
-	public String getLaptop_ImageURL() {
-		return laptop_ImageURL;
-	}
-
-	public void setLaptop_ImageURL(String laptop_ImageURL) {
-		this.laptop_ImageURL = laptop_ImageURL;
-	}   
+  
 }
