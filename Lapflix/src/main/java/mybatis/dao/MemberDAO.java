@@ -6,6 +6,8 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import mybatis.vo.MemberVO;
+
 public class MemberDAO {
 	
 	@Autowired
@@ -25,5 +27,12 @@ public class MemberDAO {
 		
 		int cnt = sst.insert("member.add", map);
 
+	}
+	
+	//로그인
+	public MemberVO checkSignIn(String email) {
+		MemberVO vo = sst.selectOne("member.signInChk");
+		
+		return vo;
 	}
 }

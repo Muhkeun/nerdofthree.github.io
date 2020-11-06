@@ -19,4 +19,9 @@
   		INSERT INTO favorite(f_Key, laptop_Name)
   		VALUES(#{f_Key}, #{laptop_Name})
   	</insert>
+  	
+  	<!-- signInChk -->
+  	<select id="signInChk" parameterType="String" resultType="mybatis.vo.MemberVO">
+  		SELECT * FROM laptopmember WHERE email = #{email}
+  	</select>
 </mapper>
