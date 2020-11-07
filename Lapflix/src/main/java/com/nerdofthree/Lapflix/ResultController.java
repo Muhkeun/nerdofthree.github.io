@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import mybatis.dao.LaptopDAO;
 import mybatis.vo.Cpu_BenchVO;
 import mybatis.vo.Gpu_BenchVO;
+import mybatis.vo.LaptopParamVO;
 import mybatis.vo.LaptopVO;
 import mybatis.vo.Program_BenchVO;
 
@@ -24,23 +25,18 @@ public class ResultController {
 			
 			//프로그램 최저사양 점수 구하기
 			Program_BenchVO point = l_dao.getPoint(program_Name);
-			int cpu_point = point.getProgram_Cpu_min();
-			int gpu_point = point.getProgram_Gpu_min();
+			int cpu_Point = point.getProgram_Cpu_min();
+			int gpu_Point = point.getProgram_Gpu_min();
 			
-			//cpu, gpu 이름 리스트 얻기
-			List<Cpu_BenchVO> c_list = l_dao.getCpuList(cpu_point);
-			List<Gpu_BenchVO> g_list = l_dao.getGpuList(gpu_point);
+			LaptopParamVO lpvo = new LaptopParamVO();
 			
-			String cpu_Name = null;
-			String gpu_Name = null;
+			//파라미터값들 LaptopParamVO에 넣기
+			lpvo.setCpu_Point(cpu_Point);
+			lpvo.setGpu_Point(gpu_Point);
+			lpvo.setLaptop_MonitorSize(laptop_MonitorSize);
+			lpvo.setLaptop_OS(laptop_OS);
 			
-			for(Cpu_BenchVO cvo : c_list) {
-				cpu_Name = cvo.getCpu_Name();
-			}
-			for(Gpu_BenchVO gvo : g_list) {
-				gpu_Name = gvo.getGpu_Name();
-			}
-			List<LaptopVO> l_list = l_dao.getLaptopList(laptop_OS, laptop_MonitorSize, cpu_Name, gpu_Name);
+			List<LaptopVO> l_list = l_dao.getLaptopList(lpvo);
 			
 			LaptopVO[] ar = null;
 			if(l_list != null && l_list.size() > 0) {
@@ -49,11 +45,14 @@ public class ResultController {
 				l_list.toArray(ar);
 			}
 			
-			System.out.println(l_list.size());
 			ModelAndView mv = new ModelAndView();
 			
 			mv.addObject("ar", ar);
 			mv.setViewName("result");
+			
+			if(ar == null) {
+				System.out.println("nope");
+			}
 					
 			return mv;
 		}

@@ -109,7 +109,7 @@
                     <input type="radio" name="1" id=""/>2.답변2</br>
                     <input type="radio" name="1" id=""/>3.답변3</br>
                 </form>
-                <a href="#target2">다</a>
+                <a href="#target2">다음</a>
             </div>
         </div>
         <!-- 세번째 설문-->
@@ -141,7 +141,7 @@
                 </form>
                 <a href="#target4">다음</a>
             </div>
-        </div>음
+        </div>
         <!-- 다섯번째 설문-->
         <div class= "firstPage" id="target4">
             <div class="firstBg">
@@ -169,24 +169,27 @@
                     <input type="radio" name="1" id=""/>2.답변2</br>
                     <input type="radio" name="1" id=""/>3.답변3</br>
                 </form>
-                <a href="/result?laptop_MonitorSize=15.6인치&laptop_OS=윈도우10&program_Name=battleground">설문 끝! 결과 보러가기</a>
+                <a href="">설문 끝! 결과 보러가기</a>
             </div>
-        </div>기
+        </div>
     </main>
 </div>
+
 	<!-- test용 -->
 	<h1>첫화면</h1>
 		<div>
 			<form action="/result" method="get">
-				<label for="laptop_MonitorSize">모니터사이즈:</label>
-				<input type="text" id="laptop_MonitorSize" name="laptop_MonitorSize"/><br/>
-				
-				<label for="program_Name">프로그램명: </label>
-				<input type="text" id="program_Name" name="program_Name"/><br/>
-				
-				<label for="laptop_OS">OS: </label>
-				<input type="text" id="laptop_OS" name="laptop_OS"/><br/>
-				
+				<label for="laptop_MonitorSize">모니터사이즈:</label><br/>
+				<input type="radio" name="laptop_MonitorSize" value="15인치"/>15인치<br/>
+				<input type="radio" name="laptop_MonitorSize" value="17인치"/>17인치<br/>
+				<br/>
+				<label for="program_Name">프로그램명: </label><br/>
+				<input type="radio" name="program_Name" value="Battleground"/>battleground<br/>
+				<input type="radio" name="program_Name" value="Premiere"/>Premiere<br/>
+				<br/>
+				<label for="laptop_OS">OS: </label><br/>
+				<input type="radio"  name="laptop_OS" value="미포함"/>미포함<br/>
+				<br/>
 				<input type="button" value="보내기" onclick="exe(this.form)"/>
 				
 			</form>
