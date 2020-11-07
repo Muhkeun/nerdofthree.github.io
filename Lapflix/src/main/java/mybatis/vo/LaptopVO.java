@@ -7,6 +7,25 @@ public class LaptopVO {
     		laptop_Memory, 
     		laptop_OS, 
     		laptop_MonitorSize;
+	
+	private int cpu_Point,
+				gpu_Point;
+
+	public int getCpu_Point() {
+		return cpu_Point;
+	}
+
+	public void setCpu_Point(int cpu_Point) {
+		this.cpu_Point = cpu_Point;
+	}
+
+	public int getGpu_Point() {
+		return gpu_Point;
+	}
+
+	public void setGpu_Point(int gpu_Point) {
+		this.gpu_Point = gpu_Point;
+	}
 
 	public String getLaptop_Name() {
 		return laptop_Name;

@@ -190,6 +190,9 @@
 				<label for="laptop_OS">OS: </label><br/>
 				<input type="radio"  name="laptop_OS" value="미포함"/>미포함<br/>
 				<br/>
+				<label for="status">사용자: </label><br/>
+				<input type="radio" name="status" value="noob"/>초보자<br/>
+				<input type="radio" name="status" value="expert"/>전문가<br/>
 				<input type="button" value="보내기" onclick="exe(this.form)"/>
 				
 			</form>

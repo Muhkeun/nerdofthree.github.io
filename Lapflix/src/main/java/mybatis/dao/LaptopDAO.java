@@ -20,9 +20,9 @@ public class LaptopDAO {
 	@Autowired
 	private SqlSessionTemplate sst;
 	
-	public List<LaptopVO> getLaptopList(LaptopParamVO lpvo){
+	public List<LaptopVO> getLaptopList(LaptopVO lvo){
 		
-		List<LaptopVO> list = sst.selectList("laptop.list", lpvo);
+		List<LaptopVO> list = sst.selectList("laptop.list", lvo);
 		
 		return list;
 		
