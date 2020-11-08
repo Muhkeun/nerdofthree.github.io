@@ -14,7 +14,7 @@ CREATE TABLE laptopmember
     CONSTRAINT LAPTOPMEMBER_PK PRIMARY KEY (email)
 )
 /
-
+/이미지 url의 크기가 커서 수정하였습니다.
 CREATE SEQUENCE laptopmember_SEQ
 START WITH 1
 INCREMENT BY 1;
@@ -96,8 +96,9 @@ CREATE TABLE laptop
     laptop_Memory         VARCHAR2(20)    NULL, 
     laptop_OS             VARCHAR2(20)    NULL, 
     laptop_MonitorSize    VARCHAR2(30)    NULL, 
-    laptop_ImageURL       VARCHAR2(80)    NULL   
-)
+    laptop_ImageURL       VARCHAR2(200)    NULL   
+) 
+
 /
 
 ALTER TABLE laptop
