@@ -20,11 +20,23 @@
 		border-collapse: collapse;
 		width: 150px;
 	}
+	.txt_right{
+		text-align: right;
+	}
+	#sort{
+		text-align: right;
+	}
 </style> 
 </head>
 <body>
-    <h1>결과</h1>
-    
+    <h1>결과</h1>	
+    <h1>${sort }</h1>
+ 	<select id="sort" name="sort">
+ 		<option value="0">노트북이름순</option>
+ 		<option value="1">성능순</option>
+ 		<option value="2">모니터크기순</option>
+ 	</select>
+ 	
     <table>
     	<thead class="table">
     		<tr>
@@ -59,5 +71,30 @@
     	</c:if>
     	</tbody>
     </table>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    
+    <script>
+    	$(function(){
+    		$("#sort").bind("click", function(){
+    			if(var sort == null){
+    				sort = $("#sort").val();
+    			}
+    			$.ajax({
+    				url: "result",
+    				type: "post",
+    				data: "sort="+sort
+    				
+    			}).done(function(data){
+    				if(data.res == "0")
+    					alert("이름순으로 sort합니다.");
+    				else if(data.res == "1")
+    					alert("성능순으로 sort합니다.");
+    				else if(data.res == "2")
+    					alert("모니터사이즈순으로 sort합니다.");
+    			});
+    		});
+    	});
+    </script>
 </body>
 </html>

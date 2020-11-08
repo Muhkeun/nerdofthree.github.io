@@ -9,7 +9,16 @@ public class LaptopVO {
     		laptop_MonitorSize;
 	
 	private int cpu_Point,
-				gpu_Point;
+				gpu_Point,
+				sort;
+
+	public int getSort() {
+		return sort;
+	}
+
+	public void setSort(int sort) {
+		this.sort = sort;
+	}
 
 	public int getCpu_Point() {
 		return cpu_Point;

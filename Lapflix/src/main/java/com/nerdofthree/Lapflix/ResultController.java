@@ -19,7 +19,7 @@ public class ResultController {
 		
 		@RequestMapping("/result")
 		public ModelAndView result(String laptop_MonitorSize, String program_Name, String laptop_OS, String status) {
-			
+
 			//프로그램 점수 구하기
 			Program_BenchVO point = l_dao.getPoint(program_Name);
 			int cpu_Point = -1;
@@ -40,6 +40,7 @@ public class ResultController {
 			lvo.setLaptop_MonitorSize(laptop_MonitorSize);
 			lvo.setLaptop_OS(laptop_OS);
 			
+			
 			List<LaptopVO> l_list = l_dao.getLaptopList(lvo);
 			
 			LaptopVO[] ar = null;
@@ -53,7 +54,10 @@ public class ResultController {
 			
 			mv.addObject("ar", ar);
 			mv.setViewName("result");
-					
+			
+			int sort = 0;
+			mv.addObject("sort", sort);
+			
 			return mv;
 		}
 }
