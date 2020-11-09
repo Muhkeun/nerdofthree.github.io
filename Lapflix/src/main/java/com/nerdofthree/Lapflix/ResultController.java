@@ -55,9 +55,6 @@ public class ResultController {
 			mv.addObject("ar", ar);
 			mv.setViewName("result");
 			
-			int sort = 0;
-			mv.addObject("sort", sort);
-			
 			return mv;
 		}
 }
