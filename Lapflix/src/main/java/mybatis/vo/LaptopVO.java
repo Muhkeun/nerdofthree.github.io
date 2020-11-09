@@ -6,8 +6,17 @@ public class LaptopVO {
     		gpu_Name, 
     		laptop_Memory, 
     		laptop_OS, 
-    		laptop_MonitorSize;
+    		laptop_MonitorSize,
+    		laptop_ImageURL;
 	
+	public String getLaptop_ImageURL() {
+		return laptop_ImageURL;
+	}
+
+	public void setLaptop_ImageURL(String laptop_ImageURL) {
+		this.laptop_ImageURL = laptop_ImageURL;
+	}
+
 	private int cpu_Point,
 				gpu_Point;
 

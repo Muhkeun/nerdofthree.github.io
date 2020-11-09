@@ -12,10 +12,10 @@
 <head>
     <title>Title</title>   
 <style>
-	.table{
-		border-collapse: collapse;
+	table{
+		width: 900px;
 	}
-	.table th{
+	table th{
 		border: 1px solid black;
 		border-collapse: collapse;
 		width: 150px;
@@ -31,8 +31,17 @@
 <body>
     <h1>결과</h1>	 	
     <table>
+    	<colgroup>
+    		<col width="25%"/>
+    		<col width="35%"/>
+    		<col width="10%"/>
+    		<col width="10%"/>
+    		<col width="10%"/>
+    		<col width="10%"/>
+    	</colgroup>
     	<thead class="table">
     		<tr>
+    			<th>노트북 이미지</th>
     			<th>노트북이름</th>
     			<th>CPU</th>
     			<th>GPU</th>
@@ -44,6 +53,7 @@
     	<c:if test="${ar ne null }">
     	<c:forEach var="l_list" items="${ar }">
     		<tr>
+    			<th><img src="${l_list.laptop_ImageURL }"/></th>
     			<th>${l_list.laptop_Name }</th>
     			<th>${l_list.cpu_Name }</th>
     		<c:if test="${l_list.gpu_Name ne null }">

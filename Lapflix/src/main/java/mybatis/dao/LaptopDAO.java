@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import mybatis.vo.Cpu_BenchVO;
 import mybatis.vo.Gpu_BenchVO;
-import mybatis.vo.LaptopParamVO;
 import mybatis.vo.LaptopVO;
 import mybatis.vo.Program_BenchVO;
 
