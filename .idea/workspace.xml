@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="520b2a67-9d75-4760-ac44-128b41377b09" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Lapflix/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Lapflix/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lapflix/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Lapflix/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lapflix/target/Lapflix-1.0.0-BUILD-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/Lapflix/target/Lapflix-1.0.0-BUILD-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lapflix/target/Lapflix-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Lapflix/target/Lapflix-1.0.0-BUILD-SNAPSHOT/WEB-INF/views/index.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jt29BnarUtOFWkX2JwswIAHAGA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.29310346" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="520b2a67-9d75-4760-ac44-128b41377b09" name="Default Changelist" comment="" />
+      <created>1604608913854</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604608913854</updated>
+      <workItem from="1604608918360" duration="411000" />
+      <workItem from="1604827298410" duration="74000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="4222" y="257" key="#TomEE_Server" timestamp="1604609077392">
+      <screen x="3840" y="0" width="1280" height="680" />
+    </state>
+    <state x="4222" y="257" key="#TomEE_Server/0.0.1280.680/3840.0.1280.680@3840.0.1280.680" timestamp="1604609077392" />
+    <state x="3897" y="104" width="1089" height="551" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604609077967">
+      <screen x="3840" y="0" width="1280" height="680" />
+    </state>
+    <state x="3897" y="104" width="1089" height="551" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680/3840.0.1280.680@3840.0.1280.680" timestamp="1604609077967" />
+    <state x="4108" y="19" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1604609121092">
+      <screen x="3840" y="0" width="1280" height="680" />
+    </state>
+    <state x="4108" y="19" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1280.680/3840.0.1280.680@3840.0.1280.680" timestamp="1604609121092" />
+    <state x="4222" y="135" key="FileChooserDialogImpl" timestamp="1604609256956">
+      <screen x="3840" y="0" width="1280" height="680" />
+    </state>
+    <state x="4222" y="135" key="FileChooserDialogImpl/0.0.1280.680/3840.0.1280.680@3840.0.1280.680" timestamp="1604609256956" />
+    <state x="3961" y="0" key="SettingsEditor" timestamp="1604609299372">
+      <screen x="3840" y="0" width="1280" height="680" />
+    </state>
+    <state x="3961" y="0" key="SettingsEditor/0.0.1280.680/3840.0.1280.680@3840.0.1280.680" timestamp="1604609299372" />
+    <state x="4191" y="232" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1604609253135">
+      <screen x="3840" y="0" width="1280" height="680" />
+    </state>
+    <state x="4191" y="232" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1280.680/3840.0.1280.680@3840.0.1280.680" timestamp="1604609253135" />
+  </component>
+</project>
