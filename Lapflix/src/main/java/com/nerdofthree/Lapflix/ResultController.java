@@ -17,9 +17,8 @@ public class ResultController {
 		@Autowired
 		private LaptopDAO l_dao;
 		
-		@RequestMapping("/result")
+		@RequestMapping("result")
 		public ModelAndView result(String laptop_MonitorSize, String program_Name, String laptop_OS, String status) {
-
 			//프로그램 점수 구하기
 			Program_BenchVO point = l_dao.getPoint(program_Name);
 			int cpu_Point = -1;
