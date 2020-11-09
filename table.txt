@@ -40,7 +40,7 @@ END;
 -- laptopmember Table Create SQL
 CREATE TABLE cpu_Bench
 (
-    cpu_Name     VARCHAR2(30)    NULL, 
+    cpu_Name     VARCHAR2(100)    NULL, 
     cpu_Point    INT             NULL   
 )
 /
@@ -49,7 +49,7 @@ CREATE TABLE cpu_Bench
 -- laptopmember Table Create SQL
 CREATE TABLE gpu_Bench
 (
-    gpu_Name     VARCHAR2(30)    NULL, 
+    gpu_Name     VARCHAR2(100)    NULL, 
     gpu_Point    INT             NULL   
 )
 /
