@@ -5,7 +5,7 @@
 <mapper namespace="laptop">
 
 	<!-- Laptop List 구하기 -->
-	<select id = "list" resultType="mybatis.vo.LaptopVO" parameterType="mybatis.vo.LaptopParamVO">
+	<select id = "list" resultType="mybatis.vo.LaptopVO" parameterType="mybatis.vo.LaptopVO">
 		SELECT * FROM 
 		
 		<if test="gpu_Point != 0">
@@ -15,21 +15,7 @@
 			laptop
 		</if>
 		
-		NATURAL JOIN cpu_Bench WHERE cpu_Point <![CDATA[>=]]> #{cpu_Point} AND laptop_OS=#{laptop_OS} AND laptop_MonitorSize=#{laptop_MonitorSize}
-		
-		<if test="sort != null">
-			<choose>
-				<when test="sort == 0">
-					ORDER BY laptop_Name DESC
-				</when>
-				<when test="sort == 1">
-					ORDER BY cpu_Point DESC
-				</when>
-				<when test="sort == 2">
-					ORDER BY laptop_MonitorSize DESC
-				</when>
-			</choose>
-		</if>		
+		NATURAL JOIN cpu_Bench WHERE cpu_Point <![CDATA[>=]]> #{cpu_Point} AND laptop_OS=#{laptop_OS} AND laptop_MonitorSize=#{laptop_MonitorSize}		
 	</select>
 	
 	<!-- 프로그램  cpu, gpu점수 구하기 -->

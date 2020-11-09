@@ -180,8 +180,8 @@
 		<div>
 			<form action="/result" method="get">
 				<label for="laptop_MonitorSize">모니터사이즈:</label><br/>
-				<input type="radio" name="laptop_MonitorSize" value="15인치"/>15인치<br/>
-				<input type="radio" name="laptop_MonitorSize" value="17인치"/>17인치<br/>
+				<input type="radio" name="laptop_MonitorSize" value="15"/>15인치<br/>
+				<input type="radio" name="laptop_MonitorSize" value="17"/>17인치<br/>
 				<br/>
 				<label for="program_Name">프로그램명: </label><br/>
 				<input type="radio" name="program_Name" value="Battleground"/>battleground<br/>
