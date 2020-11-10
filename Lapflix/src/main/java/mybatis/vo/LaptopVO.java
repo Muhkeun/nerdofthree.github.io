@@ -9,32 +9,10 @@ public class LaptopVO {
     		laptop_MonitorSize,
     		laptop_ImageURL;
 	
-	public String getLaptop_ImageURL() {
-		return laptop_ImageURL;
-	}
-
-	public void setLaptop_ImageURL(String laptop_ImageURL) {
-		this.laptop_ImageURL = laptop_ImageURL;
-	}
-
 	private int cpu_Point,
-				gpu_Point;
-
-	public int getCpu_Point() {
-		return cpu_Point;
-	}
-
-	public void setCpu_Point(int cpu_Point) {
-		this.cpu_Point = cpu_Point;
-	}
-
-	public int getGpu_Point() {
-		return gpu_Point;
-	}
-
-	public void setGpu_Point(int gpu_Point) {
-		this.gpu_Point = gpu_Point;
-	}
+				gpu_Point,
+				weight,
+				price;
 
 	public String getLaptop_Name() {
 		return laptop_Name;
@@ -83,5 +61,45 @@ public class LaptopVO {
 	public void setLaptop_MonitorSize(String laptop_MonitorSize) {
 		this.laptop_MonitorSize = laptop_MonitorSize;
 	}
-  
+
+	public String getLaptop_ImageURL() {
+		return laptop_ImageURL;
+	}
+
+	public void setLaptop_ImageURL(String laptop_ImageURL) {
+		this.laptop_ImageURL = laptop_ImageURL;
+	}
+
+	public int getCpu_Point() {
+		return cpu_Point;
+	}
+
+	public void setCpu_Point(int cpu_Point) {
+		this.cpu_Point = cpu_Point;
+	}
+
+	public int getGpu_Point() {
+		return gpu_Point;
+	}
+
+	public void setGpu_Point(int gpu_Point) {
+		this.gpu_Point = gpu_Point;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
 }

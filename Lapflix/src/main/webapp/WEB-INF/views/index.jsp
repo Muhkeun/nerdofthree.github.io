@@ -114,13 +114,13 @@
     <div class="background"><img src="resources/res/5.jpg"/></div>
 
     <div class="qna">
-        <div class="question"><h1>질문5</h1></div>
+        <div class="question"><h1>어느 정도의 무게감을 원하시나요?</h1></div>
 
         <div class="answer">
             <form class="survey">
-                <input type="radio" name="1" id=""/>1.답변1</br>
-                <input type="radio" name="1" id=""/>2.답변2</br>
-                <input type="radio" name="1" id=""/>3.답변3</br>
+                <input type="radio" name="weight" value="1.0"/>1.가볍다.</br>
+                <input type="radio" name="weight" value="1.5"/>2.적당하다.</br>
+                <input type="radio" name="weight" value="2.0"/>3.안 들고 다닌다.</br>
             </form>
         </div>
 

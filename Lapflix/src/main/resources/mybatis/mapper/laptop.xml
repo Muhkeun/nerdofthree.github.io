@@ -15,7 +15,8 @@
 			WHERE
 		</if>
 		
-		cpu_Point <![CDATA[>=]]> #{cpu_Point} AND laptop_OS=#{laptop_OS} AND laptop_MonitorSize=#{laptop_MonitorSize}
+		cpu_Point <![CDATA[>=]]> #{cpu_Point} AND laptop_OS=#{laptop_OS} AND laptop_MonitorSize=#{laptop_MonitorSize} 
+		AND weight BETWEEN #{weight} AND #{weight+0.4}
 				
 	</select>
 	
