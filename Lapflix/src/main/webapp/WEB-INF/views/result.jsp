@@ -53,7 +53,7 @@
     	<c:if test="${ar ne null }">
     	<c:forEach var="l_list" items="${ar }">
     		<tr>
-    			<th><img src="${l_list.laptop_ImageURL }"/></th>
+    			<th><img src="${l_list.laptop_ImageURL }" width="130px", height="130px"/></th>
     			<th>${l_list.laptop_Name }</th>
     			<th>${l_list.cpu_Name }</th>
     		<c:if test="${l_list.gpu_Name ne null }">
@@ -69,7 +69,7 @@
     	</c:if>
     	<c:if test="${ar eq null }">
     		<tr>
-    			<th colspan="5">표시할 데이터가 없습니다.</th>
+    			<th colspan="6">표시할 데이터가 없습니다.</th>
     		</tr>
     	</c:if>
     	</tbody>

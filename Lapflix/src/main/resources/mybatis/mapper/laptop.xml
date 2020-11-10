@@ -12,10 +12,10 @@
 			(SELECT * FROM laptop NATURAL JOIN gpu_Bench WHERE gpu_Point <![CDATA[>=]]> #{gpu_Point})
 		</if>
 		<if test="gpu_Point == 0">
-			laptop
+			(SELECT * FROM laptop l JOIN cpu_bench c ON (c.cpu_Name LIKE '%'||l.cpu_Name))
 		</if>
 		
-		NATURAL JOIN cpu_Bench WHERE cpu_Point <![CDATA[>=]]> #{cpu_Point} AND laptop_OS=#{laptop_OS} AND laptop_MonitorSize=#{laptop_MonitorSize}		
+		WHERE cpu_Point <![CDATA[>=]]> #{cpu_Point} AND laptop_OS=#{laptop_OS} AND laptop_MonitorSize=#{laptop_MonitorSize}		
 	</select>
 	
 	<!-- 프로그램  cpu, gpu점수 구하기 -->
