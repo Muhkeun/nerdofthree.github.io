@@ -1,18 +1,27 @@
 ﻿-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
 
 -- laptopmember Table Create SQL
-CREATE TABLE laptopmember
+
+select * from cpu_bench
+drop table laptop
+desc laptop
+select * from laptop
+/
+CREATE TABLE laptop
 (
-    seq              INT             NOT NULL, 
-    password         VARCHAR2(80)    NULL, 
-    member_Name      VARCHAR2(20)    NULL, 
-    member_Age       INT             NULL, 
-    member_Gender    VARCHAR2(10)    NULL, 
-    f_Key            INT             NULL, 
-    email            VARCHAR2(40)    NULL, 
-    profile_image    VARCHAR2(80)    NULL, 
-    CONSTRAINT LAPTOPMEMBER_PK PRIMARY KEY (email)
-)
+    laptop_Name           VARCHAR2(100)    NULL, 
+    cpu_Name              VARCHAR2(30)    NULL, 
+    gpu_Name              VARCHAR2(30)    NULL, 
+    laptop_Memory         VARCHAR2(20)    NULL, 
+    laptop_OS             VARCHAR2(20)    NULL, 
+    laptop_MonitorSize    VARCHAR2(30)    NULL, 
+    laptop_ImageURL       VARCHAR2(200)    NULL,
+    laptop_weight         NUMBER      NULL,
+    laptop_url              VARCHAR2(200)   NULL,
+    laptop_price           NUMBER              NULL
+) 
+
+
 /
 /이미지 url의 크기가 커서 수정하였습니다.
 CREATE SEQUENCE laptopmember_SEQ
