@@ -7,12 +7,14 @@ public class LaptopVO {
     		laptop_Memory, 
     		laptop_OS, 
     		laptop_MonitorSize,
-    		laptop_ImageURL;
+    		laptop_ImageURL,
+    		laptop_url;
 	
 	private int cpu_Point,
 				gpu_Point,
-				price;
-	private float laptop_weight;
+				laptop_Price;
+	
+	private float laptop_Weight;
 	
 
 	public String getLaptop_Name() {
@@ -70,6 +72,14 @@ public class LaptopVO {
 	public void setLaptop_ImageURL(String laptop_ImageURL) {
 		this.laptop_ImageURL = laptop_ImageURL;
 	}
+	
+	public String getLaptop_url() {
+		return laptop_url;
+	}
+
+	public void setLaptop_url(String laptop_url) {
+		this.laptop_url = laptop_url;
+	}
 
 	public int getCpu_Point() {
 		return cpu_Point;
@@ -88,19 +98,20 @@ public class LaptopVO {
 	}
 	
 	public float getLaptop_weight() {
-		return laptop_weight;
+		return laptop_Weight;
 	}
 
 	public void setLaptop_weight(float laptop_weight) {
-		this.laptop_weight = laptop_weight;
+		this.laptop_Weight = laptop_weight;
 	}
 
-	public int getPrice() {
-		return price;
+	public int getLaptop_Price() {
+		return laptop_Price;
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
+	public void setLaptop_Price(int laptop_Price) {
+		this.laptop_Price = laptop_Price;
 	}
+	
 	
 }

@@ -18,7 +18,7 @@ public class ResultController {
 		private LaptopDAO l_dao;
 		
 		@RequestMapping("result")
-		public ModelAndView result(String laptop_MonitorSize, String program_Name, String laptop_OS, String status, String laptop_weight) {
+		public ModelAndView result(String laptop_MonitorSize, String program_Name, String laptop_OS, String status, String laptop_Weight, String laptop_Price) {
 			//프로그램 점수 구하기
 			Program_BenchVO point = l_dao.getPoint(program_Name);
 			int cpu_Point = -1;
@@ -43,7 +43,8 @@ public class ResultController {
 				lvo.setLaptop_MonitorSize(laptop_MonitorSize);
 			
 			lvo.setLaptop_OS(laptop_OS);
-			lvo.setLaptop_weight(Integer.parseInt(laptop_weight));
+			lvo.setLaptop_weight(Float.parseFloat(laptop_Weight));
+			lvo.setLaptop_Price(Integer.parseInt(laptop_Price));
 			
 			
 			List<LaptopVO> l_list = l_dao.getLaptopList(lvo);

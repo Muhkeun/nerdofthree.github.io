@@ -9,36 +9,72 @@
 		SELECT * FROM laptop l INNER JOIN cpu_Bench c ON (c.cpu_Name LIKE '%'||l.cpu_Name)
 		
 		<choose>
+			<!-- gpu_Point에 들어오는 값이 있을 때 -->
 			<when test="gpu_Point != 0">
-				<!-- gpu_Point에 들어오는 값이 있을 때 -->
 				INNER JOIN gpu_Bench g ON (g.gpu_Name LIKE '%'||l.gpu_Name) WHERE gpu_Point <![CDATA[>=]]> #{gpu_Point} AND
 			</when>
+			<!-- gpu_Point에 들어오는 값이 없을 때 -->
 			<when test="gpu_Point == 0">
-				<!-- gpu_Point에 들어오는 값이 없을 때 -->
 				WHERE
 			</when>
 		</choose>
 		
 		cpu_Point <![CDATA[>=]]> #{cpu_Point} AND laptop_OS=#{laptop_OS} AND 
 		
+		<!-- 모니터 사이즈 -->
 		<if test="laptop_MonitorSize != null">
-			laptop_MonitorSize=#{laptop_MonitorSize} AND 
+			<trim suffix="AND">
+				<choose>
+					<when test="laptop_MonitorSize == 0">
+						laptop_MonitorSize <![CDATA[<]]> 13 
+					</when>
+					<when test="laptop_MonitorSize == 1">
+						laptop_MonitorSize BETWEEN 13 AND 15
+					</when>
+					<when test="laptop_MonitorSize == 2">
+						laptop_MonitorSize <![CDATA[>]]> 15
+					</when>
+				</choose>
+			</trim>
 		</if> 
 		
-		<if test="laptop_weight != null">
+		<!-- laptop 무게 -->
+		<if test="laptop_Weight != null">
+			<trim suffix="AND">
+				<choose>
+					<when test="laptop_Weight == 0">
+						laptop_Weight <![CDATA[<]]> 1.5
+					</when>
+					<when test="laptop_Weight == 1">
+						laptop_Weight BETWEEN 1.5 and 1.9
+					</when>
+					<when test="laptop_Weight == 2">
+						laptop_Weight <![CDATA[>]]> 1.9
+					</when>
+				</choose>
+			</trim>
+		</if>
+		
+		<!-- laptop의 가격 -->
+		<if test="laptop_Price != null">
 			<choose>
-				<when test="laptop_weight == 0">
-					laptop_weight <![CDATA[<]]> 1.5
+				<when test="laptop_Price == 0">
+					laptop_Price <![CDATA[<]]> 500000
 				</when>
-				<when test="laptop_weight == 1">
-					laptop_weight BETWEEN 1.5 and 1.9
+				<when test="laptop_Price == 1">
+					laptop_Price <![CDATA[<]]> 800000
 				</when>
-				<when test="laptop_weight == 2">
-					laptop_weight <![CDATA[>]]> 1.9
+				<when test="laptop_Price == 2">
+					laptop_Price <![CDATA[<]]> 1100000
+				</when>
+				<when test="laptop_Price == 3">
+					laptop_Price <![CDATA[>=]]> 1100000
 				</when>
 			</choose>
 		</if>
-				
+		
+		ORDER BY laptop_Price		
+		
 	</select>
 	
 	<!-- 프로그램  cpu, gpu점수 구하기 -->

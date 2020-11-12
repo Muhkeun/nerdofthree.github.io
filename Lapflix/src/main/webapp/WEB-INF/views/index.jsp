@@ -36,12 +36,10 @@
 
                 <div class="answer">
                     <form class="survey">
-                        <input type="radio" name="laptop_MonitorSize" value="10" class="size"/>1. 10인치</br>
-                        <input type="radio" name="laptop_MonitorSize" value="13"/>2. 13인치.</br>
-                        <input type="radio" name="laptop_MonitorSize" value="14"/>3. 14인치</br>
-                        <input type="radio" name="laptop_MonitorSize" value="15"/>4. 15인치.</br>
-                        <input type="radio" name="laptop_MonitorSize" value="17"/>5. 17인치.</br>                     
-                        <input type="radio" name="laptop_MonitorSize" value=""/>6. 잘모르겠어요.</br>
+                        <input type="radio" name="laptop_MonitorSize" value="0" class="size"/>1. 13인치 미만</br>
+                        <input type="radio" name="laptop_MonitorSize" value="1"/>2. 13~15인치</br>
+                        <input type="radio" name="laptop_MonitorSize" value="2"/>3. 15인치 초과</br>                  
+                        <input type="radio" name="laptop_MonitorSize" value=""/>4. 잘 모르겠어요.</br>
                     </form>
                 </div>
 
@@ -121,9 +119,9 @@
 
         <div class="answer">
             <form class="survey">
-                <input type="radio" name="laptop_weight" value="0"/>1.가볍다.</br>
-                <input type="radio" name="laptop_weight" value="1"/>2.적당하다.</br>
-                <input type="radio" name="laptop_weight" value="2"/>3.안 들고 다닌다.</br>
+                <input type="radio" name="laptop_Weight" value="0"/>1. 휴대성이 매우 좋다.</br>
+                <input type="radio" name="laptop_Weight" value="1"/>2. 들고 다니기 적당하다.</br>
+                <input type="radio" name="laptop_Weight" value="2"/>3. 들고 다니지 않을 예정이다.</br>
             </form>
         </div>
 
@@ -134,13 +132,14 @@
     <div class="background"><img src="resources/res/6.jpg"/></div>
 
     <div class="qna">
-        <div class="question"><h1>질문6</h1></div>
+        <div class="question"><h1>가격은 어느 선까지 생각하시나요?</h1></div>
 
         <div class="answer">
             <form class="survey">
-                <input type="radio" name="1" id=""/>1.답변1</br>
-                <input type="radio" name="1" id=""/>2.답변2</br>
-                <input type="radio" name="1" id=""/>3.답변3</br>
+                <input type="radio" name="laptop_Price" value="0"/>1. 50만원 미만</br>
+                <input type="radio" name="laptop_Price" value="1"/>2. 80만원 미만</br>
+                <input type="radio" name="laptop_Price" value="2"/>3. 110만원 미만</br>
+                <input type="radio" name="laptop_Price" value="3"/>3. 110만원 이상</br>
             </form>
         </div>
 

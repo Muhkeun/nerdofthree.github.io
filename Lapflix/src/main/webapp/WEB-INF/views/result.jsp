@@ -32,12 +32,13 @@
     <h1>결과</h1>	 	
     <table>
     	<colgroup>
-    		<col width="20%"/>
-    		<col width="35%"/>
+    		<col width="15%"/>
+    		<col width="40%"/>
     		<col width="10%"/>
     		<col width="10%"/>
     		<col width="10%"/>
     		<col width="10%"/>
+    		<col width="5%"/>
     		<col width="5%"/>
     	</colgroup>
     	<thead class="table">
@@ -49,13 +50,14 @@
     			<th>모니터 사이즈(인치)</th>
     			<th>OS</th>
     			<th>무게(kg)</th>
+    			<th>가격(원)</th>
     		</tr>
     	</thead>
     	<tbody class="table">
     	<c:if test="${ar ne null }">
     	<c:forEach var="l_list" items="${ar }">
     		<tr>
-    			<th><img src="${l_list.laptop_ImageURL }" width="130px", height="130px"/></th>
+    			<th><a href="${l_list.laptop_url }"><img src="${l_list.laptop_ImageURL }" width="130px" height="130px"/></a></th>
     			<th>${l_list.laptop_Name }</th>
     			<th>${l_list.cpu_Name }</th>
     		<c:if test="${l_list.gpu_Name ne null }">
@@ -67,6 +69,12 @@
     			<th>${l_list.laptop_MonitorSize }</th>
     			<th>${l_list.laptop_OS }</th>
     			<th>${l_list.laptop_weight }</th>
+    		<c:if test="${l_list.laptop_Price ne 0}">
+    			<th>${l_list.laptop_Price }</th>
+    		</c:if>
+    		<c:if test="${l_list.laptop_Price eq 0}">
+    			<th>-</th>
+    		</c:if>
     		</tr>	
     	</c:forEach>
     	</c:if>
