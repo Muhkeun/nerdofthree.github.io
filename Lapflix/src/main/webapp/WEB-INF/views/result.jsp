@@ -32,12 +32,13 @@
     <h1>결과</h1>	 	
     <table>
     	<colgroup>
-    		<col width="25%"/>
+    		<col width="20%"/>
     		<col width="35%"/>
     		<col width="10%"/>
     		<col width="10%"/>
     		<col width="10%"/>
     		<col width="10%"/>
+    		<col width="5%"/>
     	</colgroup>
     	<thead class="table">
     		<tr>
@@ -45,8 +46,9 @@
     			<th>노트북이름</th>
     			<th>CPU</th>
     			<th>GPU</th>
-    			<th>모니터 사이즈</th>
+    			<th>모니터 사이즈(인치)</th>
     			<th>OS</th>
+    			<th>무게(kg)</th>
     		</tr>
     	</thead>
     	<tbody class="table">
@@ -64,12 +66,13 @@
     		</c:if>
     			<th>${l_list.laptop_MonitorSize }</th>
     			<th>${l_list.laptop_OS }</th>
+    			<th>${l_list.laptop_weight }</th>
     		</tr>	
     	</c:forEach>
     	</c:if>
     	<c:if test="${ar eq null }">
     		<tr>
-    			<th colspan="6">표시할 데이터가 없습니다.</th>
+    			<th colspan="7">표시할 데이터가 없습니다.</th>
     		</tr>
     	</c:if>
     	</tbody>

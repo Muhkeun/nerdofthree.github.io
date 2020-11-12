@@ -36,9 +36,12 @@
 
                 <div class="answer">
                     <form class="survey">
-                        <input type="radio" name="laptop_MonitorSize" value="13" class="size"/>1. 13인치 ~ 14인치</br>
-                        <input type="radio" name="laptop_MonitorSize" value="15"/>2. 15인치 ~ 16인치</br>
-                        <input type="radio" name="laptop_MonitorSize" value="17"/>3. 잘모르겠어요.</br>
+                        <input type="radio" name="laptop_MonitorSize" value="10" class="size"/>1. 10인치</br>
+                        <input type="radio" name="laptop_MonitorSize" value="13"/>2. 13인치.</br>
+                        <input type="radio" name="laptop_MonitorSize" value="14"/>3. 14인치</br>
+                        <input type="radio" name="laptop_MonitorSize" value="15"/>4. 15인치.</br>
+                        <input type="radio" name="laptop_MonitorSize" value="17"/>5. 17인치.</br>                     
+                        <input type="radio" name="laptop_MonitorSize" value=""/>6. 잘모르겠어요.</br>
                     </form>
                 </div>
 
@@ -58,9 +61,9 @@
                 <div class="answer">
                     <form class="survey">
 
-                        <input type="radio" name="laptop_OS" value="MacOS"/>1. MacOS 🍎</br>
-                        <input type="radio" name="laptop_OS" value="Windows"/>2. Windows 🖼</br>
-                        <input type="radio" name="laptop_OS" value="Linux"/>3. Linux 🐧</br>
+                        <input type="radio" name="laptop_OS" value="mac"/>1. MacOS 🍎</br>
+                        <input type="radio" name="laptop_OS" value="윈도우10"/>2. Windows 🖼</br>
+                        <input type="radio" name="laptop_OS" value="리눅스"/>3. Linux 🐧</br>
                         <input type="radio" name="laptop_OS" value="미포함"/>4. FreeDos </br>
                     </form>
                 </div>
@@ -102,7 +105,7 @@
             <form class="survey">
                 <input type="radio" name="status" value="expert"/>1. 전문가</br>
                 <input type="radio" name="status" value="noob"/>2. 학생 혹은 취미</br>
-                <input type="radio" name="1" id=""/>3. 잘모르겠어요.</br>
+                <input type="radio" name="status" value=""/>3. 잘모르겠어요.</br>
             </form>
         </div>
 
@@ -118,9 +121,9 @@
 
         <div class="answer">
             <form class="survey">
-                <input type="radio" name="weight" value="1.0"/>1.가볍다.</br>
-                <input type="radio" name="weight" value="1.5"/>2.적당하다.</br>
-                <input type="radio" name="weight" value="2.0"/>3.안 들고 다닌다.</br>
+                <input type="radio" name="laptop_weight" value="0"/>1.가볍다.</br>
+                <input type="radio" name="laptop_weight" value="1"/>2.적당하다.</br>
+                <input type="radio" name="laptop_weight" value="2"/>3.안 들고 다닌다.</br>
             </form>
         </div>
 

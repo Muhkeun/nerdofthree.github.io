@@ -8,15 +8,36 @@
 	<select id = "list" resultType="mybatis.vo.LaptopVO" parameterType="mybatis.vo.LaptopVO">
 		SELECT * FROM laptop l INNER JOIN cpu_Bench c ON (c.cpu_Name LIKE '%'||l.cpu_Name)
 		
-		<if test="gpu_Point != 0">
-			INNER JOIN gpu_Bench g ON g.gpu_Name = l.gpu_Name WHERE gpu_Point <![CDATA[>=]]> #{gpu_Point} AND
-		</if>
-		<if test="gpu_Point == 0">
-			WHERE
-		</if>
+		<choose>
+			<when test="gpu_Point != 0">
+				<!-- gpu_Point에 들어오는 값이 있을 때 -->
+				INNER JOIN gpu_Bench g ON (g.gpu_Name LIKE '%'||l.gpu_Name) WHERE gpu_Point <![CDATA[>=]]> #{gpu_Point} AND
+			</when>
+			<when test="gpu_Point == 0">
+				<!-- gpu_Point에 들어오는 값이 없을 때 -->
+				WHERE
+			</when>
+		</choose>
 		
-		cpu_Point <![CDATA[>=]]> #{cpu_Point} AND laptop_OS=#{laptop_OS} AND laptop_MonitorSize=#{laptop_MonitorSize} 
-		AND weight BETWEEN #{weight} AND #{weight+0.4}
+		cpu_Point <![CDATA[>=]]> #{cpu_Point} AND laptop_OS=#{laptop_OS} AND 
+		
+		<if test="laptop_MonitorSize != null">
+			laptop_MonitorSize=#{laptop_MonitorSize} AND 
+		</if> 
+		
+		<if test="laptop_weight != null">
+			<choose>
+				<when test="laptop_weight == 0">
+					laptop_weight <![CDATA[<]]> 1.5
+				</when>
+				<when test="laptop_weight == 1">
+					laptop_weight BETWEEN 1.5 and 1.9
+				</when>
+				<when test="laptop_weight == 2">
+					laptop_weight <![CDATA[>]]> 1.9
+				</when>
+			</choose>
+		</if>
 				
 	</select>
 	

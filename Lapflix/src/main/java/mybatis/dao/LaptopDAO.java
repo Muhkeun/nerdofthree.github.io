@@ -21,10 +21,10 @@ public class LaptopDAO {
 	
 	public List<LaptopVO> getLaptopList(LaptopVO lvo){
 		
-		List<LaptopVO> list = sst.selectList("laptop.list", lvo);
+		System.out.println(lvo.getLaptop_weight());
+		List<LaptopVO> list = sst.selectList("laptop.list", lvo);	
 		
-		return list;
-		
+		return list;		
 	}
 	
 	

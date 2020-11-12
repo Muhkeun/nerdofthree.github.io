@@ -11,8 +11,9 @@ public class LaptopVO {
 	
 	private int cpu_Point,
 				gpu_Point,
-				weight,
 				price;
+	private float laptop_weight;
+	
 
 	public String getLaptop_Name() {
 		return laptop_Name;
@@ -85,13 +86,13 @@ public class LaptopVO {
 	public void setGpu_Point(int gpu_Point) {
 		this.gpu_Point = gpu_Point;
 	}
-
-	public int getWeight() {
-		return weight;
+	
+	public float getLaptop_weight() {
+		return laptop_weight;
 	}
 
-	public void setWeight(int weight) {
-		this.weight = weight;
+	public void setLaptop_weight(float laptop_weight) {
+		this.laptop_weight = laptop_weight;
 	}
 
 	public int getPrice() {
