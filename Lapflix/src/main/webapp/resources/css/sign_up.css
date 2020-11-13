@@ -1,0 +1,87 @@
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section h2{
+    color: white;
+    margin-bottom: 10px;
+}
+.login-form{
+    position: relative;
+}
+/* input */
+.int-area{
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+}
+.int-area h4{
+    color: #fd262698;
+   
+}
+.int-area:first-child{
+    margin-top: 0px;
+}
+.int-area input{
+    width: 100%;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    border:none;
+    border-bottom: 1px solid #999;
+    font-size: 1.5em;
+    color: #fff;
+    outline: none;
+}
+.int-area label:not(.gender-label){
+    position: absolute;
+    left:10px; top: -1px;
+    font-size: 1em; color: #116cea;
+}
+
+/* gender */
+.int-area .Gender{
+    position: relative;
+
+    color:white;
+}
+.int-area .fas{
+    position: absolute;
+    left: 150px;
+    z-index: 99;
+    color:white;
+}
+
+/* button */
+.btn-area{
+    margin-top: 10px;
+}
+.btn-area button{
+    width: 100%;
+    height: 50px;
+    background: #116cea;
+    color: #fff;
+    font-size:  1em;
+    border: none;
+    border-radius: 20px;
+}
+.btn-area{
+    margin-top: 10px;
+}
+.btn-area button{
+    width: 100%;
+    height: 50px;
+    background: #116cea;
+    color: #fff;
+    font-size:  1em;
+    border: none;
+    border-radius: 20px;
+}
+/* responsive */
+@media(max-width: 550px){
+    .int-area{
+        
+        width: 200px;
+        
+    }
+}

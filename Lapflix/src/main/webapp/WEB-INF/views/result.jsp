@@ -1,89 +1,247 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: muhkeun
-  Date: 2020/11/04
-  Time: 9:24 오전
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Title</title>   
-<style>
-	table{
-		width: 900px;
-	}
-	table th{
-		border: 1px solid black;
-		border-collapse: collapse;
-		width: 150px;
-	}
-	.txt_right{
-		text-align: right;
-	}
-	#sort{
-		text-align: right;
-	}
-</style> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapflix | 설문 결과</title>
+    <link rel="stylesheet" href="resources/css/common.css">
+    <link rel="stylesheet" href="resources/css/result.css">
+    <link rel="stylesheet" href="resources/css/header.css">
+    <script src="https://kit.fontawesome.com/aa5b301900.js" crossorigin="anonymous"></script>
+  
 </head>
 <body>
-    <h1>결과</h1>	 	
-    <table>
-    	<colgroup>
-    		<col width="15%"/>
-    		<col width="40%"/>
-    		<col width="10%"/>
-    		<col width="10%"/>
-    		<col width="10%"/>
-    		<col width="10%"/>
-    		<col width="5%"/>
-    		<col width="5%"/>
-    	</colgroup>
-    	<thead class="table">
-    		<tr>
-    			<th>노트북 이미지</th>
-    			<th>노트북이름</th>
-    			<th>CPU</th>
-    			<th>GPU</th>
-    			<th>모니터 사이즈(인치)</th>
-    			<th>OS</th>
-    			<th>무게(kg)</th>
-    			<th>가격(원)</th>
-    		</tr>
-    	</thead>
-    	<tbody class="table">
-    	<c:if test="${ar ne null }">
-    	<c:forEach var="l_list" items="${ar }">
-    		<tr>
-    			<th><a href="${l_list.laptop_url }"><img src="${l_list.laptop_ImageURL }" width="130px" height="130px"/></a></th>
-    			<th>${l_list.laptop_Name }</th>
-    			<th>${l_list.cpu_Name }</th>
-    		<c:if test="${l_list.gpu_Name ne null }">
-    			<th>${l_list.gpu_Name }</th>
-    		</c:if>
-    		<c:if test="${l_list.gpu_Name eq null }">
-    			<th>-</th>
-    		</c:if>
-    			<th>${l_list.laptop_MonitorSize }</th>
-    			<th>${l_list.laptop_OS }</th>
-    			<th>${l_list.laptop_weight }</th>
-    		<c:if test="${l_list.laptop_Price ne 0}">
-    			<th>${l_list.laptop_Price }</th>
-    		</c:if>
-    		<c:if test="${l_list.laptop_Price eq 0}">
-    			<th>-</th>
-    		</c:if>
-    		</tr>	
-    	</c:forEach>
-    	</c:if>
-    	<c:if test="${ar eq null }">
-    		<tr>
-    			<th colspan="7">표시할 데이터가 없습니다.</th>
-    		</tr>
-    	</c:if>
-    	</tbody>
-    </table>
+    <header>
+        <input type="checkbox" id="chk1">
+        <div class="logo">
+            <h2>Lapflix</h2>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Servey</a></li>
+            <li><a href="#">My favorite</a></li>
+            <li><a href="#">Login</a></li>
+            <label for="chk1" class="menu-close">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </label>
+        </ul>
+        <div class="search">
+            <input type="text" name="search" id="srch"
+             required placeholder="Enter your search">
+             <button type="submit">Search</button>
+        </div>
+        <label for="chk1" class="menu-open">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </label>
+    </header>
+    <section>
+        <div class="container">
+        <c:if test="${ar ne null }">
+        <c:forEach var="l_list" items="${ar }">
+            <div class="slides active">
+                <img src="${l_list.laptop_ImageURL }" alt="">
+                <div class="content">
+                    <h2>${l_list.laptop_Name }</h2>
+                    <p>Laptop detail</p>
+                    <a href="#">
+                        <i class="far fa-star"></i>       
+                        Favorite
+                    </a>
+                      <a href='#'>
+                        <i class="fas fa-shopping-cart"></i>
+                        Buy now 
+                    </a>
+                </div>
+            </div>
+         </c:forEach>
+         </c:if>
+            <!-- <div class="slides">
+                <img src="http://img.danawa.com/prod_img/500000/655/781/img/11781655_1.jpg?shrink=500:500" alt="">
+                <div class="content">
+                    <h2>Laptop name</h2>
+                    <p>Laptop detail</p>
+                    <a href="#">
+                        <i class="far fa-star"></i>       
+                        Favorite
+                    </a>
+                      <a href='#'>
+                        <i class="fas fa-shopping-cart"></i>
+                        Buy now
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="http://img.danawa.com/prod_img/500000/105/525/img/11525105_1.jpg?shrink=500:500" alt="">
+                <div class="content">
+                    <h2>Laptop name</h2>
+                    <p>Laptop detail</p>
+                    <a href="#">
+                        <i class="far fa-star"></i>       
+                        Favorite
+                    </a>
+                      <a href='#'>
+                        <i class="fas fa-shopping-cart"></i>
+                        Buy now
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="http://img.danawa.com/prod_img/500000/629/414/img/12414629_1.jpg?shrink=500:500" alt="">
+                <div class="content">
+                    <h2>Laptop name</h2>
+                    <p>Laptop detail</p>
+                    <a href="#">
+                        <i class="far fa-star"></i>       
+                        Favorite
+                    </a>
+                      <a href='#'>
+                        <i class="fas fa-shopping-cart"></i>
+                        Buy now
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="http://img.danawa.com/prod_img/500000/022/100/img/10100022_1.jpg?shrink=500:500" alt="">
+                <div class="content">
+                    <h2>Laptop name</h2>
+                    <p>Laptop detail</p>
+                    <a href="#">
+                        <i class="far fa-star"></i>       
+                        Favorite
+                    </a>
+                      <a href='#'>
+                        <i class="fas fa-shopping-cart"></i>
+                        Buy now
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="http://img.danawa.com/prod_img/500000/366/319/img/11319366_1.jpg?shrink=500:500" alt="">
+                <div class="content">
+                    <h2>Laptop name</h2>
+                    <p>Laptop detail</p>
+                    <a href="#">
+                        <i class="far fa-star"></i>       
+                        Favorite
+                    </a>
+                      <a href='#'>
+                        <i class="fas fa-shopping-cart"></i>
+                        Buy now
+                    </a>
+                </div>
+            </div>
+
+            <div class="slides">
+                <img src="http://img.danawa.com/prod_img/500000/756/609/img/11609756_1.jpg?shrink=500:500" alt="">
+                <div class="content">
+                    <h2>멕북</h2>
+                    <p>Ldkdkdkdkdkdkdk</p>
+                    <a href="#">
+                        <i class="far fa-star"></i>       
+                        Favorite
+                    </a>
+                      <a href='#'>
+                        <i class="fas fa-shopping-cart"></i>
+                        Buy now
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="http://img.danawa.com/prod_img/500000/740/102/img/10102740_1.jpg?shrink=500:500" alt="">
+                <div class="content">
+                    <h2>Laptop name</h2>
+                    <p>Laptop detail</p>
+                    <a href="#">
+                        <i class="far fa-star"></i>       
+                        Favorite
+                    </a>
+                      <a href='#'>
+                        <i class="fas fa-shopping-cart"></i>
+                        Buy now
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="http://img.danawa.com/prod_img/500000/675/500/img/12500675_1.jpg?shrink=500:500" alt="">
+                <div class="content">
+                    <h2>Laptop name</h2>
+                    <p>Laptop detail</p>
+                    <a href="#">
+                        <i class="far fa-star"></i>       
+                        Favorite
+                    </a>
+                      <a href='#'>
+                        <i class="fas fa-shopping-cart"></i>
+                        Buy now
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="http://img.danawa.com/prod_img/500000/164/141/img/12141164_1.jpg?shrink=500:500" alt="">
+                <div class="content">
+                    <h2>Laptop name</h2>
+                    <p>Laptop detail</p>
+                    <a href="#">
+                        <i class="far fa-star"></i>       
+                        Favorite
+                    </a>
+                      <a href='#'>
+                        <i class="fas fa-shopping-cart"></i>
+                        Buy now
+                    </a>
+                </div>
+            </div>
+        </div>
+         -->
+            <!-- part 2 -->
+            <div class="row">
+                <h2>Recommend</h2>
+                <div class="nav">
+                    <div class="nav-bar">
+                    <c:forEach var="l_list" items="${ar }">
+                        <div class="column active">
+                            <img src="http://img.danawa.com/prod_img/500000/022/100/img/10100022_1.jpg?shrink=500:500" alt="">
+                        </div>
+                    </c:forEach>
+              	<!--     <div class="column">
+                            <img src="http://img.danawa.com/prod_img/500000/655/781/img/11781655_1.jpg?shrink=500:500" alt="">
+                        </div>
+                        <div class="column">
+                            <img src="http://img.danawa.com/prod_img/500000/105/525/img/11525105_1.jpg?shrink=500:500" alt="">
+                        </div>
+                        <div class="column">
+                            <img src="http://img.danawa.com/prod_img/500000/629/414/img/12414629_1.jpg?shrink=500:500" alt="">
+                        </div>
+                        <div class="column">
+                            <img src="http://img.danawa.com/prod_img/500000/022/100/img/10100022_1.jpg?shrink=500:500" alt="">
+                        </div>
+                        <div class="column">
+                            <img src="http://img.danawa.com/prod_img/500000/366/319/img/11319366_1.jpg?shrink=500:500" alt="">
+                        </div>
+                        <div class="column">
+                            <img src="http://img.danawa.com/prod_img/500000/756/609/img/11609756_1.jpg?shrink=500:500" alt="">
+                        </div>
+                        <div class="column">
+                            <img src="http://img.danawa.com/prod_img/500000/740/102/img/10102740_1.jpg?shrink=500:500" alt="">
+                        </div>
+                        <div class="column">
+                            <img src="http://img.danawa.com/prod_img/500000/675/500/img/12500675_1.jpg?shrink=500:500" alt="">
+                        </div>
+                        <div class="column">
+                            <img src="http://img.danawa.com/prod_img/500000/164/141/img/12141164_1.jpg?shrink=500:500" alt="">
+                        </div>
+                 -->
+                    </div>
+                </div>
+                <div class="prev">&lt</div>
+                <div class="next">></div>
+        </div>
+        
+        </section>
+        <script type="text/javascript" src="resources/js/slide.js"></script>
 </body>
 </html>
