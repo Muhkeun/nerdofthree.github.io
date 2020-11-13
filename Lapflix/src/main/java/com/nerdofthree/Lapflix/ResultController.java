@@ -43,7 +43,7 @@ public class ResultController {
 				lvo.setLaptop_MonitorSize(laptop_MonitorSize);
 			
 			lvo.setLaptop_OS(laptop_OS);
-			lvo.setLaptop_weight(Float.parseFloat(laptop_Weight));
+			lvo.setLaptop_Weight(Float.parseFloat(laptop_Weight));
 			lvo.setLaptop_Price(Integer.parseInt(laptop_Price));
 			
 			

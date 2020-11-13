@@ -1,5 +1,7 @@
 package mybatis.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MemberVO {
 	
 	String  member_name,
@@ -10,6 +12,16 @@ public class MemberVO {
 			profile_image,
 			password,
 			seq;
+	
+	private MultipartFile file;
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 
 	public String getPassword() {
 		return password;

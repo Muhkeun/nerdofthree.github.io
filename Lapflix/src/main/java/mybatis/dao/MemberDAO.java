@@ -16,11 +16,10 @@ public class MemberDAO {
 	private SqlSessionTemplate sst;
 	
 	//회원가입
-	public void add(String name, String age, String gender, String f_key, String email, String p_image ) {
+	public void add(String age, String gender, String f_key, String email, String p_image ) {
 		
 		Map<String, String> map = new HashMap<String, String>();
 		
-		map.put("name", name);
 		map.put("age", age);
 		map.put("gender", gender);
 		map.put("f_key", f_key);
@@ -32,8 +31,12 @@ public class MemberDAO {
 	}
 	
 	//로그인
-	public MemberVO checkSignIn(String email) {
-		MemberVO vo = sst.selectOne("member.signInChk");
+	public MemberVO checkSignIn(String email, String password) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("email", email);
+		map.put("password", password);
+		
+		MemberVO vo = sst.selectOne("member.signInChk", map);
 		
 		return vo;
 	}

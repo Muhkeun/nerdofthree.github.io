@@ -26,7 +26,7 @@
         </div>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Servey</a></li>
+            <li><a href="#">Survey</a></li>
             <li><a href="#">My favorite</a></li>
             <li><a href="#">Login</a></li>
             <label for="chk1" class="menu-close">
@@ -60,7 +60,7 @@
                     <button id="btn" type="submit">SIGN-IN</button>
                 </div>
                 <div class="caption">
-                    <a href="#">sign up</a>
+                    <a href="/signUp">sign up</a>
                 </div>
             </form>
             

@@ -21,7 +21,7 @@
   	</insert>
   	
   	<!-- signInChk -->
-  	<select id="signInChk" parameterType="String" resultType="mybatis.vo.MemberVO">
-  		SELECT * FROM laptopmember WHERE email = #{email}
+  	<select id="signInChk" parameterType="java.util.Map" resultType="mybatis.vo.MemberVO">
+  		SELECT * FROM laptopmember WHERE email = #{email} AND password = #{password}
   	</select>
 </mapper>

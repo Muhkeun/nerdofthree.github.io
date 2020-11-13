@@ -27,7 +27,7 @@
         </div>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Servey</a></li>
+            <li><a href="#">Survey</a></li>
             <li><a href="#">My favorite</a></li>
             <li><a href="#">Login</a></li>
             <label for="chk1" class="menu-close">
@@ -50,7 +50,7 @@
                 <h2>SIGN-UP</h2>
         </div>
         <div class="signUp-form">
-            <form action="" method="post">
+            <form action="/signUp" method="post">
                 <div class="int-area">
                     <input type="email" name="Email" id="Email" autocomplete="off" required>
                     <label for="Email">Email</label>

@@ -12,7 +12,11 @@
     <link rel="stylesheet" href="resources/css/result.css">
     <link rel="stylesheet" href="resources/css/header.css">
     <script src="https://kit.fontawesome.com/aa5b301900.js" crossorigin="anonymous"></script>
-  
+<style>
+	.content h2, p{
+		font-family:'Times New Roman';
+	}
+</style> 
 </head>
 <body>
     <header>
@@ -22,9 +26,9 @@
         </div>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Servey</a></li>
+            <li><a href="#">Survey</a></li>
             <li><a href="#">My favorite</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="/signIn">Login</a></li>
             <label for="chk1" class="menu-close">
                 <i class="fas fa-times" aria-hidden="true"></i>
             </label>
@@ -42,12 +46,15 @@
         <div class="container">
         <c:if test="${ar ne null }">
         <c:forEach var="l_list" items="${ar }">
-            <div class="slides active">
-                <img src="${l_list.laptop_ImageURL }" alt="">
+            <div class="slides">  
+				<img src="${l_list.laptop_ImageURL }?shrink=500:500&_v=20200306133943" alt="">
                 <div class="content">
                     <h2>${l_list.laptop_Name }</h2>
-                    <p>Laptop detail</p>
-                    <a href="#">
+                    <p>CPU: ${l_list.cpu_Name }</p>
+                    <p>GPU: ${l_list.gpu_Name }</p>
+                    <p>WEIGHT: ${l_list.laptop_Weight } kg</p>
+                    <p>PRICE: ${l_list.laptop_Price } won</p>
+                    <a href="favorite">
                         <i class="far fa-star"></i>       
                         Favorite
                     </a>
@@ -57,184 +64,19 @@
                     </a>
                 </div>
             </div>
-         </c:forEach>
-         </c:if>
-            <!-- <div class="slides">
-                <img src="http://img.danawa.com/prod_img/500000/655/781/img/11781655_1.jpg?shrink=500:500" alt="">
-                <div class="content">
-                    <h2>Laptop name</h2>
-                    <p>Laptop detail</p>
-                    <a href="#">
-                        <i class="far fa-star"></i>       
-                        Favorite
-                    </a>
-                      <a href='#'>
-                        <i class="fas fa-shopping-cart"></i>
-                        Buy now
-                    </a>
-                </div>
-            </div>
-            <div class="slides">
-                <img src="http://img.danawa.com/prod_img/500000/105/525/img/11525105_1.jpg?shrink=500:500" alt="">
-                <div class="content">
-                    <h2>Laptop name</h2>
-                    <p>Laptop detail</p>
-                    <a href="#">
-                        <i class="far fa-star"></i>       
-                        Favorite
-                    </a>
-                      <a href='#'>
-                        <i class="fas fa-shopping-cart"></i>
-                        Buy now
-                    </a>
-                </div>
-            </div>
-            <div class="slides">
-                <img src="http://img.danawa.com/prod_img/500000/629/414/img/12414629_1.jpg?shrink=500:500" alt="">
-                <div class="content">
-                    <h2>Laptop name</h2>
-                    <p>Laptop detail</p>
-                    <a href="#">
-                        <i class="far fa-star"></i>       
-                        Favorite
-                    </a>
-                      <a href='#'>
-                        <i class="fas fa-shopping-cart"></i>
-                        Buy now
-                    </a>
-                </div>
-            </div>
-            <div class="slides">
-                <img src="http://img.danawa.com/prod_img/500000/022/100/img/10100022_1.jpg?shrink=500:500" alt="">
-                <div class="content">
-                    <h2>Laptop name</h2>
-                    <p>Laptop detail</p>
-                    <a href="#">
-                        <i class="far fa-star"></i>       
-                        Favorite
-                    </a>
-                      <a href='#'>
-                        <i class="fas fa-shopping-cart"></i>
-                        Buy now
-                    </a>
-                </div>
-            </div>
-            <div class="slides">
-                <img src="http://img.danawa.com/prod_img/500000/366/319/img/11319366_1.jpg?shrink=500:500" alt="">
-                <div class="content">
-                    <h2>Laptop name</h2>
-                    <p>Laptop detail</p>
-                    <a href="#">
-                        <i class="far fa-star"></i>       
-                        Favorite
-                    </a>
-                      <a href='#'>
-                        <i class="fas fa-shopping-cart"></i>
-                        Buy now
-                    </a>
-                </div>
-            </div>
-
-            <div class="slides">
-                <img src="http://img.danawa.com/prod_img/500000/756/609/img/11609756_1.jpg?shrink=500:500" alt="">
-                <div class="content">
-                    <h2>멕북</h2>
-                    <p>Ldkdkdkdkdkdkdk</p>
-                    <a href="#">
-                        <i class="far fa-star"></i>       
-                        Favorite
-                    </a>
-                      <a href='#'>
-                        <i class="fas fa-shopping-cart"></i>
-                        Buy now
-                    </a>
-                </div>
-            </div>
-            <div class="slides">
-                <img src="http://img.danawa.com/prod_img/500000/740/102/img/10102740_1.jpg?shrink=500:500" alt="">
-                <div class="content">
-                    <h2>Laptop name</h2>
-                    <p>Laptop detail</p>
-                    <a href="#">
-                        <i class="far fa-star"></i>       
-                        Favorite
-                    </a>
-                      <a href='#'>
-                        <i class="fas fa-shopping-cart"></i>
-                        Buy now
-                    </a>
-                </div>
-            </div>
-            <div class="slides">
-                <img src="http://img.danawa.com/prod_img/500000/675/500/img/12500675_1.jpg?shrink=500:500" alt="">
-                <div class="content">
-                    <h2>Laptop name</h2>
-                    <p>Laptop detail</p>
-                    <a href="#">
-                        <i class="far fa-star"></i>       
-                        Favorite
-                    </a>
-                      <a href='#'>
-                        <i class="fas fa-shopping-cart"></i>
-                        Buy now
-                    </a>
-                </div>
-            </div>
-            <div class="slides">
-                <img src="http://img.danawa.com/prod_img/500000/164/141/img/12141164_1.jpg?shrink=500:500" alt="">
-                <div class="content">
-                    <h2>Laptop name</h2>
-                    <p>Laptop detail</p>
-                    <a href="#">
-                        <i class="far fa-star"></i>       
-                        Favorite
-                    </a>
-                      <a href='#'>
-                        <i class="fas fa-shopping-cart"></i>
-                        Buy now
-                    </a>
-                </div>
-            </div>
+        </c:forEach>
+		</c:if>
         </div>
-         -->
             <!-- part 2 -->
             <div class="row">
                 <h2>Recommend</h2>
                 <div class="nav">
                     <div class="nav-bar">
-                    <c:forEach var="l_list" items="${ar }">
+                    <c:forEach var="l_list_s" items="${ar }">
                         <div class="column active">
-                            <img src="http://img.danawa.com/prod_img/500000/022/100/img/10100022_1.jpg?shrink=500:500" alt="">
+                            <img src="${l_list_s.laptop_ImageURL }?shrink=500:500" alt="">
                         </div>
                     </c:forEach>
-              	<!--     <div class="column">
-                            <img src="http://img.danawa.com/prod_img/500000/655/781/img/11781655_1.jpg?shrink=500:500" alt="">
-                        </div>
-                        <div class="column">
-                            <img src="http://img.danawa.com/prod_img/500000/105/525/img/11525105_1.jpg?shrink=500:500" alt="">
-                        </div>
-                        <div class="column">
-                            <img src="http://img.danawa.com/prod_img/500000/629/414/img/12414629_1.jpg?shrink=500:500" alt="">
-                        </div>
-                        <div class="column">
-                            <img src="http://img.danawa.com/prod_img/500000/022/100/img/10100022_1.jpg?shrink=500:500" alt="">
-                        </div>
-                        <div class="column">
-                            <img src="http://img.danawa.com/prod_img/500000/366/319/img/11319366_1.jpg?shrink=500:500" alt="">
-                        </div>
-                        <div class="column">
-                            <img src="http://img.danawa.com/prod_img/500000/756/609/img/11609756_1.jpg?shrink=500:500" alt="">
-                        </div>
-                        <div class="column">
-                            <img src="http://img.danawa.com/prod_img/500000/740/102/img/10102740_1.jpg?shrink=500:500" alt="">
-                        </div>
-                        <div class="column">
-                            <img src="http://img.danawa.com/prod_img/500000/675/500/img/12500675_1.jpg?shrink=500:500" alt="">
-                        </div>
-                        <div class="column">
-                            <img src="http://img.danawa.com/prod_img/500000/164/141/img/12141164_1.jpg?shrink=500:500" alt="">
-                        </div>
-                 -->
                     </div>
                 </div>
                 <div class="prev">&lt</div>
