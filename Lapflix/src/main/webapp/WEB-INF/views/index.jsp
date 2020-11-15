@@ -67,7 +67,7 @@
                 </div>   
                 
                 
-                <button class="downToBtn" type="button"  onclick="moveTo(3)"><img class="downToBtn_img"src="resources/res/Btn/icon-157360_1280.png" alt=""></button>
+                <button class="downToBtn" type="button"  onclick="moveTo(3)"><img class="downToBtn_img"src="resources/res/btn/icon-157360_1280.png" alt=""></button>
             </div>
                     
             
@@ -89,7 +89,7 @@
                     </form>
                 </div>
 
-                <button class="downToBtn" type="button" onclick="moveTo(4)"><img class="downToBtn_img" src="resources/res/Btn/icon-157360_1280.png" alt=""></button>
+                <button class="downToBtn" type="button" onclick="moveTo(4)"><img class="downToBtn_img" src="resources/res/btn/icon-157360_1280.png" alt=""></button>
             </div>
         </div>
             
@@ -111,7 +111,7 @@
                     </form>
                 </div>
                 
-                <button class="downToBtn" type="button"  onclick="moveTo(5)"><img class="downToBtn_img"src="resources/res/Btn/icon-157360_1280.png" alt=""></button>
+                <button class="downToBtn" type="button"  onclick="moveTo(5)"><img class="downToBtn_img"src="resources/res/btn/icon-157360_1280.png" alt=""></button>
             </div>
               
         </div>
@@ -130,7 +130,7 @@
                     </form>
                 </div>
                 
-                <button class="downToBtn" type="button"  onclick="moveTo(6)"><img class="downToBtn_img"src="resources/res/Btn/icon-157360_1280.png" alt=""></button>
+                <button class="downToBtn" type="button"  onclick="moveTo(6)"><img class="downToBtn_img"src="resources/res/btn/icon-157360_1280.png" alt=""></button>
             </div>
         </div>
         <!--5th survey  -->
@@ -148,7 +148,7 @@
                     </form>
                 </div>
                 
-                <button class="downToBtn" type="button"  onclick="moveTo(7)"><img class="downToBtn_img"src="resources/res/Btn/icon-157360_1280.png" alt=""></button>
+                <button class="downToBtn" type="button"  onclick="moveTo(7)"><img class="downToBtn_img"src="resources/res/btn/icon-157360_1280.png" alt=""></button>
             </div>
 
         <!-- 6th survey -->
