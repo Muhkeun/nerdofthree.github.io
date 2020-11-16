@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import mybatis.dao.LaptopDAO;
 import mybatis.vo.LaptopVO;
 import mybatis.vo.Program_BenchVO;
+import mybatis.vo.SurveyVO;
 
 @Controller
 public class ResultController {
@@ -23,23 +24,16 @@ public class ResultController {
 		private HttpSession httpSession;
 		
 		@RequestMapping("result")
-		public ModelAndView result(String laptop_MonitorSize, String program_Name, String laptop_OS, String status, String laptop_Weight, String laptop_Price) {
-			
-			httpSession.setAttribute("laptop_MonitorSize", laptop_MonitorSize);
-			httpSession.setAttribute("program_Name", program_Name);
-			httpSession.setAttribute("laptop_OS", laptop_OS);
-			httpSession.setAttribute("laptop_Weight", laptop_Weight);
-			httpSession.setAttribute("status", status);
-			httpSession.setAttribute("laptop_Price", laptop_Price);
-			
+		public ModelAndView result(SurveyVO svo) {
+			httpSession.setAttribute("svo", svo);
 			//프로그램 점수 구하기
-			Program_BenchVO point = l_dao.getPoint(program_Name);
+			Program_BenchVO point = l_dao.getPoint(svo.getProgram_Name());
 			int cpu_Point = -1;
 			int gpu_Point = -1;
-			if(status.equals("noob") || status.equals("")) {
+			if(svo.getStatus().equals("noob") || svo.getStatus().equals("")) {
 				cpu_Point = point.getProgram_Cpu_min();
 				gpu_Point = point.getProgram_Gpu_min();
-			}else if(status.equals("expert")) {
+			}else if(svo.getStatus().equals("expert")) {
 				cpu_Point = point.getProgram_Cpu_rec();
 				gpu_Point = point.getProgram_Gpu_rec();
 			}
@@ -50,14 +44,14 @@ public class ResultController {
 			lvo.setCpu_Point(cpu_Point);
 			lvo.setGpu_Point(gpu_Point);
 			
-			if(laptop_MonitorSize.equals(""))
+			if(svo.getLaptop_MonitorSize().equals(""))
 				lvo.setLaptop_MonitorSize(null);
 			else
-				lvo.setLaptop_MonitorSize(laptop_MonitorSize);
+				lvo.setLaptop_MonitorSize(svo.getLaptop_MonitorSize());
 			
-			lvo.setLaptop_OS(laptop_OS);
-			lvo.setLaptop_Weight(Float.parseFloat(laptop_Weight));
-			lvo.setLaptop_Price(Integer.parseInt(laptop_Price));
+			lvo.setLaptop_OS(svo.getLaptop_OS());
+			lvo.setLaptop_Weight(Float.parseFloat(svo.getLaptop_Weight()));
+			lvo.setLaptop_Price(Integer.parseInt(svo.getLaptop_Price()));
 			
 			
 			List<LaptopVO> l_list = l_dao.getLaptopList(lvo);

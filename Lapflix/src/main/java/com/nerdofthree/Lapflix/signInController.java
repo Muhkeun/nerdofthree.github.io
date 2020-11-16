@@ -4,10 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import mybatis.dao.MemberDAO;
+import mybatis.vo.LaptopVO;
 import mybatis.vo.MemberVO;
+import mybatis.vo.SurveyVO;
+
+import java.util.Hashtable;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -29,27 +35,41 @@ public class signInController {
     }
     
     @RequestMapping(value="/signIn", method = RequestMethod.POST)
-    public String signIn_ok(MemberVO vo) {
-    	ModelAndView mv = new ModelAndView();
-    	MemberVO mvo = m_dao.checkSignIn(vo.getEmail(), vo.getPassword()); //selectOne return null
+    @ResponseBody
+    public Map<String, Object> signIn_ok(String email, String password) {
+    	Map<String, Object> map = new Hashtable<String, Object>();
+    	MemberVO mvo = m_dao.checkSignIn(email, password); //selectOne return null
+    	
     	if(mvo != null) {
     		System.out.println("로그인 성공");
     		httpSession.setAttribute("mvo", mvo);
-    		String laptop_MonitorSize = (String) httpSession.getAttribute("laptop_MonitorSize");
-    		String program_Name = (String) httpSession.getAttribute("program_Name");
-    		String laptop_OS = (String) httpSession.getAttribute("laptop_OS");
-    		String laptop_Weight = (String) httpSession.getAttribute("laptop_Weight");
-    		String status  = (String) httpSession.getAttribute("status");
-    		String laptop_Price = (String) httpSession.getAttribute("laptop_Price");
     		
-    		//mv.setViewName("redirect:result?laptop_MonitorSize="+laptop_MonitorSize+"&program_Name="+
-    		//				program_Name+"&laptop_OS="+laptop_OS+"&laptop_Weight="+laptop_Weight+"&status="+status+"&laptop_Price="+laptop_Price);
+    		SurveyVO svo = (SurveyVO) httpSession.getAttribute("svo");
+    		map.put("res", "1");
+    		map.put("mvo", mvo);
+    		map.put("svo", svo);
+
     	}else {
     		System.out.println("로그인 실패");
-    		mv.setViewName("sign_in");
+    		map.put("res", "0");
     	}
     	
-    	return "forward:/result";
+    	return map;
+    }
+    
+    @RequestMapping("/signOut")
+    @ResponseBody
+    public Map<String, Object> signOut() {
+    	
+    	httpSession.removeAttribute("mvo");
+    	
+    	Map<String, Object> map = new Hashtable<String, Object>();
+    	map.put("res", "0");
+    	
+    	SurveyVO svo = (SurveyVO) httpSession.getAttribute("svo");
+    	map.put("svo", svo);
+    	
+    	return map;
     }
 
 }

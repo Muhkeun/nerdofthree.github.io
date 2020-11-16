@@ -22,13 +22,19 @@
     <header>
         <input type="checkbox" id="chk1">
         <div class="logo">
-            <h2>Lapflix</h2>
+         	<h2>Lapflix</h2>
         </div>
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Survey</a></li>
             <li><a href="#">My favorite</a></li>
+        <c:if test="${sessionScope.mvo eq null }">
             <li><a href="/signIn">Login</a></li>
+        </c:if>
+        <c:if test="${sessionScope.mvo ne null }">
+        	<li><a href="javascript:logout()">Logout</a></li>
+        </c:if>
+        
             <label for="chk1" class="menu-close">
                 <i class="fas fa-times" aria-hidden="true"></i>
             </label>
@@ -85,5 +91,22 @@
         
         </section>
         <script type="text/javascript" src="resources/js/slide.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script>
+        	function logout(){
+        		
+        		$.ajax({
+        			url: "signOut",
+        			dataType: "json",
+        		}).done(function(data){
+        			
+        			if(data.res == "0"){
+	        			alert("정상적으로 로그아웃이 처리되었습니다.");
+	        			location.href="/result?laptop_MonitorSize="+data.svo.laptop_MonitorSize+"&laptop_OS="+data.svo.laptop_OS+"&program_Name="+data.svo.program_Name+
+						"&status="+data.svo.status+"&laptop_Weight="+data.svo.laptop_Weight+"&laptop_Price="+data.svo.laptop_Price;
+        			}	
+        		});
+        	}
+        </script>
 </body>
 </html>
