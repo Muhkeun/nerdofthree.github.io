@@ -50,39 +50,44 @@
                 <h2>SIGN-UP</h2>
         </div>
         <div class="signUp-form">
-            <form action="/signUp" method="post">
+            <form action="/signUp" method="post" enctype="multipart/form-data">
                 <div class="int-area">
-                    <input type="email" name="Email" id="Email" autocomplete="off" required>
-                    <label for="Email">Email</label>
+                    <input type="email" name="email" id="email" autocomplete="off" required>
+                    <label for="email">Email</label>
                     <h4>Your email already use</h4>
                 </div>
                 <div class="int-area">
-                    <input type="password" name="Password" id="Password" autocomplete="off" required>
+                    <input type="password" name="password" id="password" autocomplete="off" required>
                     <label for="password">Password</label>
                     <h4>You have entered the wrong user password.</h4>
                 </div>
-                <div class="int-area">
+               <!--  <div class="int-area">
                     <input type="password" name="Password2" id="Password2" autocomplete="off" required>
                     <label for="password2">Re-enter</label>
                     <h4>Passwords do not match</h4>
                 </div>
+                 -->
                 <div class="int-area">
-                    <input type="text" name="Name" id="Name" autocomplete="off" required>
-                    <label for="Name">Name</label>
+                    <input type="text" name="member_name" id="member_name" autocomplete="off" required>
+                    <label for="member_name">Name</label>
                 </div>
                 <div class="int-area">
-                    <input type="text" name="Birthdate" id="Birthdate" autocomplete="off" required>
-                    <label for="Birthyy">Birthdate (ex: 930918)</label>
+                    <input type="text" name="member_age" id="member_age" autocomplete="off" required>
+                    <label for="member_age">Birthdate (ex: 930918)</label>
                     <h4>The date of birth is incorrectly entered.</h4>
                 </div>
                 <div class="int-area"  >
                     <label>Gender</label> 
-                    <input type="radio" name="Gender" class="Gender" value="male"><i class="fas fa-mars"></i>
-                    <input type="radio" name="Gender" class="Gender" value="female"><i class="fas fa-venus"></i>
-                        </div>
-                            <div class="btn-area">
-                                <button id="btn" type="submit">SIGN-UP</button>
-                            </div>
+                    <input type="radio" name="member_gender" class="Gender" value="male"><i class="fas fa-mars"></i>
+                    <input type="radio" name="member_gender" class="Gender" value="female"><i class="fas fa-venus"></i>
+                </div>
+                <div>
+                	<label>첨부파일: </label>
+                	<input type="file" name="file"/>
+                </div>
+                <div class="btn-area">
+                	<button id="btn" type="submit">SIGN-UP</button>
+                </div>
             </form>
         </div>
     </section>

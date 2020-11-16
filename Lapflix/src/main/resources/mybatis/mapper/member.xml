@@ -10,8 +10,8 @@
 	
 	<!-- 회원가입 -->
 	<insert id="add" parameterType="java.util.Map">
-  		INSERT INTO laptopmember(member_name, member_age, member_gender, f_key,	email, profile_image)
-  		VALUES(#{name}, #{age}, #{gender}, #{f_key}, #{email}, #{p_image})
+  		INSERT INTO laptopmember(seq, member_name, member_age, member_gender, email, profile_image, password)
+  		VALUES(laptopmember_seq.NEXTVAL, #{member_name}, #{member_age}, #{member_gender}, #{email}, #{profile_image}, #{password})
   	</insert>
   	
   	<!-- f_Key 저장 -->

@@ -49,7 +49,7 @@
             </div>
             <form action="" method="POST">
                 <div class="int-area">
-                    <input type="text" name="id" id="id" autocomplete="off" required>
+                    <input type="text" name="email" id="email" autocomplete="off" required>
                     <label for="id">EMAIL</label>
                 </div>
                 <div class="int-area">

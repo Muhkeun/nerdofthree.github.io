@@ -16,15 +16,16 @@ public class MemberDAO {
 	private SqlSessionTemplate sst;
 	
 	//회원가입
-	public void add(String age, String gender, String f_key, String email, String p_image ) {
+	public void add(String name, String age, String gender, String email, String p_image, String password ) {
 		
 		Map<String, String> map = new HashMap<String, String>();
 		
-		map.put("age", age);
-		map.put("gender", gender);
-		map.put("f_key", f_key);
+		map.put("member_name", name);
+		map.put("member_age", age);
+		map.put("member_gender", gender);
 		map.put("email", email);
-		map.put("p_image", p_image);
+		map.put("profile_image", p_image);
+		map.put("password", password);
 		
 		int cnt = sst.insert("member.add", map);
 

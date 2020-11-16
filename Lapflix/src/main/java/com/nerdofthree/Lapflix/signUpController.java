@@ -36,6 +36,8 @@ public class signUpController {
 	public ModelAndView signUp_ok(MemberVO vo) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
+		System.out.println(vo.getMember_age()+"/"+vo.getMember_gender()+"/"+vo.getEmail()+"/"+vo.getPassword()+"/"+vo.getMember_name());
+		
 		MultipartFile mf = vo.getFile();
 		
 		if(mf != null && mf.getSize() > 0) {
@@ -51,7 +53,7 @@ public class signUpController {
 			vo.setProfile_image(profileImage);
 			//이미지 파일 위치 지정
 		}
-		m_dao.add(vo.getMember_age(), vo.getMember_gender(), vo.getEmail(), vo.getProfile_image(), vo.getPassword());
+		m_dao.add(vo.getMember_name(), vo.getMember_age(), vo.getMember_gender(), vo.getEmail(), vo.getProfile_image() , vo.getPassword());
 		mv.setViewName("sign_in");
 		
 		return mv;

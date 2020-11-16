@@ -2,6 +2,8 @@ package com.nerdofthree.Lapflix;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +19,19 @@ public class ResultController {
 		@Autowired
 		private LaptopDAO l_dao;
 		
+		@Autowired
+		private HttpSession httpSession;
+		
 		@RequestMapping("result")
 		public ModelAndView result(String laptop_MonitorSize, String program_Name, String laptop_OS, String status, String laptop_Weight, String laptop_Price) {
+			
+			httpSession.setAttribute("laptop_MonitorSize", laptop_MonitorSize);
+			httpSession.setAttribute("program_Name", program_Name);
+			httpSession.setAttribute("laptop_OS", laptop_OS);
+			httpSession.setAttribute("laptop_Weight", laptop_Weight);
+			httpSession.setAttribute("status", status);
+			httpSession.setAttribute("laptop_Price", laptop_Price);
+			
 			//프로그램 점수 구하기
 			Program_BenchVO point = l_dao.getPoint(program_Name);
 			int cpu_Point = -1;
@@ -58,7 +71,8 @@ public class ResultController {
 			
 			ModelAndView mv = new ModelAndView();
 			
-			mv.addObject("ar", ar);
+			mv.addObject("ar", ar);		
+			
 			mv.setViewName("result");
 			
 			return mv;
