@@ -136,4 +136,9 @@ section{
   .prev, .next{
     display: none;
   }
+  .content{
+  	background-color: black;
+  	opacity: 60%;
+  	
+  }
 }

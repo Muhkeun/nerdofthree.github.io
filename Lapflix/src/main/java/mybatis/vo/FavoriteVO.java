@@ -2,8 +2,8 @@ package mybatis.vo;
 
 public class FavoriteVO {
 	String     	f_Key, 
-				laptop_Name;
-
+				laptop_seq;
+	
 	public String getF_Key() {
 		return f_Key;
 	}
@@ -12,11 +12,13 @@ public class FavoriteVO {
 		this.f_Key = f_Key;
 	}
 
-	public String getLaptop_Name() {
-		return laptop_Name;
+	public String getLaptop_seq() {
+		return laptop_seq;
 	}
 
-	public void setLaptop_Name(String laptop_Name) {
-		this.laptop_Name = laptop_Name;
+	public void setLaptop_seq(String laptop_seq) {
+		this.laptop_seq = laptop_seq;
 	}
+
+	
 }

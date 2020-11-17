@@ -36,8 +36,6 @@ public class signUpController {
 	public ModelAndView signUp_ok(MemberVO vo) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		System.out.println(vo.getMember_age()+"/"+vo.getMember_gender()+"/"+vo.getEmail()+"/"+vo.getPassword()+"/"+vo.getMember_name());
-		
 		MultipartFile mf = vo.getFile();
 		
 		if(mf != null && mf.getSize() > 0) {

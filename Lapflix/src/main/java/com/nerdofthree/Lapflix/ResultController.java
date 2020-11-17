@@ -25,8 +25,13 @@ public class ResultController {
 		
 		@RequestMapping("result")
 		public ModelAndView result(SurveyVO svo) {
+			
+			ModelAndView mv = new ModelAndView();
+			
+			//설문값 세션에 저장
 			httpSession.setAttribute("svo", svo);
-			//프로그램 점수 구하기
+			
+			//프로그램 최저/권장 밴치점수 구하기
 			Program_BenchVO point = l_dao.getPoint(svo.getProgram_Name());
 			int cpu_Point = -1;
 			int gpu_Point = -1;
@@ -53,23 +58,21 @@ public class ResultController {
 			lvo.setLaptop_Weight(Float.parseFloat(svo.getLaptop_Weight()));
 			lvo.setLaptop_Price(Integer.parseInt(svo.getLaptop_Price()));
 			
-			
 			List<LaptopVO> l_list = l_dao.getLaptopList(lvo);
 			
+			//리스트를 배열로 변환
 			LaptopVO[] ar = null;
+			
 			if(l_list != null && l_list.size() > 0) {
 				ar = new LaptopVO[l_list.size()];
 				
 				l_list.toArray(ar);
 			}
 			
-			ModelAndView mv = new ModelAndView();
-			
 			mv.addObject("ar", ar);		
 			
-			mv.setViewName("result");
+			mv.setViewName("result");			
 			
 			return mv;
 		}
 }
-

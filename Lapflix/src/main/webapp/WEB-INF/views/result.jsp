@@ -60,10 +60,19 @@
                     <p>GPU: ${l_list.gpu_Name }</p>
                     <p>WEIGHT: ${l_list.laptop_Weight } kg</p>
                     <p>PRICE: ${l_list.laptop_Price } won</p>
-                    <a href="favorite">
-                        <i class="far fa-star"></i>       
-                        Favorite
-                    </a>
+                    <c:if test="${sessionScope.mvo ne null }">
+                    	<a href="">
+	                    	<i class="far fa-star"></i>       
+	                        Favorite
+                    	</a>
+                    </c:if>
+                    <c:if test="${sessionScope.mvo eq null }">
+                    	<a href="/signIn">
+	                    	<i class="far fa-star"></i>       
+		                        Favorite
+                    	</a>
+                    </c:if>
+                        
                       <a href='#'>
                         <i class="fas fa-shopping-cart"></i>
                         Buy now 
@@ -101,9 +110,9 @@
         		}).done(function(data){
         			
         			if(data.res == "0"){
-	        			alert("정상적으로 로그아웃이 처리되었습니다.");
+	        			alert("정상적으로 로그아웃 처리되었습니다.");
 	        			location.href="/result?laptop_MonitorSize="+data.svo.laptop_MonitorSize+"&laptop_OS="+data.svo.laptop_OS+"&program_Name="+data.svo.program_Name+
-						"&status="+data.svo.status+"&laptop_Weight="+data.svo.laptop_Weight+"&laptop_Price="+data.svo.laptop_Price;
+						"&status="+data.svo.status+"&laptop_Weight="+data.svo.laptop_Weight+"&laptop_Price="+data.svo.laptop_Price;		
         			}	
         		});
         	}

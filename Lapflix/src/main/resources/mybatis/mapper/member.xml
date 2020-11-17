@@ -10,18 +10,23 @@
 	
 	<!-- 회원가입 -->
 	<insert id="add" parameterType="java.util.Map">
-  		INSERT INTO laptopmember(seq, member_name, member_age, member_gender, email, profile_image, password)
+  		INSERT INTO laptopmember(f_key, member_name, member_age, member_gender, email, profile_image, password)
   		VALUES(laptopmember_seq.NEXTVAL, #{member_name}, #{member_age}, #{member_gender}, #{email}, #{profile_image}, #{password})
   	</insert>
   	
   	<!-- f_Key 저장 -->
-  	<insert id="add_f_Key" parameterType="java.util.Map">
-  		INSERT INTO favorite(f_Key, laptop_Name)
-  		VALUES(#{f_Key}, #{laptop_Name})
+  	<insert id="add_f_key" parameterType="java.util.Map">
+  		INSERT INTO favorite(f_key, laptop_seq)
+  		VALUES(#{f_key}, #{laptop_seq})
   	</insert>
   	
   	<!-- signInChk -->
   	<select id="signInChk" parameterType="java.util.Map" resultType="mybatis.vo.MemberVO">
   		SELECT * FROM laptopmember WHERE email = #{email} AND password = #{password}
+  	</select>
+  	
+  	<!-- 즐겨찾기 불러오기 -->
+  	<select id="get_f_key" parameterType="String" resultType="String">
+  		SELECT laptop_seq FROM favorite WHERE f_key = #{f_key}
   	</select>
 </mapper>

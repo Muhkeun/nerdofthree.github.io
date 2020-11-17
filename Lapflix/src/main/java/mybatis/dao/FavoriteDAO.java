@@ -1,6 +1,7 @@
 package mybatis.dao;
 
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -13,15 +14,21 @@ public class FavoriteDAO {
 	@Autowired
 	private SqlSessionTemplate sst;
 	
-	public void addFavorite(String f_Key, String laptop_Name) {
+	public int addFavorite(String f_key, String laptop_seq) {
 		
 		Map<String, String> map = new Hashtable<String, String>();
 		
-		map.put("f_Key", f_Key);
-		map.put("laptop_Name", laptop_Name);
+		map.put("f_key", f_key);
+		map.put("laptop_seq", laptop_seq);
 		
-		sst.insert("member.add_f_Key", map);
+		int cnt = sst.insert("member.add_f_key", map);
 		
+		return cnt;
+	}
+	
+	public List<String> getFavorite(String f_key) {
+		 List<String> f_list = sst.selectList("member.get_f_key", f_key);
+		 return f_list;
 	}
 	
 }

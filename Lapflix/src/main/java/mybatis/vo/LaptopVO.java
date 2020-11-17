@@ -1,7 +1,8 @@
 package mybatis.vo;
 
 public class LaptopVO {
-	private String  laptop_Name, 
+	private String laptop_seq, 
+			laptop_Name, 
     		cpu_Name, 
     		gpu_Name, 
     		laptop_Memory, 
@@ -10,6 +11,14 @@ public class LaptopVO {
     		laptop_ImageURL,
     		laptop_url;
 	
+	public String getLaptop_seq() {
+		return laptop_seq;
+	}
+
+	public void setLaptop_seq(String laptop_seq) {
+		this.laptop_seq = laptop_seq;
+	}
+
 	private int cpu_Point,
 				gpu_Point,
 				laptop_Price;
