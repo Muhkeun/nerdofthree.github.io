@@ -22,6 +22,11 @@ CREATE TABLE laptop
     f_key                  NUMBER               NULL,
     constraint laptop_pk primary key (f_key)
 ) 
+
+CREATE SEQUENCE laptop_SEQ
+START WITH 1
+INCREMENT BY 1;
+
 select gpu_name from laptop
 select * from gpu_bench where gpu_name like '%TRX%'
 select * from laptop where f_key < 30
