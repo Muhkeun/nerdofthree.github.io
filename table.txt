@@ -18,10 +18,23 @@ CREATE TABLE laptop
     laptop_ImageURL       VARCHAR2(200)    NULL,
     laptop_weight         NUMBER      NULL,
     laptop_url              VARCHAR2(200)   NULL,
-    laptop_price           NUMBER              NULL
+    laptop_price           NUMBER              NULL,
+    f_key                  NUMBER               NULL,
+    constraint laptop_pk primary key (f_key)
 ) 
+select gpu_name from laptop
+select * from gpu_bench where gpu_name like '%TRX%'
+select * from laptop where f_key < 30
+l join gpu_bench g on (g.gpu_name like '%'||l.gpu_name) 
+select gpu_name from laptop where gpu_name not like 'none'
 
+desc laptop
 
+drop table gpu_bench
+drop table laptop
+CREATE SEQUENCE SEQ
+START WITH 1
+INCREMENT BY 1;
 /
 /이미지 url의 크기가 커서 수정하였습니다.
 CREATE SEQUENCE laptopmember_SEQ
