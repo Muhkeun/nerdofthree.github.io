@@ -28,13 +28,22 @@
             <li><a href="#">Home</a></li>
             <li><a href="#">Survey</a></li>
             <li><a href="#">My favorite</a></li>
+            
+            
+            
         <c:if test="${sessionScope.mvo eq null }">
             <li><a href="/signIn">Login</a></li>
         </c:if>
-        <c:if test="${sessionScope.mvo ne null }">
-        	<li><a href="javascript:logout()">Logout</a></li>
-        </c:if>
+          
+         <c:if test="${sessionScope.mvo ne null }">
+        	<li id = "login_exp"><a href="javascript:logout()" >Logout</a></li>
+        </c:if>  
         
+        <!-- 	로그인 시 li 태그에 id만 부여, 
+        		버튼을 눌렀을 때 분만 아니라 첫 페이지 업로드 시 login/out 떠야하므로 c:if 유지
+        		j쿼리로 logout 클릭시 li 태그 안의 내용을 Login a태그로 변경한다.
+        -->
+     
             <label for="chk1" class="menu-close">
                 <i class="fas fa-times" aria-hidden="true"></i>
             </label>
@@ -60,12 +69,41 @@
                     <p>GPU: ${l_list.gpu_Name }</p>
                     <p>WEIGHT: ${l_list.laptop_Weight } kg</p>
                     <p>PRICE: ${l_list.laptop_Price } won</p>
-                    <c:if test="${sessionScope.mvo ne null }">
-                    	<a href="">
-	                    	<i class="far fa-star"></i>       
-	                        Favorite
-                    	</a>
+                    
+                     <c:if test="${sessionScope.mvo ne null }">
+                           	<a href="">
+		                    	<i class="far fa-star"></i>       
+		                        Favorite
+	                    	</a>
                     </c:if>
+                    
+                    <!-- ------------ 
+                    
+                    <c:if test="${sessionScope.mvo ne null }">
+	                
+	                    <!-- 사용자의 favorite list에 있을 경우 
+	                    	현자용자의 favortielist를 세션에 즐겨찾기로 fvo 넘겨 줄 것이고, 현재 노트북 정보는 l_list에 존재
+	                    	화면을 넘겼을 때 list를 검색, 멤버의 f_key와 laptop_seq가 같은 지 아닌지
+	                    	-->
+	                    <c:if test="${sessionScope.fvo.laptop_seq eq l_list.laptop_seq }">
+	                    	<a href="">
+		                    	<i class="far fa-star"></i>       
+		                        Favorite
+	                    	</a>
+                    	</c:if>
+                    	
+                    	<!-- 사용자의 favorite list에 없을 경우 -->
+                    	 <c:if test="${sessionScope.fvo.laptop_seq ne l_list.laptop_seq }">
+	                    	<a href="">
+		                    	<i class="far fa-star"></i>       
+		                        Favorite
+	                    	</a>
+                    	</c:if>
+                    
+                    </c:if>
+                    
+                    -->
+                    
                     <c:if test="${sessionScope.mvo eq null }">
                     	<a href="/signIn">
 	                    	<i class="far fa-star"></i>       
@@ -111,8 +149,9 @@
         			
         			if(data.res == "0"){
 	        			alert("정상적으로 로그아웃 처리되었습니다.");
-	        			location.href="/result?laptop_MonitorSize="+data.svo.laptop_MonitorSize+"&laptop_OS="+data.svo.laptop_OS+"&program_Name="+data.svo.program_Name+
-						"&status="+data.svo.status+"&laptop_Weight="+data.svo.laptop_Weight+"&laptop_Price="+data.svo.laptop_Price;		
+	        			//location.href="/result?laptop_MonitorSize="+data.svo.laptop_MonitorSize+"&laptop_OS="+data.svo.laptop_OS+"&program_Name="+data.svo.program_Name+
+						//"&status="+data.svo.status+"&laptop_Weight="+data.svo.laptop_Weight+"&laptop_Price="+data.svo.laptop_Price;		
+        				$("#login_exp").html("<a href='/signIn'>Login</a>")
         			}	
         		});
         	}
