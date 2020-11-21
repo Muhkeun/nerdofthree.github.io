@@ -60,7 +60,7 @@
     <section>
         <div class="container">
         <c:if test="${ar ne null }">
-        <c:forEach var="l_list" items="${ar }">
+        <c:forEach var="l_list" items="${ar }" varStatus="lvs">
             <div class="slides">  
 				<img src="${l_list.laptop_ImageURL }?shrink=500:500&_v=20200306133943" alt="">
                 <div class="content">
@@ -70,15 +70,18 @@
                     <p>WEIGHT: ${l_list.laptop_Weight } kg</p>
                     <p>PRICE: ${l_list.laptop_Price } won</p>
                     <p>LAPTOP_SEQ: ${l_list.laptop_seq }</p>
+                    <p>${lvs.index }</p>
                     
                     <c:if test="${sessionScope.mvo ne null }">
+                    	
                   		<input type="hidden" name="f_key" value="${sessionScope.mvo.f_key }"/>
-                  		<input type="text" name="laptop_seq" value="${l_list.laptop_seq }" onchange="changeVal()"/>
+                  		<input type="text" name="laptop_seq" value="${ar[lvs.index].laptop_seq}"/>
                   		
-                        <a href="javascript:favorite()">
+                        <a id="f_btn">
                    			<i class="far fa-star"></i>       
                       			Favorite
                   		</a>
+                  		
                     </c:if>
 	                    <a href='${l_list.laptop_url }'>
 	                        <i class="fas fa-shopping-cart"></i>
@@ -94,13 +97,13 @@
                 <h2>Recommend</h2>
                 <div class="nav">
                     <div class="nav-bar">
-                    <c:forEach var="l_list_s" items="${ar }" varStatus="vs">
-                    	<c:if test="${vs.index eq '0' }">
+                    <c:forEach var="l_list_s" items="${ar }" varStatus="lvs_s">
+                    	<c:if test="${lvs_s.index eq '0' }">
 	                        <div class="column active">
 	                            <img src="${l_list_s.laptop_ImageURL }?shrink=500:500" alt="">
 	                        </div>
                         </c:if>
-                        <c:if test="${vs.index ne '0' }">
+                        <c:if test="${lvs_s.index ne '0' }">
                         	<div class="column">
 	                            <img src="${l_list_s.laptop_ImageURL }?shrink=500:500" alt="">
 	                        </div>
@@ -132,31 +135,40 @@
         		});
         	};
         	
-        	function favorite(){
+        	$(function(){
         		
-        		var f_key = $("input[name=f_key]").val();
-        		var laptop_seq = $("input[name=laptop_seq]").val();
-        		
-        		$("input[name=laptop_seq]").val().on("propertychange change keyup paste input", function(){
+        		$("#f_btn").bind("click", function(){
         			
-        			laptop_seq = $(this).val();
+        			var f_key = $("input[name=f_key]").val();
+            		var laptop_seq = $("input[name=laptop_seq]").val();
+            		
+        			$("#laptop_seq").on("propertychange change keyup paste input", function(){
+        				var currentVal = $(this).val();
+        				
+        				if(currentVal == laptop_seq){
+        					return;
+        				}
+        				
+        				laptop_seq = currentVal;
+        			});        			
+
         			
-        			alert("값이 "+laptop_seq+"로 변경되었습니다.");
+            		$.ajax({
+            			url: "favorite",
+            			data: "f_key="+encodeURIComponent(f_key)+"&laptop_seq="+encodeURIComponent(laptop_seq),
+            			dataType: "json",
+            			
+            		}).done(function(data){
+            			
+            			if(data.f_chk == "1"){
+            				alert("즐겨찾기 목록에 추가되었습니다.");
+            			}else{
+            				alert("즐겨찾기 목록에서 삭제되었습니다");
+            			}
+            		});  
+            		
         		});
-        		
-        		$.ajax({
-        			url: "favorite",
-        			data: "f_key="+encodeURIComponent(f_key)+"&laptop_seq="+encodeURIComponent(laptop_seq),
-        			dataType: "json",
-        		}).done(function(data){
-        			
-        			if(data.f_chk == "1"){
-        				alert("즐겨찾기 목록에 추가되었습니다.");
-        			}else{
-        				alert("즐겨찾기 목록에서 삭제되었습니다");
-        			}
-        		});    		
-        	};
+        	});
         	
         </script>
 </body>
