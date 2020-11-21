@@ -14,11 +14,16 @@
   		VALUES(laptopmember_seq.NEXTVAL, #{member_name}, #{member_age}, #{member_gender}, #{email}, #{profile_image}, #{password})
   	</insert>
   	
-  	<!-- f_Key 저장 -->
-  	<insert id="add_f_key" parameterType="java.util.Map">
+  	<!-- 즐겨찾기 저장 -->
+  	<insert id="addFavorite" parameterType="java.util.Map">
   		INSERT INTO favorite(f_key, laptop_seq)
   		VALUES(#{f_key}, #{laptop_seq})
   	</insert>
+  	
+  	<!-- 즐겨찾기 삭제 -->
+  	<delete id="delFavorite" parameterType="java.util.Map">
+  		DELETE FROM favorite WHERE f_key = #{f_key} AND laptop_seq = #{laptop_seq}
+  	</delete>
   	
   	<!-- signInChk -->
   	<select id="signInChk" parameterType="java.util.Map" resultType="mybatis.vo.MemberVO">
@@ -26,7 +31,7 @@
   	</select>
   	
   	<!-- 즐겨찾기 불러오기 -->
-  	<select id="get_f_key" parameterType="String" resultType="String">
-  		SELECT laptop_seq FROM favorite WHERE f_key = #{f_key}
+  	<select id="getFavorite" parameterType="java.util.Map" resultType="mybatis.vo.FavoriteVO">
+  		SELECT * FROM favorite WHERE f_key = #{f_key} AND laptop_seq = #{laptop_seq}
   	</select>
 </mapper>

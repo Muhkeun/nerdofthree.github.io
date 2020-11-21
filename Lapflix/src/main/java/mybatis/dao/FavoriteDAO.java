@@ -8,6 +8,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import mybatis.vo.FavoriteVO;
+
 @Component
 public class FavoriteDAO {
 	
@@ -21,14 +23,31 @@ public class FavoriteDAO {
 		map.put("f_key", f_key);
 		map.put("laptop_seq", laptop_seq);
 		
-		int cnt = sst.insert("member.add_f_key", map);
+		int cnt = sst.insert("member.addFavorite", map);
 		
 		return cnt;
 	}
 	
-	public List<String> getFavorite(String f_key) {
-		 List<String> f_list = sst.selectList("member.get_f_key", f_key);
-		 return f_list;
+	public FavoriteVO getFavorite(String f_key, String laptop_seq) {
+		 Map<String, String> map = new Hashtable<String, String>();
+		 
+		 map.put("f_key", f_key);
+		 map.put("laptop_seq", laptop_seq);
+		 
+		 FavoriteVO fvo = sst.selectOne("member.getFavorite", map);
+		 
+		 return fvo;
+	}
+	
+	public int delFavorite(String f_key, String laptop_seq) {
+		Map<String, String> map = new Hashtable<String, String>();
+		
+		map.put("f_key", f_key);
+		map.put("laptop_seq", laptop_seq);
+		
+		int cnt = sst.delete("member.delFavorite", map);
+		
+		return cnt;
 	}
 	
 }

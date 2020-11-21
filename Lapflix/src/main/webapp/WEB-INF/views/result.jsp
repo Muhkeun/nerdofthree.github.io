@@ -69,52 +69,21 @@
                     <p>GPU: ${l_list.gpu_Name }</p>
                     <p>WEIGHT: ${l_list.laptop_Weight } kg</p>
                     <p>PRICE: ${l_list.laptop_Price } won</p>
-                    
-                     <c:if test="${sessionScope.mvo ne null }">
-                           	<a href="">
-		                    	<i class="far fa-star"></i>       
-		                        Favorite
-	                    	</a>
-                    </c:if>
-                    
-                    <!-- ------------ 
+                    <p>LAPTOP_SEQ: ${l_list.laptop_seq }</p>
                     
                     <c:if test="${sessionScope.mvo ne null }">
-	                
-	                    <!-- 사용자의 favorite list에 있을 경우 
-	                    	현자용자의 favortielist를 세션에 즐겨찾기로 fvo 넘겨 줄 것이고, 현재 노트북 정보는 l_list에 존재
-	                    	화면을 넘겼을 때 list를 검색, 멤버의 f_key와 laptop_seq가 같은 지 아닌지
-	                    	-->
-	                    <c:if test="${sessionScope.fvo.laptop_seq eq l_list.laptop_seq }">
-	                    	<a href="">
-		                    	<i class="far fa-star"></i>       
-		                        Favorite
-	                    	</a>
-                    	</c:if>
-                    	
-                    	<!-- 사용자의 favorite list에 없을 경우 -->
-                    	 <c:if test="${sessionScope.fvo.laptop_seq ne l_list.laptop_seq }">
-	                    	<a href="">
-		                    	<i class="far fa-star"></i>       
-		                        Favorite
-	                    	</a>
-                    	</c:if>
-                    
+                  		<input type="hidden" name="f_key" value="${sessionScope.mvo.f_key }"/>
+                  		<input type="text" name="laptop_seq" value="${l_list.laptop_seq }" onchange="changeVal()"/>
+                  		
+                        <a href="javascript:favorite()">
+                   			<i class="far fa-star"></i>       
+                      			Favorite
+                  		</a>
                     </c:if>
-                    
-                    -->
-                    
-                    <c:if test="${sessionScope.mvo eq null }">
-                    	<a href="/signIn">
-	                    	<i class="far fa-star"></i>       
-		                        Favorite
-                    	</a>
-                    </c:if>
-                        
-                      <a href='#'>
-                        <i class="fas fa-shopping-cart"></i>
-                        Buy now 
-                    </a>
+	                    <a href='${l_list.laptop_url }'>
+	                        <i class="fas fa-shopping-cart"></i>
+	                        Buy now 
+	                    </a>
                 </div>
             </div>
         </c:forEach>
@@ -125,10 +94,17 @@
                 <h2>Recommend</h2>
                 <div class="nav">
                     <div class="nav-bar">
-                    <c:forEach var="l_list_s" items="${ar }">
-                        <div class="column active">
-                            <img src="${l_list_s.laptop_ImageURL }?shrink=500:500" alt="">
-                        </div>
+                    <c:forEach var="l_list_s" items="${ar }" varStatus="vs">
+                    	<c:if test="${vs.index eq '0' }">
+	                        <div class="column active">
+	                            <img src="${l_list_s.laptop_ImageURL }?shrink=500:500" alt="">
+	                        </div>
+                        </c:if>
+                        <c:if test="${vs.index ne '0' }">
+                        	<div class="column">
+	                            <img src="${l_list_s.laptop_ImageURL }?shrink=500:500" alt="">
+	                        </div>
+                        </c:if>
                     </c:forEach>
                     </div>
                 </div>
@@ -154,7 +130,34 @@
         				$("#login_exp").html("<a href='/signIn'>Login</a>")
         			}	
         		});
-        	}
+        	};
+        	
+        	function favorite(){
+        		
+        		var f_key = $("input[name=f_key]").val();
+        		var laptop_seq = $("input[name=laptop_seq]").val();
+        		
+        		$("input[name=laptop_seq]").val().on("propertychange change keyup paste input", function(){
+        			
+        			laptop_seq = $(this).val();
+        			
+        			alert("값이 "+laptop_seq+"로 변경되었습니다.");
+        		});
+        		
+        		$.ajax({
+        			url: "favorite",
+        			data: "f_key="+encodeURIComponent(f_key)+"&laptop_seq="+encodeURIComponent(laptop_seq),
+        			dataType: "json",
+        		}).done(function(data){
+        			
+        			if(data.f_chk == "1"){
+        				alert("즐겨찾기 목록에 추가되었습니다.");
+        			}else{
+        				alert("즐겨찾기 목록에서 삭제되었습니다");
+        			}
+        		});    		
+        	};
+        	
         </script>
 </body>
 </html>
