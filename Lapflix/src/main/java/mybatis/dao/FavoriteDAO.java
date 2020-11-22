@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import mybatis.vo.FavoriteVO;
+import mybatis.vo.LaptopVO;
 
 @Component
 public class FavoriteDAO {
@@ -48,6 +49,13 @@ public class FavoriteDAO {
 		int cnt = sst.delete("member.delFavorite", map);
 		
 		return cnt;
+	}
+	
+	public List<LaptopVO> getFavoriteList(String f_key) {
+		
+		List<LaptopVO> list = sst.selectList("laptop.f_list", f_key);
+		
+		return list;
 	}
 	
 }

@@ -27,7 +27,7 @@
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Survey</a></li>
-            <li><a href="#">My favorite</a></li>
+            <li><a href="javascript:f_list()">My favorite</a></li>
             
             
             
@@ -60,7 +60,7 @@
     <section>
         <div class="container">
         <c:if test="${ar ne null }">
-        <c:forEach var="l_list" items="${ar }">
+        <c:forEach var="l_list" items="${ar }" varStatus="vs">
             <div class="slides">  
 				<img src="${l_list.laptop_ImageURL }?shrink=500:500&_v=20200306133943" alt="">
                 <div class="content">
@@ -69,15 +69,14 @@
                     <p>GPU: ${l_list.gpu_Name }</p>
                     <p>WEIGHT: ${l_list.laptop_Weight } kg</p>
                     <p>PRICE: ${l_list.laptop_Price } won</p>
-                    <p>LAPTOP_SEQ: ${l_list.laptop_seq }</p>
                     
                     <c:if test="${sessionScope.mvo ne null }">
                   		<input type="hidden" name="f_key" value="${sessionScope.mvo.f_key }"/>
-                  		<input type="text" name="laptop_seq" value="${l_list.laptop_seq }"/>
-                        <a href="javascript:favorite()">
-                   			<i class="far fa-star"></i>       
-                      			Favorite
-                  		</a>
+                  		<input type="hidden" name="${vs.index }" value="${l_list.laptop_seq }"/>
+                        
+                        <a href="javascript:favorite(${vs.index })">
+                   			<i class="far fa-star"></i>        
+                 		</a>
                   		
                     </c:if>
 	                    <a href='${l_list.laptop_url }'>
@@ -132,14 +131,14 @@
         		});
         	};
         	
-        	function favorite(){
+        	function favorite(idx){
         		
         		var f_key = $("input[name=f_key]").val();
-        		var laptop_seq = $("input[name=laptop_seq]").val();
-        		console.log(laptop_seq);
+        		var laptop_seq = $("input[name="+idx+"]").val();
     			
         		$.ajax({
         			url: "favorite",
+        			type: "post",
         			data: "f_key="+encodeURIComponent(f_key)+"&laptop_seq="+encodeURIComponent(laptop_seq),
         			dataType: "json",
         			
@@ -151,6 +150,24 @@
         				alert("즐겨찾기 목록에서 삭제되었습니다");
         			}
         		});  
+        	}
+        	
+        	function f_list(){
+        		
+        		var f_key = $("input[name=f_key]").val();
+        		
+        		if(f_key == null){
+        			alert("로그인을 해주세요.");
+        			location.href="/signIn";
+        		}
+        		
+        		$.ajax({
+        			url: "getFavoriteList",
+        			type: "post",
+        			data: "f_key="+encodeURIComponent(f_key),
+        		}).done(function(){
+        			location.href="/favoriteList";
+        		});
         	}
         	
         </script>

@@ -79,6 +79,11 @@
 	
 	<!-- 프로그램  cpu, gpu점수 구하기 -->
 	<select id="program" resultType="mybatis.vo.Program_BenchVO" parameterType="java.util.Map">
-		SELECT * FROM program_Bench WHERE program_Name=#{program_Name}
+		SELECT * FROM program_Bench WHERE program_Name = #{program_Name}
+	</select>
+	
+	<!-- favorite List 구하기 -->
+	<select id="f_list" resultType="mybatis.vo.LaptopVO" parameterType="java.util.Map">
+		SELECT * FROM laptop NATURAL JOIN favorite WHERE f_key = #{f_key}
 	</select>
 </mapper>
