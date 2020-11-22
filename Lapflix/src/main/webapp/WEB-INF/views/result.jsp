@@ -60,7 +60,7 @@
     <section>
         <div class="container">
         <c:if test="${ar ne null }">
-        <c:forEach var="l_list" items="${ar }" varStatus="lvs">
+        <c:forEach var="l_list" items="${ar }">
             <div class="slides">  
 				<img src="${l_list.laptop_ImageURL }?shrink=500:500&_v=20200306133943" alt="">
                 <div class="content">
@@ -70,14 +70,11 @@
                     <p>WEIGHT: ${l_list.laptop_Weight } kg</p>
                     <p>PRICE: ${l_list.laptop_Price } won</p>
                     <p>LAPTOP_SEQ: ${l_list.laptop_seq }</p>
-                    <p>${lvs.index }</p>
                     
                     <c:if test="${sessionScope.mvo ne null }">
-                    	
                   		<input type="hidden" name="f_key" value="${sessionScope.mvo.f_key }"/>
-                  		<input type="text" name="laptop_seq" value="${ar[lvs.index].laptop_seq}"/>
-                  		
-                        <a id="f_btn">
+                  		<input type="text" name="laptop_seq" value="${l_list.laptop_seq }"/>
+                        <a href="javascript:favorite()">
                    			<i class="far fa-star"></i>       
                       			Favorite
                   		</a>
@@ -135,40 +132,26 @@
         		});
         	};
         	
-        	$(function(){
+        	function favorite(){
         		
-        		$("#f_btn").bind("click", function(){
+        		var f_key = $("input[name=f_key]").val();
+        		var laptop_seq = $("input[name=laptop_seq]").val();
+        		console.log(laptop_seq);
+    			
+        		$.ajax({
+        			url: "favorite",
+        			data: "f_key="+encodeURIComponent(f_key)+"&laptop_seq="+encodeURIComponent(laptop_seq),
+        			dataType: "json",
         			
-        			var f_key = $("input[name=f_key]").val();
-            		var laptop_seq = $("input[name=laptop_seq]").val();
-            		
-        			$("#laptop_seq").on("propertychange change keyup paste input", function(){
-        				var currentVal = $(this).val();
-        				
-        				if(currentVal == laptop_seq){
-        					return;
-        				}
-        				
-        				laptop_seq = currentVal;
-        			});        			
-
+        		}).done(function(data){
         			
-            		$.ajax({
-            			url: "favorite",
-            			data: "f_key="+encodeURIComponent(f_key)+"&laptop_seq="+encodeURIComponent(laptop_seq),
-            			dataType: "json",
-            			
-            		}).done(function(data){
-            			
-            			if(data.f_chk == "1"){
-            				alert("즐겨찾기 목록에 추가되었습니다.");
-            			}else{
-            				alert("즐겨찾기 목록에서 삭제되었습니다");
-            			}
-            		});  
-            		
-        		});
-        	});
+        			if(data.f_chk == "1"){
+        				alert("즐겨찾기 목록에 추가되었습니다.");
+        			}else{
+        				alert("즐겨찾기 목록에서 삭제되었습니다");
+        			}
+        		});  
+        	}
         	
         </script>
 </body>

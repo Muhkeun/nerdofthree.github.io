@@ -21,6 +21,7 @@ public class FavoriteController {
 	@ResponseBody
 	public Map<String, String> favorite(FavoriteVO fvo) {
 		Map<String, String> map = new HashMap<String, String>();
+		
 		System.out.println(fvo.getF_key()+"/"+fvo.getLaptop_seq());
 		
 		FavoriteVO f = f_dao.getFavorite(fvo.getF_key(), fvo.getLaptop_seq());
