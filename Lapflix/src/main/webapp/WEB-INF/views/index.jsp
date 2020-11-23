@@ -103,11 +103,11 @@
                     
                 <div class="answer">
                     <form action="">
-                        <input type="radio" name="program_Name" value="photoshop"/>1. PhotoShop (이미지작업)</br>
-		                <input type="radio" name="program_Name" value="programming"/>2. Programming (프로그래밍)</br>
+                        <input type="radio" name="program_Name" value="PhotoShop"/>1. PhotoShop (이미지작업)</br>
+		                <input type="radio" name="program_Name" value="Programming"/>2. Programming (프로그래밍)</br>
 		                <input type="radio" name="program_Name" value="Premiere"/>3. Premiere Pro (영상작업)</br>
 		                <input type="radio" name="program_Name" value="Battleground"/>4. Battleground (게임)</br>
-		                <input type="radio" name="program_Name" value="websurfing"/>5. WebSurfing (영상작업)</br>
+		                <input type="radio" name="program_Name" value="WebSurfing"/>5. WebSurfing (웹서핑)</br>
                     </form>
                 </div>
                 
