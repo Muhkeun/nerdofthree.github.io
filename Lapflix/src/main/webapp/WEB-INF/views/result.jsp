@@ -159,6 +159,7 @@
         		if(f_key == null){
         			alert("로그인을 해주세요.");
         			location.href="/signIn";
+        			return;
         		}
         		
         		$.ajax({

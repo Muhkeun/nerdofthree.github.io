@@ -20,7 +20,7 @@
 </style>
 </head>
 <body>
-	<h1>favorite 결과</h1>
+	<h1>favorite List</h1>
 	<table id="table">
 		<colgroup>
 			<col width="30%"/>
