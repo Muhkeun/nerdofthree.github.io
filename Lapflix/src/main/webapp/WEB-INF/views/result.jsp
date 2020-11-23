@@ -26,17 +26,17 @@
         </div>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Survey</a></li>
+            <li><a href="/">Survey</a></li>
             <li><a href="javascript:f_list()">My favorite</a></li>
             
             
             
         <c:if test="${sessionScope.mvo eq null }">
-            <li><a href="/signIn">Login</a></li>
+            <li id="login"><a href="/signIn">Login</a></li>
         </c:if>
           
          <c:if test="${sessionScope.mvo ne null }">
-        	<li id = "login_exp"><a href="javascript:logout()" >Logout</a></li>
+        	<li id = "logout"><a href="javascript:logout()" >Logout</a></li>
         </c:if>  
         
         <!-- 	로그인 시 li 태그에 id만 부여, 
@@ -124,9 +124,8 @@
         			
         			if(data.res == "0"){
 	        			alert("정상적으로 로그아웃 처리되었습니다.");
-	        			//location.href="/result?laptop_MonitorSize="+data.svo.laptop_MonitorSize+"&laptop_OS="+data.svo.laptop_OS+"&program_Name="+data.svo.program_Name+
-						//"&status="+data.svo.status+"&laptop_Weight="+data.svo.laptop_Weight+"&laptop_Price="+data.svo.laptop_Price;		
-        				$("#login_exp").html("<a href='/signIn'>Login</a>")
+	        			location.href="/result?laptop_MonitorSize="+data.svo.laptop_MonitorSize+"&laptop_OS="+data.svo.laptop_OS+"&program_Name="+data.svo.program_Name+
+						"&status="+data.svo.status+"&laptop_Weight="+data.svo.laptop_Weight+"&laptop_Price="+data.svo.laptop_Price;		
         			}	
         		});
         	};
