@@ -16,6 +16,15 @@
 	.content h2, p{
 		font-family:'Times New Roman';
 	}
+	
+	#p_img{
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+	}
+	.fa-star{
+		
+	}
 </style> 
 </head>
 <body>
@@ -27,16 +36,14 @@
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="/">Survey</a></li>
-            <li><a href="javascript:f_list()">My favorite</a></li>
-            
-            
+            <li><a href="javascript:f_list()">My favorite</a></li>            
             
         <c:if test="${sessionScope.mvo eq null }">
             <li id="login"><a href="/signIn">Login</a></li>
         </c:if>
           
          <c:if test="${sessionScope.mvo ne null }">
-        	<li id = "logout"><a href="javascript:logout()" >Logout</a></li>
+        	<li id = "logout"><a href="javascript:logout_ok()" ><img id="p_img" src="/resources/upload/${sessionScope.mvo.profile_image }"/></a></li>
         </c:if>  
         
         <!-- 	로그인 시 li 태그에 id만 부여, 
@@ -77,7 +84,6 @@
                         <a href="javascript:favorite(${vs.index })">
                    			<i class="far fa-star"></i>        
                  		</a>
-                  		
                     </c:if>
 	                    <a href='${l_list.laptop_url }'>
 	                        <i class="fas fa-shopping-cart"></i>
@@ -115,6 +121,12 @@
         <script type="text/javascript" src="resources/js/slide.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script>
+        	function logout_ok(){
+        		
+        		$("#logout").html("<a href='javascript:logout()'>logout</a>");
+        		
+        	}
+        
         	function logout(){
         		
         		$.ajax({

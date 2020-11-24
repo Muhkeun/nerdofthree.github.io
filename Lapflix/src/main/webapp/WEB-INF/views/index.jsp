@@ -82,10 +82,9 @@
                 <div class="answer">
                     <form action="">
             
-                        <input type="radio" name="laptop_OS" value="mac"/>1. MacOS 🍎</br>
-                        <input type="radio" name="laptop_OS" value="윈도우10"/>2. Windows 🖼</br>
-                        <input type="radio" name="laptop_OS" value="리눅스"/>3. Linux 🐧</br>
-                        <input type="radio" name="laptop_OS" value="미포함"/>4. FreeDos </br>
+                        <input type="radio" name="laptop_OS" value="0"/>1. Windows or FreeDos🖼</br>
+                        <input type="radio" name="laptop_OS" value="1"/>2. MacOS 🍎</br>
+                        <input type="radio" name="laptop_OS" value="2"/>3. Linux 🐧</br>
                     </form>
                 </div>
 

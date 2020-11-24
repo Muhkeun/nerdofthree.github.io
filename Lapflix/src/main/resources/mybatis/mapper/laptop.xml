@@ -19,7 +19,24 @@
 			</when>
 		</choose>
 		
-		cpu_Point <![CDATA[>=]]> #{cpu_Point} AND laptop_OS=#{laptop_OS} AND 
+		cpu_Point <![CDATA[>=]]> #{cpu_Point} AND 
+		
+		<!-- OS -->
+		<if test="laptop_OS != null">
+			<trim suffix="AND">
+				<choose>
+					<when test="laptop_OS == 0">
+						(laptop_OS LIKE '윈도우10'||'%' OR laptop_OS = '미포함')
+					</when>
+					<when test="laptop_OS == 1">
+						laptop_OS LIKE 'mac'||'%'
+					</when>
+					<when test="laptop_OS == 2">
+						laptop_OS = '리눅스'
+					</when>  
+				</choose>
+			</trim>
+		</if>
 		
 		<!-- 모니터 사이즈 -->
 		<if test="laptop_MonitorSize != null">
