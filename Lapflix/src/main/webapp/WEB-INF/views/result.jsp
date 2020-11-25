@@ -89,6 +89,10 @@
 	                        <i class="fas fa-shopping-cart"></i>
 	                        Buy now 
 	                    </a>
+	                    <a href='/review?laptop_seq=${l_list.laptop_seq }'>
+	                    	<i class="fas fa-comments"></i>
+	                    	Review
+	                    </a>
                 </div>
             </div>
         </c:forEach>

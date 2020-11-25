@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="review">
+	
+	<resultMap type="mybatis.vo.ReviewVO" id="map1">
+		<id column="r_idx" property="r_idx"/><!-- 기본키(id)로 b_idx설정. result column: 결과값을  담는다. -->
+		<collection property="c_list" select="commList" column="r_idx" ofType="mybatis.vo.CommVO"/>
+	</resultMap>
+
+	<!-- 특정 원글의 기본키를 조건으로 하여 해당 댓글들을 조회하는 기능 -->
+	<select id="commList" parameterType="String" resultType="mybatis.vo.CommVO">
+		SELECT * FROM comment_t WHERE r_idx = #{r_idx}	
+	</select>
+	
+	<!-- 사용자가 원글의 목록을 호출할 때 사용되는 목록(list) 기능 -->
+	<select id="list" parameterType="java.util.Map" resultMap="map1">
+		SELECT * FROM (
+			SELECT rownum r_num, a.* FROM(
+				SELECT * FROM review WHERE status = 0 
+				AND laptop_seq = #{laptop_seq} ORDER BY r_idx DESC
+			) a
+		)
+		WHERE r_num BETWEEN #{begin} AND #{end} 
+	</select>
+	
+	<!-- 페이징 기법에 사용될 전체 페이지 수를 구하기 위해 현재 전체 게시물의 수를 반환한다. -->
+	<select id="totalCount" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM review WHERE status = 0 AND laptop_seq = #{laptop_seq}
+	</select>
+	
+</mapper>
