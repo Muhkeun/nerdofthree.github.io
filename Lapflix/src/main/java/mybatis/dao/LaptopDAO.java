@@ -37,5 +37,12 @@ public class LaptopDAO {
 		return pbvo;
 	}
 	
+	public List<LaptopVO> getAllLaptopList(){
+		List<LaptopVO> list = sst.selectList("laptop.listAll");
+		
+		return list;
+	}
+	
+	
 	
 }

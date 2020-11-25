@@ -75,47 +75,18 @@ public class ResultController {
 				mv.setViewName("result");			
 				
 				return mv;
-		}else{
+		}else{ //전체 데이터 받아와서 검색으로 수정
 			search = search.toLowerCase();
-			
-			if(ar == null) {
-				Program_BenchVO point = l_dao.getPoint(svo.getProgram_Name());
-				int cpu_Point = -1;
-				int gpu_Point = -1;
-				if(svo.getStatus().equals("noob") || svo.getStatus().equals("")) {
-					cpu_Point = point.getProgram_Cpu_min();
-					gpu_Point = point.getProgram_Gpu_min();
-				}else if(svo.getStatus().equals("expert")) {
-					cpu_Point = point.getProgram_Cpu_rec();
-					gpu_Point = point.getProgram_Gpu_rec();
-				}
-				
-				LaptopVO lvo = new LaptopVO();
-	
-				//파라미터값들 LaptopVO에 넣기
-				lvo.setCpu_Point(cpu_Point);
-				lvo.setGpu_Point(gpu_Point);
-				
-				if(svo.getLaptop_MonitorSize().equals(""))
-					lvo.setLaptop_MonitorSize(null);
-				else
-					lvo.setLaptop_MonitorSize(svo.getLaptop_MonitorSize());
-				
-				lvo.setLaptop_OS(svo.getLaptop_OS());
-				lvo.setLaptop_Weight(Float.parseFloat(svo.getLaptop_Weight()));
-				lvo.setLaptop_Price(Integer.parseInt(svo.getLaptop_Price()));
-				
-				List<LaptopVO> l_list = l_dao.getLaptopList(lvo);
+						
+				List<LaptopVO> l_list = l_dao.getAllLaptopList();
 				
 				//리스트를 배열로 변환
-				
 				
 				if(l_list != null && l_list.size() > 0) {
 					ar = new LaptopVO[l_list.size()];
 					
 					l_list.toArray(ar);
 				}
-			}
 			ModelAndView mv = new ModelAndView();
 			httpSession.setAttribute("svo", svo);
 			
