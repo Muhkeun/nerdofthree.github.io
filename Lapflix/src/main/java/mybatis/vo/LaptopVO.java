@@ -11,6 +11,12 @@ public class LaptopVO {
     		laptop_ImageURL,
     		laptop_url;
 	
+	private int cpu_Point,
+				gpu_Point,
+				laptop_Price;
+
+	private float laptop_Weight;
+
 	public String getLaptop_seq() {
 		return laptop_seq;
 	}
@@ -18,13 +24,6 @@ public class LaptopVO {
 	public void setLaptop_seq(String laptop_seq) {
 		this.laptop_seq = laptop_seq;
 	}
-
-	private int cpu_Point,
-				gpu_Point,
-				laptop_Price;
-	
-	private float laptop_Weight;
-	
 
 	public String getLaptop_Name() {
 		return laptop_Name;
