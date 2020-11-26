@@ -25,13 +25,13 @@
 		<if test="laptop_OS != null">
 			<trim suffix="AND">
 				<choose>
-					<when test="laptop_OS == 0">
+					<when test="laptop_OS == '0'">
 						(laptop_OS LIKE '윈도우10'||'%' OR laptop_OS = '미포함')
 					</when>
-					<when test="laptop_OS == 1">
+					<when test="laptop_OS == '1'">
 						laptop_OS LIKE 'mac'||'%'
 					</when>
-					<when test="laptop_OS == 2">
+					<when test="laptop_OS == '2'">
 						laptop_OS = '리눅스'
 					</when>  
 				</choose>
@@ -42,13 +42,13 @@
 		<if test="laptop_MonitorSize != null">
 			<trim suffix="AND">
 				<choose>
-					<when test="laptop_MonitorSize == 0">
+					<when test="laptop_MonitorSize == '0'">
 						laptop_MonitorSize <![CDATA[<]]> 13 
 					</when>
-					<when test="laptop_MonitorSize == 1">
+					<when test="laptop_MonitorSize == '1'">
 						laptop_MonitorSize BETWEEN 13 AND 15
 					</when>
-					<when test="laptop_MonitorSize == 2">
+					<when test="laptop_MonitorSize == '2'">
 						laptop_MonitorSize <![CDATA[>]]> 15
 					</when>
 				</choose>
@@ -59,13 +59,13 @@
 		<if test="laptop_Weight != null">
 			<trim suffix="AND">
 				<choose>
-					<when test="laptop_Weight == 0">
+					<when test="laptop_Weight == 0.0">
 						laptop_Weight <![CDATA[<]]> 1.5
 					</when>
-					<when test="laptop_Weight == 1">
+					<when test="laptop_Weight == 1.0">
 						laptop_Weight BETWEEN 1.5 and 1.9
 					</when>
-					<when test="laptop_Weight == 2">
+					<when test="laptop_Weight == 2.0">
 						laptop_Weight <![CDATA[>]]> 1.9
 					</when>
 				</choose>
