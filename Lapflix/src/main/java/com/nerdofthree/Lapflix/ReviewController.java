@@ -19,7 +19,7 @@ public class ReviewController {
 	private int blockPage = 5; //한 블럭당 보여질 페이지 수
 	
 	@RequestMapping("/review")
-	public ModelAndView reviewList(String laptop_seq, String cPage) {
+	public ModelAndView reviewList(String bname, String cPage) {
 		ModelAndView mv = new ModelAndView();
 		
 		int c_page = 1;
@@ -27,12 +27,15 @@ public class ReviewController {
 			c_page = Integer.parseInt(cPage);
 		}
 		
-		int rowTotal = r_dao.totalCount(laptop_seq);
+		if(bname == null) {
+			bname = "review";
+		}
+		int rowTotal = r_dao.totalCount(bname);
 		
-		Paging page = new Paging(c_page, rowTotal, blockList, blockPage, laptop_seq);
+		Paging page = new Paging(c_page, rowTotal, blockList, blockPage);
 		
 		//목록을 얻어낸다.
-		ReviewVO[] rar = r_dao.getList(page.getBegin(), page.getEnd(), laptop_seq);
+		ReviewVO[] rar = r_dao.getList(page.getBegin(), page.getEnd(), bname);
 		
 		mv.addObject("rar", rar);
 		mv.addObject("rowTotal", rowTotal);
