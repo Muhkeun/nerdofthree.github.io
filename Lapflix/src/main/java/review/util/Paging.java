@@ -18,7 +18,7 @@ public class Paging {
 	//JSP에서 표현할 페이징 HTML코드를 저장할 곳! list.jsp의 ol부분
 	private StringBuffer sb; //문자열 수정
 
-	public Paging(int nowPage, int rowTotal, int blockList, int blockPage, String laptop_seq) {
+	public Paging(int nowPage, int rowTotal, int blockList, int blockPage) {
 		this.nowPage = nowPage;
 		this.rowTotal = rowTotal;
 		this.blockList = blockList;
@@ -67,7 +67,7 @@ public class Paging {
 		sb = new StringBuffer("<ol class='paging'>");//쌍따옴표를 홑따옴표로
 		
 		if(isPrePage) {
-			sb.append("<li><a href='review?laptop_seq="+laptop_seq+"&cPage=");
+			sb.append("<li><a href='review?cPage=");
 			sb.append(startPage-blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
 			sb.append("'> &lt; </a></li>"); //&lt;는 꺾새기호
 		}else {
@@ -84,7 +84,7 @@ public class Paging {
 				sb.append(i);
 				sb.append("</li>");
 			}else {
-				sb.append("<li><a href='review?laptop_seq="+laptop_seq+"&cPage=");
+				sb.append("<li><a href='review?cPage=");
 				sb.append(i);
 				sb.append("'>");
 				sb.append(i);//화면에 표시되는 부분
@@ -94,7 +94,7 @@ public class Paging {
 		
 		//다음기능
 		if(isNextPage) {
-			sb.append("<li><a href='review?laptop_seq="+laptop_seq+"&cPage=");
+			sb.append("<li><a href='review?cPage=");
 			sb.append(startPage+blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
 			sb.append("'> &gt; </a></li>"); //&lt;는 꺾새기호
 		}else {

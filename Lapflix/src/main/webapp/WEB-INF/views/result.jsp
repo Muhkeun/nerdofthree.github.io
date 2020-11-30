@@ -36,7 +36,8 @@
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="/">Survey</a></li>
-            <li><a href="javascript:f_list()">My favorite</a></li>            
+            <li><a href="javascript:f_list()">My favorite</a></li>
+            <li><a href="review">Review</a></li>            
             
         <c:if test="${sessionScope.mvo eq null }">
             <li id="login"><a href="/signIn">Login</a></li>
@@ -88,10 +89,6 @@
 	                    <a href='${l_list.laptop_url }'>
 	                        <i class="fas fa-shopping-cart"></i>
 	                        Buy now 
-	                    </a>
-	                    <a href='/review?laptop_seq=${l_list.laptop_seq }'>
-	                    	<i class="fas fa-comments"></i>
-	                    	Review
 	                    </a>
                 </div>
             </div>

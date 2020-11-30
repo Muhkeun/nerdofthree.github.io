@@ -19,15 +19,15 @@
 		SELECT * FROM (
 			SELECT rownum r_num, a.* FROM(
 				SELECT * FROM review WHERE status = 0 
-				AND laptop_seq = #{laptop_seq} ORDER BY r_idx DESC
+				AND bname = #{bname} ORDER BY r_idx DESC
 			) a
 		)
 		WHERE r_num BETWEEN #{begin} AND #{end} 
 	</select>
 	
 	<!-- 페이징 기법에 사용될 전체 페이지 수를 구하기 위해 현재 전체 게시물의 수를 반환한다. -->
-	<select id="totalCount" resultType="int" parameterType="String">
-		SELECT COUNT(*) FROM review WHERE status = 0 AND laptop_seq = #{laptop_seq}
+	<select id="totalCount" resultType="int">
+		SELECT COUNT(*) FROM review WHERE status = 0 AND bname = #{bname}
 	</select>
 	
 </mapper>
