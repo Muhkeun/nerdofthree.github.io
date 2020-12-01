@@ -42,4 +42,19 @@ public class ReviewDAO {
 		return cnt;
 	}
 	
+	//원글 저장
+	public void add(String subject, String writer, String content,
+			String file_name, String ip, String laptop_name, String bname) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("subject", subject);
+		map.put("writer", writer);
+		map.put("content", content);
+		map.put("file_name", file_name);
+		map.put("ip", ip);
+		map.put("laptop_name", laptop_name);
+		map.put("bname", bname);
+		
+		int cnt = sst.insert("review.add", map);
+	}
+	
 }

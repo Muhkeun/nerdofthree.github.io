@@ -91,10 +91,7 @@
 				if(data.chk == "0"){
 					alert("로그인이 필요합니다.");
 				}
-				/*else if(data.chk == "1"){
-					//글쓰기 화면으로 이동!
-					
-				}*/
+				
 				location.href=data.url;
 			});
 		});	

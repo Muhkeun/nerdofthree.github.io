@@ -2,6 +2,8 @@ package mybatis.vo;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ReviewVO {
 	private String r_idx,
 			subject,
@@ -12,7 +14,11 @@ public class ReviewVO {
 			ip,
 			hit,
 			status,
-			laptop_seq;
+			laptop_name;
+	
+	private MultipartFile file;
+	private int cPage;
+	
 	private List<CommVO> c_list;//원글에 포함된 댓글들...
 	public String getR_idx() {
 		return r_idx;
@@ -68,17 +74,30 @@ public class ReviewVO {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getLaptop_seq() {
-		return laptop_seq;
+	public String getLaptop_name() {
+		return laptop_name;
 	}
-	public void setLaptop_seq(String laptop_seq) {
-		this.laptop_seq = laptop_seq;
+	public void setLaptop_name(String laptop_name) {
+		this.laptop_name = laptop_name;
 	}
 	public List<CommVO> getC_list() {
 		return c_list;
 	}
 	public void setC_list(List<CommVO> c_list) {
 		this.c_list = c_list;
+	}
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	public int getcPage() {
+		return cPage;
+	}
+	public void setcPage(int cPage) {
+		this.cPage = cPage;
 	}
 	
 }

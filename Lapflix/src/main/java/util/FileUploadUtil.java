@@ -27,7 +27,9 @@ public class FileUploadUtil {
 			//파일명 뒤에 숫자를 붙여 파일명을 변경한다.
 			StringBuffer sb = new StringBuffer();
 			sb.append(f_name);
+			sb.append("(");
 			sb.append(idx++);// 숫자를 붙인 후 1증가
+			sb.append(")");
 			sb.append(suffix);
 			
 			filename = sb.toString();//변경할 파일이름
