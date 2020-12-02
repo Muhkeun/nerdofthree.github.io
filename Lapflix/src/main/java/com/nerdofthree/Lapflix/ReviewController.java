@@ -2,6 +2,7 @@ package com.nerdofthree.Lapflix;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -105,15 +106,30 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("/write_ok")
-	public ModelAndView writOk(ReviewVO rvo) {
-		//write.jsp에서 전달되는 form의 값들(bname, subject, content, file_name)
-		
+	public ModelAndView writOk(ReviewVO rvo) throws Exception{
+		//write.jsp에서 전달되는 form의 값들(bname, subject, content, file_name, laptop_name)
 		ModelAndView mv = new ModelAndView();
+		
+		MultipartFile mf = rvo.getFile();
+		
+		if(mf != null && mf.getSize() > 0) {
+			String path = application.getRealPath(uploadPath);
+			
+			String f_name = mf.getOriginalFilename();
+			
+			f_name = FileUploadUtil.checkSameFileName(f_name, path);
+			
+			mf.transferTo(new File(path, f_name));
+			
+			rvo.setFile_name(f_name);
+		}
+		
 		rvo.setIp(request.getRemoteAddr());
 		
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 		rvo.setWriter(mvo.getMember_name());
 		
+		r_dao.add(rvo);
 		mv.setViewName("redirect:/review");
 		
 		return mv;
@@ -122,7 +138,7 @@ public class ReviewController {
 	@RequestMapping("/saveImage")
 	@ResponseBody
 	public Map<String, String> saveImage(ReviewVO rvo) throws Exception{
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = new Hashtable<String, String>();
 		
 		MultipartFile mf = rvo.getFile();
 		
@@ -138,7 +154,7 @@ public class ReviewController {
 			//업로드
 			File f = new File(path, f_name); 
 			mf.transferTo(f);
-			request.getContextPath();
+			
 			map.put("img_url", request.getContextPath()+"/upload/"+f_name);
 		}
 		return map;

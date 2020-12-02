@@ -101,7 +101,7 @@
 		<h1 style="font-size: 40px; color: #000; margin-bottom: 15px;">리뷰 쓰기</h1>
 		<div class="bbs_area" id="bbs">
 		
-			<form action="write_ok" method="post" id="frm">
+			<form action="write_ok" method="post" id="frm" enctype="multipart/form-data">
 				
 				<input type="hidden" name="bname" value="review"/>
 				<table summary="리뷰 글쓰기">
@@ -122,8 +122,7 @@
 						<tr>
 							<th>내용:</th>
 							<td>
-								<textarea id="content" name="content" cols="50" 
-									rows="8"></textarea>
+								<textarea id="content" name="content" cols="50" rows="8"></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -133,8 +132,7 @@
 		
 						<tr>
 							<td colspan="2">
-								<input type="button" value="보내기"
-								onclick="sendData()"/>
+								<input type="button" value="보내기" onclick="sendData()"/>
 								<input type="button" value="다시"/>
 								<input type="button" value="목록"/>
 							</td>
@@ -153,6 +151,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="resources/js/summernote-lite.min.js"></script>
 <script src="resources/js/lang/summernote-ko-KR.js"></script>
+<script type="text/javascript" src="resources/js/saveImage.js"></script>
 <script>
 	function sendData(){
 		var laptop_name = document.getElementById("laptop_name").value;
@@ -160,7 +159,7 @@
 		var content = document.getElementById("content").value;
 		
 		if(laptop_name.trim().length < 1){
-			alert("노트북 이름을 입력하세요.");
+			alert("노트북이름을 입력하세요.");
 			
 			document.getElementById("laptop_name").focus();
 			return;
@@ -181,52 +180,6 @@
 		}
 		
 		document.forms[0].submit();
-	}
-	
-	$(function(){
-			
-			$("#content").summernote({
-				 height: 300,
-				 maxHeight: 400,
-				 minHeight: 200,
-				 tabSize: 10,
-				 width: 715,
-				 focus: true,
-				 lang: "ko-KR",
-
-				 callbacks:{
-					 onImageUpload: function(files, editor){
-						 
-						 for(var i=0; i<files.length; i++){
-							 sendFile(files[i], editor);
-						 }
-					 },
-				 }
-			});
-			
-			$("#content").summernote("lineHeight", 0.7);	
-		});
-	
-	function sendFile(file, editor){
-		var frm = new FormData();
-		
-		frm.append("file", file);
-		
-		//비동기식 통신
-		$.ajax({
-			url: "saveImage",
-			type: "post",
-			data: frm,
-			contentType: false,
-			processData: false,
-			dataType: "json",
-		}).done(function(res){
-			//성공시
-			$("#content").summernote("editor.insertImage", res.img_url);
-		}).fail(function(err){
-			//실패시
-			console.log(err);
-		});
 	}
 </script>
 </body>

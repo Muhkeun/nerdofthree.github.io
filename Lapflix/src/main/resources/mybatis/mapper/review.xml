@@ -31,9 +31,9 @@
 	</select>
 	
 	<!-- 원글 저장 -->
-	<insert id="add" parameterType="java.util.Map">
-		INSERT INTO review(r_idx, subject, writer, content, file_name, write_date, ip, hit, status, latop_name, bname)
-		VALUES (review_seq.NEXTVAL, #{subject}, #{writer}, #{content}, #{file_name}, sysdate, #{ip}, 0, 0, #{latop_name}, #{bname}) 
+	<insert id="add" parameterType="mybatis.vo.ReviewVO">
+		INSERT INTO review(r_idx, subject, writer, content, file_name, write_date, ip, hit, status, laptop_name, bname)
+		VALUES (review_seq.NEXTVAL, #{subject}, #{writer}, #{content}, #{file_name}, sysdate, #{ip}, 0, 0, #{laptop_name}, #{bname}) 
 	</insert>
 	
 	<!-- 보기 기능 -->

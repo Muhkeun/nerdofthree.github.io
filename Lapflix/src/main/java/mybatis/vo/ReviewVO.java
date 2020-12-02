@@ -14,7 +14,8 @@ public class ReviewVO {
 			ip,
 			hit,
 			status,
-			laptop_name;
+			laptop_name,
+			bname;
 	
 	private MultipartFile file;
 	private int cPage;
@@ -98,6 +99,12 @@ public class ReviewVO {
 	}
 	public void setcPage(int cPage) {
 		this.cPage = cPage;
+	}
+	public String getBname() {
+		return bname;
+	}
+	public void setBname(String bname) {
+		this.bname = bname;
 	}
 	
 }
