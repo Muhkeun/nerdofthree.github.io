@@ -1,5 +1,5 @@
 /target/
-pom.properties 
+*.properties 
 #Created by http://www.gitignore.io/api/java
 
 # Compiled class file

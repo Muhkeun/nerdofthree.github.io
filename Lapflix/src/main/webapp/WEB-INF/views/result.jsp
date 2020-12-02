@@ -86,10 +86,12 @@
                    			<i class="far fa-star"></i>        
                  		</a>
                     </c:if>
+                    
 	                    <a href='${l_list.laptop_url }'>
 	                        <i class="fas fa-shopping-cart"></i>
 	                        Buy now 
 	                    </a>
+	              
                 </div>
             </div>
         </c:forEach>
@@ -161,6 +163,7 @@
         			}else{
         				alert("즐겨찾기 목록에서 삭제되었습니다");
         			}
+        			
         		});  
         	}
         	
@@ -182,7 +185,10 @@
         			location.href="/favoriteList";
         		});
         	}
-        	
+
+        	function submit(frm){
+        		frm.submit();
+        	}
         </script>
 </body>
 </html>

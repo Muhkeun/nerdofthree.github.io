@@ -3,7 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="laptop">
-
+	<!-- 모든 laptop List 구하기 -->
+	<select id = "listAll" resultType="mybatis.vo.LaptopVO">
+		SELECT * FROM laptop 
+	</select>
+	
 	<!-- Laptop List 구하기 -->
 	<select id = "list" resultType="mybatis.vo.LaptopVO" parameterType="mybatis.vo.LaptopVO">
 		SELECT * FROM laptop l INNER JOIN cpu_Bench c ON (c.cpu_Name LIKE '%'||l.cpu_Name)
