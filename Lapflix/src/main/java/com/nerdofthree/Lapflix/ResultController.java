@@ -46,17 +46,16 @@ public class ResultController {
 			LaptopVO lvo = new LaptopVO();
 
 			//파라미터값들 LaptopVO에 넣기
-			lvo.setCpu_Point(cpu_Point);//int
-			lvo.setGpu_Point(gpu_Point);//int
+			lvo.setCpu_Point(cpu_Point);
+			lvo.setGpu_Point(gpu_Point);
 			
 			if(svo.getLaptop_MonitorSize().equals(""))
 				lvo.setLaptop_MonitorSize(null);
 			else
-				lvo.setLaptop_MonitorSize(svo.getLaptop_MonitorSize());//String 2
-			
-			lvo.setLaptop_OS(svo.getLaptop_OS());//String 0
-			lvo.setLaptop_Weight(Float.parseFloat(svo.getLaptop_Weight()));//float 2.0
-			lvo.setLaptop_Price(Integer.parseInt(svo.getLaptop_Price()));//int 3
+				lvo.setLaptop_MonitorSize(svo.getLaptop_MonitorSize());
+			lvo.setLaptop_OS(svo.getLaptop_OS());
+			lvo.setLaptop_Weight(Float.parseFloat(svo.getLaptop_Weight()));
+			lvo.setLaptop_Price(Integer.parseInt(svo.getLaptop_Price()));
 			
 			List<LaptopVO> l_list = l_dao.getLaptopList(lvo);
 			

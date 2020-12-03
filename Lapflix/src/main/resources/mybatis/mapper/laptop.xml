@@ -46,7 +46,7 @@
 						laptop_MonitorSize <![CDATA[<]]> 13 
 					</when>
 					<when test="laptop_MonitorSize == '1'">
-						laptop_MonitorSize BETWEEN 13 AND 15
+						(laptop_MonitorSize BETWEEN 13 AND 15)
 					</when>
 					<when test="laptop_MonitorSize == '2'">
 						laptop_MonitorSize <![CDATA[>]]> 15
@@ -63,7 +63,7 @@
 						laptop_Weight <![CDATA[<]]> 1.5
 					</when>
 					<when test="laptop_Weight == 1.0">
-						laptop_Weight BETWEEN 1.5 and 1.9
+						(laptop_Weight BETWEEN 1.5 and 1.9)
 					</when>
 					<when test="laptop_Weight == 2.0">
 						laptop_Weight <![CDATA[>]]> 1.9

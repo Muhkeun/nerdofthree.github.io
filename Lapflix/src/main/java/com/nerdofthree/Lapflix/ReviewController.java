@@ -1,8 +1,10 @@
 package com.nerdofthree.Lapflix;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -77,7 +79,7 @@ public class ReviewController {
 	@RequestMapping("/write")
 	@ResponseBody
 	public Map<String, String> write(){
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = new Hashtable<String, String>();
 		
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 		
@@ -105,6 +107,7 @@ public class ReviewController {
 		
 	}
 	
+	//write_ok
 	@RequestMapping("/write_ok")
 	public ModelAndView writOk(ReviewVO rvo) throws Exception{
 		//write.jsp에서 전달되는 form의 값들(bname, subject, content, file_name, laptop_name)
@@ -135,6 +138,7 @@ public class ReviewController {
 		return mv;
 	}
 	
+	//summernote 이미지 삽입
 	@RequestMapping("/saveImage")
 	@ResponseBody
 	public Map<String, String> saveImage(ReviewVO rvo) throws Exception{
@@ -154,9 +158,83 @@ public class ReviewController {
 			//업로드
 			File f = new File(path, f_name); 
 			mf.transferTo(f);
-			
 			map.put("img_url", request.getContextPath()+"/upload/"+f_name);
 		}
 		return map;
+	}
+	
+	//view
+	@RequestMapping("/view")
+	public ModelAndView view(String cPage, String r_idx) {
+		
+		Object obj = session.getAttribute("view_list");
+		List<ReviewVO> v_list = null;
+		
+		if(obj == null) {
+			v_list = new ArrayList<ReviewVO>();
+			
+			session.setAttribute("view_list", v_list);
+		}else {
+			v_list = (List<ReviewVO>) obj;
+		}
+		
+		boolean chk = false;
+		for(ReviewVO rvo : v_list) {
+			if(rvo.getR_idx().equals(r_idx)) {
+				chk = true;
+				break;
+			}
+		}
+		
+		ReviewVO rvo = r_dao.getReview(r_idx);
+		
+		if(!chk) {
+			r_dao.updateHit(r_idx);
+			rvo.setHit(String.valueOf(Integer.parseInt(rvo.getHit())+1));
+			
+			v_list.add(rvo);
+		}
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("vo", rvo);
+		
+		session.setAttribute("rvo", rvo);
+		
+		mv.setViewName("review/view");
+		return mv;
+	}
+	
+	//edit
+	@RequestMapping("/edit")
+	public ModelAndView edit(ReviewVO rvo) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		String c_type = request.getContentType();
+		
+		if(c_type != null && c_type.startsWith("multipart")) {
+			
+			MultipartFile mf = rvo.getFile();
+			
+			if(mf != null && mf.getSize() > 0) {
+				String path = application.getRealPath(uploadPath);
+				
+				String f_name = mf.getOriginalFilename();
+				
+				f_name = FileUploadUtil.checkSameFileName(f_name, path);
+				
+				mf.transferTo(new File(path, f_name));
+				
+				rvo.setFile_name(f_name);
+			}
+			
+			rvo.setIp(request.getRemoteAddr());
+			r_dao.editReview(rvo);
+			
+			mv.setViewName("redirect:/view?r_idx="+rvo.getR_idx()+"&cPage="+rvo.getcPage());
+		}else {
+			mv.setViewName("review/edit");
+		}
+		
+		return mv;
 	}
 }

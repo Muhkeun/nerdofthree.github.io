@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="review">
-
+	
 	<resultMap type="mybatis.vo.ReviewVO" id="map1">
 		<id column="r_idx" property="r_idx"/>
 		<collection property="c_list" select="commList" column="r_idx" ofType="mybatis.vo.CommVO"/>
@@ -15,23 +15,22 @@
 	</select>
 	
 	<!-- 사용자가 원글의 목록을 호출할 때 사용되는 목록(list) 기능 -->
-	<select id="list" parameterType="java.util.Map" resultMap="map1">
-		SELECT * FROM (
+	<select id="reviewList" parameterType="java.util.Map" resultMap="map1">
+		SELECT * FROM(
 			SELECT rownum r_num, a.* FROM(
-				SELECT * FROM review WHERE status = 0 
-				AND bname = #{bname} ORDER BY r_idx DESC
+				SELECT * FROM review WHERE status = 0 AND bname = #{bname} ORDER BY r_idx DESC
 			) a
 		)
-		WHERE r_num BETWEEN #{begin} AND #{end} 
+		WHERE r_num BETWEEN #{begin} AND #{end}
 	</select>
 	
-	<!-- 페이징 기법에 사용될 전체 페이지 수를 구하기 위해 현재 전체 게시물의 수를 반환한다. -->
+	<!-- 페이징 기법에 사용될 전체 페이지 수를 구하기 위해 전체 게시물의 수 반환 -->
 	<select id="totalCount" resultType="int" parameterType="String">
 		SELECT COUNT(*) FROM review WHERE status = 0 AND bname = #{bname}
 	</select>
 	
 	<!-- 원글 저장 -->
-	<insert id="add" parameterType="mybatis.vo.ReviewVO">
+	<insert id="addReview" parameterType="mybatis.vo.ReviewVO">
 		INSERT INTO review(r_idx, subject, writer, content, file_name, write_date, ip, hit, status, laptop_name, bname)
 		VALUES (review_seq.NEXTVAL, #{subject}, #{writer}, #{content}, #{file_name}, sysdate, #{ip}, 0, 0, #{laptop_name}, #{bname}) 
 	</insert>
@@ -40,4 +39,31 @@
 	<select id="getReview" resultMap="map1" parameterType="String">
 		SELECT * FROM review WHERE r_idx = #{r_idx}
 	</select>
+	
+	<!-- 원글 수정 -->
+	<update id="editReview" parameterType="mybatis.vo.ReviewVO">
+		UPDATE review
+		SET
+			laptop_name = #{laptop_name},
+			subject = #{subject},
+			content = #{content}
+			<if test="file_name != null">
+				, file_name = #{file_name}
+			</if>
+		WHERE r_idx = #{r_idx}
+	</update>
+	
+	<!-- 원글 삭제 -->
+	<update id="delReview" parameterType="String">
+		UPDATE review
+		SET status = 1
+		WHERE r_idx = #{r_idx}
+	</update>
+	
+	<!-- 조회수 증가 -->
+	<update id="update_hit" parameterType="String">
+		UPDATE review
+		SET hit = hit + 1
+		WHERE r_idx = #{r_idx}
+	</update>
 </mapper>

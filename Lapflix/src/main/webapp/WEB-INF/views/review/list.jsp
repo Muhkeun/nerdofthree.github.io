@@ -42,22 +42,22 @@
 	                  </tfoot>
 				<tbody>
 				<c:if test="${rar ne null }">
-					<c:forEach var="vo" items="${rar }" varStatus="st">
+					<c:forEach var="rvo" items="${rar }" varStatus="st">
 					<tr>
 						<td>${rowTotal - st.index - (blockList*(nowPage - 1)) }</td><!-- 데이터가 삭제된 경우 b_idx도 끊어져서 표시됨
 												제일 나중에 저장된 데이터가 페이지의 제일 위에. -->
 						<td style="text-align: left">
-							<a href="view?cPage=${nowPage }&r_idx=${vo.r_idx}">
-							${vo.subject }
+							<a href="view?cPage=${nowPage }&r_idx=${rvo.r_idx}">
+							${rvo.subject }
 							</a></td>
 						
-						<td>${vo.writer }</td>
+						<td>${rvo.writer }</td>
 						<td>
-						<c:if test="${vo.write_date ne null }">
-							${fn:substring(vo.write_date, 0, 10) }
+						<c:if test="${rvo.write_date ne null }">
+							${fn:substring(rvo.write_date, 0, 10) }
 						</c:if>
 						</td>
-						<td>${vo.hit }</td>
+						<td>${rvo.hit }</td>
 					</tr>
 					</c:forEach>
 				</c:if>
