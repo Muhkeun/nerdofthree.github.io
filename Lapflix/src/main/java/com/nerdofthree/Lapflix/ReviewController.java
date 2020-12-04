@@ -2,7 +2,6 @@ package com.nerdofthree.Lapflix;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
@@ -50,7 +49,7 @@ public class ReviewController {
 		ModelAndView mv = new ModelAndView();
 		
 		int c_page = 1;
-		if(cPage != null) {
+		if(cPage != null && cPage.length() > 0) {
 			c_page = Integer.parseInt(cPage);
 		}
 		
@@ -70,7 +69,7 @@ public class ReviewController {
 		mv.addObject("blockList", blockList);
 		mv.addObject("p_code", page.getSb().toString());
 		
-		mv.setViewName("review/list");
+		mv.setViewName("review/reviewList");
 		
 		return mv;
 	}
@@ -99,7 +98,7 @@ public class ReviewController {
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 		String viewPath = null;
 		if(mvo != null) {
-			viewPath = "review/write";
+			viewPath = "review/reviewWrite";
 		}else {
 			viewPath = "sign_in";
 		}
@@ -141,7 +140,7 @@ public class ReviewController {
 	//summernote 이미지 삽입
 	@RequestMapping("/saveImage")
 	@ResponseBody
-	public Map<String, String> saveImage(ReviewVO rvo) throws Exception{
+	public Map<String, String> saveImage(ReviewVO rvo, HttpServletRequest req) throws Exception{
 		Map<String, String> map = new Hashtable<String, String>();
 		
 		MultipartFile mf = rvo.getFile();
@@ -158,7 +157,9 @@ public class ReviewController {
 			//업로드
 			File f = new File(path, f_name); 
 			mf.transferTo(f);
-			map.put("img_url", request.getContextPath()+"/upload/"+f_name);
+			
+			System.out.println("경로: "+req.getContextPath());
+			map.put("img_url", req.getContextPath()+"/upload/"+f_name);
 		}
 		return map;
 	}
@@ -200,7 +201,7 @@ public class ReviewController {
 		
 		session.setAttribute("rvo", rvo);
 		
-		mv.setViewName("review/view");
+		mv.setViewName("review/reviewView");
 		return mv;
 	}
 	
@@ -232,7 +233,7 @@ public class ReviewController {
 			
 			mv.setViewName("redirect:/view?r_idx="+rvo.getR_idx()+"&cPage="+rvo.getcPage());
 		}else {
-			mv.setViewName("review/edit");
+			mv.setViewName("review/reviewEdit");
 		}
 		
 		return mv;

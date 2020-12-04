@@ -20,7 +20,6 @@ public class LaptopDAO {
 	private SqlSessionTemplate sst;
 	
 	public List<LaptopVO> getLaptopList(LaptopVO lvo){
-		
 		List<LaptopVO> list = sst.selectList("laptop.list", lvo);	
 		
 		return list;		

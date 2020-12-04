@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="/resources/css/review.css"/>
+<link type="text/css" rel="stylesheet" href="/css/review.css"/>
 </head>
 <body>
 <div id="wrap">
@@ -44,8 +44,7 @@
 				<c:if test="${rar ne null }">
 					<c:forEach var="rvo" items="${rar }" varStatus="st">
 					<tr>
-						<td>${rowTotal - st.index - (blockList*(nowPage - 1)) }</td><!-- 데이터가 삭제된 경우 b_idx도 끊어져서 표시됨
-												제일 나중에 저장된 데이터가 페이지의 제일 위에. -->
+						<td>${rowTotal - st.index - (blockList*(nowPage - 1)) }</td>
 						<td style="text-align: left">
 							<a href="view?cPage=${nowPage }&r_idx=${rvo.r_idx}">
 							${rvo.subject }

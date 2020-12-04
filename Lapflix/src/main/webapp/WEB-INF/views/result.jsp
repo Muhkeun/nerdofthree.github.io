@@ -8,9 +8,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lapflix | 설문 결과</title>
-    <link rel="stylesheet" href="resources/css/common.css">
-    <link rel="stylesheet" href="resources/css/result.css">
-    <link rel="stylesheet" href="resources/css/header.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/result.css">
+    <link rel="stylesheet" href="css/header.css">
     <script src="https://kit.fontawesome.com/aa5b301900.js" crossorigin="anonymous"></script>
 <style>
 	.content h2, p{
@@ -44,7 +44,7 @@
         </c:if>
           
          <c:if test="${sessionScope.mvo ne null }">
-        	<li id = "logout"><a href="javascript:logout_ok()" ><img id="p_img" src="/resources/upload/${sessionScope.mvo.profile_image }"/></a></li>
+        	<li id = "logout"><a href="javascript:logout_ok()" ><img id="p_img" src="/upload/${sessionScope.mvo.profile_image }"/></a></li>
         </c:if>  
         
         <!-- 	로그인 시 li 태그에 id만 부여, 
@@ -119,7 +119,7 @@
         </div>
         
         </section>
-        <script type="text/javascript" src="resources/js/slide.js"></script>
+        <script type="text/javascript" src="js/slide.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script>
         	function logout_ok(){

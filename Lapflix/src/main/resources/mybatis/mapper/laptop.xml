@@ -25,14 +25,14 @@
 		<if test="laptop_OS != null">
 			<trim suffix="AND">
 				<choose>
-					<when test="laptop_OS == '0'">
-						(laptop_OS LIKE '윈도우10'||'%' OR laptop_OS = '미포함')
+					<when test="laptop_OS == '윈도우10'">
+						(laptop_OS LIKE #{laptop_OS}||'%' OR laptop_OS = '미포함')
 					</when>
-					<when test="laptop_OS == '1'">
-						laptop_OS LIKE 'mac'||'%'
+					<when test="laptop_OS == 'mac'">
+						laptop_OS LIKE #{laptop_OS}||'%'
 					</when>
-					<when test="laptop_OS == '2'">
-						laptop_OS = '리눅스'
+					<when test="laptop_OS == '리눅스'">
+						laptop_OS = #{laptop_OS}
 					</when>  
 				</choose>
 			</trim>

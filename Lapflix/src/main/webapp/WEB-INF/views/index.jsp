@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lapflix | 나만의 노트북 찾기</title>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="resources/js/scrollBtn.js"></script>
-        <link rel="stylesheet" href="resources/css/index.css">
-        <link rel="stylesheet" href="resources/css/header.css">
+    <script type="text/javascript" src="js/scrollBtn.js"></script>
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/header.css">
    
 </head>
 <body>
@@ -32,7 +32,7 @@
         <!-- 1st survey-->
         <div class= "index" id="page1">
           
-            <div class="background"><img src="resources/res/1.jpg"/></div>
+            <div class="background"><img src="res/1.jpg"/></div>
             <div class="qna">
                 <div class="logo">
                     <h2>Lapflix</h2>
@@ -52,7 +52,7 @@
         </div>
         <div class= "index" id="page2">
             
-            <div class="background"><img src="resources/res/2.jpg"/></div>
+            <div class="background"><img src="res/2.jpg"/></div>
             
             <div class="qna">
                 <div class="question"><h1> 모니터는 어떤 사이즈가 좋으세요? 🖥</h1></div>
@@ -67,14 +67,14 @@
                 </div>   
                 
                 
-                <button class="downToBtn" type="button"  onclick="moveTo(3)"><img class="downToBtn_img"src="resources/res/btn/icon-157360_1280.png" alt=""></button>
+                <button class="downToBtn" type="button"  onclick="moveTo(3)"><img class="downToBtn_img"src="res/btn/icon-157360_1280.png" alt=""></button>
             </div>
                     
             
         </div>
         <!-- 2nd survey-->
         <div class= "index" id="page3" >
-            <div class="background"><img src="resources/res/3.jpg"/></div>
+            <div class="background"><img src="res/3.jpg"/></div>
             
             <div class="qna">
                 <div class="question"><h1>운영체제는 어떤 것을 원하세요? 👨‍💻</h1></div>
@@ -82,20 +82,20 @@
                 <div class="answer">
                     <form action="">
             
-                        <input type="radio" name="laptop_OS" value="0"/>1. Windows or FreeDos🖼</br>
-                        <input type="radio" name="laptop_OS" value="1"/>2. MacOS 🍎</br>
-                        <input type="radio" name="laptop_OS" value="2"/>3. Linux 🐧</br>
+                        <input type="radio" name="laptop_OS" value="윈도우10"/>1. Windows or FreeDos🖼</br>
+                        <input type="radio" name="laptop_OS" value="mac"/>2. MacOS 🍎</br>
+                        <input type="radio" name="laptop_OS" value="리눅스"/>3. Linux 🐧</br>
                     </form>
                 </div>
 
-                <button class="downToBtn" type="button" onclick="moveTo(4)"><img class="downToBtn_img" src="resources/res/btn/icon-157360_1280.png" alt=""></button>
+                <button class="downToBtn" type="button" onclick="moveTo(4)"><img class="downToBtn_img" src="res/btn/icon-157360_1280.png" alt=""></button>
             </div>
         </div>
             
         </div>
         <!-- 3rd survey-->
         <div class= "index" id="page4">
-            <div class="background"><img src="resources/res/4.jpg"/></div>
+            <div class="background"><img src="res/4.jpg"/></div>
             
             <div class="qna">
                 <div class="question"><h1> 어떤 작업에 사용하실 생각이세요? ✍️</h1></div>
@@ -110,13 +110,13 @@
                     </form>
                 </div>
                 
-                <button class="downToBtn" type="button"  onclick="moveTo(5)"><img class="downToBtn_img"src="resources/res/btn/icon-157360_1280.png" alt=""></button>
+                <button class="downToBtn" type="button"  onclick="moveTo(5)"><img class="downToBtn_img"src="res/btn/icon-157360_1280.png" alt=""></button>
             </div>
               
         </div>
         <!-- 4th survey -->
         <div class= "index" id="page5">
-            <div class="background"><img src="resources/res/5.jpg"/></div>
+            <div class="background"><img src="res/5.jpg"/></div>
             
             <div class="qna">
                 <div class="question"><h1>해당 프로그램을 사용함에 있어 어느 정도의 수준으로 작업하실 생각입니까?</h1></div>
@@ -129,12 +129,12 @@
                     </form>
                 </div>
                 
-                <button class="downToBtn" type="button"  onclick="moveTo(6)"><img class="downToBtn_img"src="resources/res/btn/icon-157360_1280.png" alt=""></button>
+                <button class="downToBtn" type="button"  onclick="moveTo(6)"><img class="downToBtn_img"src="res/btn/icon-157360_1280.png" alt=""></button>
             </div>
         </div>
         <!--5th survey  -->
         <div class= "index" id="page6">
-            <div class="background"><img src="resources/res/6.jpg"/></div>
+            <div class="background"><img src="res/6.jpg"/></div>
             
             <div class="qna">
                 <div class="question"><h1>어느 정도의 무게감을 원하시나요?</h1></div>
@@ -147,12 +147,12 @@
                     </form>
                 </div>
                 
-                <button class="downToBtn" type="button"  onclick="moveTo(7)"><img class="downToBtn_img"src="resources/res/btn/icon-157360_1280.png" alt=""></button>
+                <button class="downToBtn" type="button"  onclick="moveTo(7)"><img class="downToBtn_img"src="res/btn/icon-157360_1280.png" alt=""></button>
             </div>
 
         <!-- 6th survey -->
         </div><div class= "index" id="page7">
-            <div class="background"><img src="resources/res/7.jpg"/></div>
+            <div class="background"><img src="res/7.jpg"/></div>
             
             <div class="qna">
                 <div class="question"><h1>가격은 어느 선까지 생각하시나요?</h1></div>
@@ -174,7 +174,7 @@
             <div id="page8"></div>
         </div>
     </section>
-	<script type="text/javascript" src="resources/js/submit.js"></script>
+	<script type="text/javascript" src="js/submit.js"></script>
 </body>
 </html>
 

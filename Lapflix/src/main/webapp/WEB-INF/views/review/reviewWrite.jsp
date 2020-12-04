@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="resources/css/summernote-lite.min.css">
+<link rel="stylesheet" href="css/summernote-lite.min.css">
 <style>
 	#contents_sub>h1{
 		padding-left: 25px;
@@ -132,9 +132,8 @@
 		
 						<tr>
 							<td colspan="2">
-								<input type="button" value="보내기" onclick="sendData()"/>
-								<input type="button" value="다시"/>
-								<input type="button" value="목록"/>
+								<input type="button" value="저장" onclick="sendData()"/>
+								<input type="button" value="목록" onclick="goBack()"/>
 							</td>
 						</tr>
 					</tbody>
@@ -149,9 +148,9 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src="resources/js/summernote-lite.min.js"></script>
-<script src="resources/js/lang/summernote-ko-KR.js"></script>
-<script type="text/javascript" src="resources/js/saveImage.js"></script>
+<script src="js/summernote-lite.min.js"></script>
+<script src="js/lang/summernote-ko-KR.js"></script>
+<script type="text/javascript" src="js/saveImage.js"></script>
 <script>
 	function sendData(){
 		var laptop_name = document.getElementById("laptop_name").value;
@@ -180,6 +179,15 @@
 		}
 		
 		document.forms[0].submit();
+	}
+	
+	function goBack(){
+		location.href="review?cPage=${param.cPage}";
+	}
+	
+	function editBbs(){
+		document.frm.action = "edit";
+		document.frm.submit();
 	}
 </script>
 </body>
