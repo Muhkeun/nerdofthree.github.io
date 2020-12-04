@@ -55,7 +55,11 @@
 						<tr>
 							<td>첨부파일</td>
 							<td>
-								<a>${vo.file_name }</a>
+							<c:if test="${vo.file_name ne null}">
+								<a href="javascript:fDown('${vo.file_name }')">
+									${vo.file_name }
+								</a>
+							</c:if>
 							</td>
 						</tr>
 						<tr>

@@ -158,7 +158,6 @@ public class ReviewController {
 			File f = new File(path, f_name); 
 			mf.transferTo(f);
 			
-			System.out.println("경로: "+req.getContextPath());
 			map.put("img_url", req.getContextPath()+"/upload/"+f_name);
 		}
 		return map;
@@ -230,7 +229,7 @@ public class ReviewController {
 			
 			rvo.setIp(request.getRemoteAddr());
 			r_dao.editReview(rvo);
-			
+			session.setAttribute("rvo", rvo);
 			mv.setViewName("redirect:/view?r_idx="+rvo.getR_idx()+"&cPage="+rvo.getcPage());
 		}else {
 			mv.setViewName("review/reviewEdit");

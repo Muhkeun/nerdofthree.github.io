@@ -101,7 +101,7 @@
 		<h1 style="font-size: 40px; color: #000; margin-bottom: 15px;">리뷰 수정</h1>
 		<div class="bbs_area" id="bbs">
 		
-			<form action="write_ok" method="post" id="frm" enctype="multipart/form-data">
+			<form action="" method="post" id="frm" enctype="multipart/form-data">
 				
 				<input type="hidden" name="cPage" value="${param.cPage }"/>
 				<input type="hidden" name="r_idx" value="${sessionScope.rvo.r_idx }"/>
