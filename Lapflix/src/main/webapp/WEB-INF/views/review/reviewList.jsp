@@ -7,12 +7,50 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/header.css">
 <link type="text/css" rel="stylesheet" href="/css/review.css"/>
 </head>
 <body>
 <div id="wrap">
 	<!-- 상단 영역 -->
-<%-- 	<jsp:include page="../header.jsp"/> --%>
+	<header>
+        <input type="checkbox" id="chk1">
+        <div class="logo">
+         	<h2>Lapflix</h2>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="/">Survey</a></li>
+            <li><a href="javascript:f_list()">My favorite</a></li>
+            <li><a href="review">Review</a></li>            
+            
+        <c:if test="${sessionScope.mvo eq null }">
+            <li id="login"><a href="/signIn">Login</a></li>
+        </c:if>
+          
+         <c:if test="${sessionScope.mvo ne null }">
+        	<li id = "logout"><a href="javascript:logout_ok()" ><img id="p_img" src="/upload/${sessionScope.mvo.profile_image }"/></a></li>
+        </c:if>  
+        
+        <!-- 	로그인 시 li 태그에 id만 부여, 
+        		버튼을 눌렀을 때 분만 아니라 첫 페이지 업로드 시 login/out 떠야하므로 c:if 유지
+        		j쿼리로 logout 클릭시 li 태그 안의 내용을 Login a태그로 변경한다.
+        -->
+     
+            <label for="chk1" class="menu-close">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </label>
+        </ul>
+        <div class="search">
+            <input type="text" name="search" id="srch"
+             required placeholder="Enter your search">
+             <button type="submit">Search</button>
+        </div>
+        <label for="chk1" class="menu-open">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </label>
+    </header>
 	<!-- 상단 영역 끝 -->
 	<!-- 콘텐츠 영역 -->
 	<div id="contents_sub">
@@ -78,7 +116,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
+<script type="text/javascript" src="js/common.js"></script>
 <script>
 	$(function(){
 		$("#write_btn").bind("click", function(){

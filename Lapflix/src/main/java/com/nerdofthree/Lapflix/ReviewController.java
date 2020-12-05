@@ -2,6 +2,7 @@ package com.nerdofthree.Lapflix;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
@@ -108,7 +109,7 @@ public class ReviewController {
 	
 	//write_ok
 	@RequestMapping("/write_ok")
-	public ModelAndView writOk(ReviewVO rvo) throws Exception{
+	public ModelAndView writeOk(ReviewVO rvo) throws Exception{
 		//write.jsp에서 전달되는 form의 값들(bname, subject, content, file_name, laptop_name)
 		ModelAndView mv = new ModelAndView();
 		
@@ -229,12 +230,25 @@ public class ReviewController {
 			
 			rvo.setIp(request.getRemoteAddr());
 			r_dao.editReview(rvo);
-			session.setAttribute("rvo", rvo);
+			
 			mv.setViewName("redirect:/view?r_idx="+rvo.getR_idx()+"&cPage="+rvo.getcPage());
 		}else {
 			mv.setViewName("review/reviewEdit");
 		}
 		
 		return mv;
+	}
+	
+	//delete
+	@RequestMapping("/del")
+	@ResponseBody
+	public Map<String, String> del(String r_idx){
+		Map<String, String> map = new HashMap<String, String>();
+		
+		r_dao.delReview(r_idx);
+		
+		map.put("chk", "0");
+		
+		return map;
 	}
 }

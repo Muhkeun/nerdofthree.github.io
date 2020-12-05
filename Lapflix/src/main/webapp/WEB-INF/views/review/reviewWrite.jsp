@@ -112,28 +112,28 @@
 					</colgroup>
 					<tbody>
 						<tr>
-							<th>노트북 이름:</th>
+							<th>노트북 이름</th>
 							<td><input id="laptop_name" type="text" name="laptop_name" size="45"/></td>
 						</tr>
 						<tr>
-							<th>제목:</th>
+							<th>제목</th>
 							<td><input id="subject" type="text" name="subject" size="45"/></td>
 						</tr>
 						<tr>
-							<th>내용:</th>
+							<th>내용</th>
 							<td>
 								<textarea id="content" name="content" cols="50" rows="8"></textarea>
 							</td>
 						</tr>
 						<tr>
-							<th>첨부파일:</th>
-							<td><input type="file" name="file"/></td>
+							<th>첨부파일</th>
+							<td><input id="file" type="file" name="file"/></td>
 						</tr>
 		
 						<tr>
 							<td colspan="2">
 								<input type="button" value="저장" onclick="sendData()"/>
-								<input type="button" value="목록" onclick="goBack()"/>
+								<input type="button" value="목록" onclick="goList()"/>
 							</td>
 						</tr>
 					</tbody>
@@ -151,11 +151,13 @@
 <script src="js/summernote-lite.min.js"></script>
 <script src="js/lang/summernote-ko-KR.js"></script>
 <script type="text/javascript" src="js/saveImage.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
 <script>
 	function sendData(){
 		var laptop_name = document.getElementById("laptop_name").value;
 		var subject = document.getElementById("subject").value;
 		var content = document.getElementById("content").value;
+		var file = document.getElementById("file").value;
 		
 		if(laptop_name.trim().length < 1){
 			alert("노트북이름을 입력하세요.");
@@ -178,17 +180,19 @@
 			return;
 		}
 		
+		if(!file){
+			alert("파일을 첨부해 주세요.");
+			return;
+		}
 		document.forms[0].submit();
+		
 	}
 	
-	function goBack(){
+	function goList(){
 		location.href="review?cPage=${param.cPage}";
 	}
 	
-	function editBbs(){
-		document.frm.action = "edit";
-		document.frm.submit();
-	}
+	
 </script>
 </body>
 </html>

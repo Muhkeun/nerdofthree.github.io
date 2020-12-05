@@ -19,7 +19,7 @@ $(function(){
 		 }
 	});
 	
-	$("#content").summernote("lineHeight", 0.7);	
+//	$("#content").summernote("lineHeight", 0.7);	
 });
 	
 function sendFile(file, editor){

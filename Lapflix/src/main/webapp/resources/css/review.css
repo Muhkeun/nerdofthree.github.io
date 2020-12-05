@@ -1,11 +1,12 @@
 @charset "UTF-8";
 	#contents_sub>h1{
 		padding-left: 80px;
+		color: white;
 	}
 	#bbs table {
 	    width:800px;
 	    margin: auto;
-		border: 1px solid black;
+		border: 1px solid white;
 	    border-collapse:collapse;
 	    font-size:14px;
 	    
@@ -15,12 +16,15 @@
 	    font-size:20px;
 	    font-weight:bold;
 	    margin-bottom:10px;
+	    color: white;
 	}
 	
 	#bbs table th,#bbs table td {
+
 	    text-align:center;
-		border:1px solid black;
+		border:1px solid white;
 	    padding:4px 10px;
+	    color: red;
 	}
 	
 	.no {width:15%}

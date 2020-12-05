@@ -8,12 +8,50 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/header.css">
 <link type="text/css" rel="stylesheet" href="/css/review.css"/>
 </head>
 <body>
 <div id="wrap">
 	<!-- 상단 영역 -->
-<%-- 	<jsp:include page="../header.jsp"/> --%>
+	<header>
+        <input type="checkbox" id="chk1">
+        <div class="logo">
+         	<h2>Lapflix</h2>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="/">Survey</a></li>
+            <li><a href="javascript:f_list()">My favorite</a></li>
+            <li><a href="review">Review</a></li>            
+            
+        <c:if test="${sessionScope.mvo eq null }">
+            <li id="login"><a href="/signIn">Login</a></li>
+        </c:if>
+          
+         <c:if test="${sessionScope.mvo ne null }">
+        	<li id = "logout"><a href="javascript:logout_ok()" ><img id="p_img" src="/upload/${sessionScope.mvo.profile_image }"/></a></li>
+        </c:if>  
+        
+        <!-- 	로그인 시 li 태그에 id만 부여, 
+        		버튼을 눌렀을 때 분만 아니라 첫 페이지 업로드 시 login/out 떠야하므로 c:if 유지
+        		j쿼리로 logout 클릭시 li 태그 안의 내용을 Login a태그로 변경한다.
+        -->
+     
+            <label for="chk1" class="menu-close">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </label>
+        </ul>
+        <div class="search">
+            <input type="text" name="search" id="srch"
+             required placeholder="Enter your search">
+             <button type="submit">Search</button>
+        </div>
+        <label for="chk1" class="menu-open">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </label>
+    </header>
 	<!-- 상단 영역 끝 -->
 	<!-- 콘텐츠 영역 -->
 	<div id="contents_sub">
@@ -22,6 +60,8 @@
 		
 			<form method="post" name="frm">
 				<input type="hidden" name="cPage" value="${param.cPage }">
+				<input type="hidden" name="r_idx" value="${vo.r_idx }">
+
 				<table summary="리뷰 보기">
 					<caption>리뷰 보기</caption>
 					
@@ -65,10 +105,10 @@
 						<tr>
 							<td colspan="2">
 							<c:if test="${vo.writer eq mvo.member_name }">
-								<input type="button" value="수정" onclick="editBbs()"/>
-								<input type="button" value="삭제" onclick="delBbs()"/>
+								<input type="button" value="수정" onclick="editReview()"/>
+								<input type="button" value="삭제" onclick="delReview()"/>
 							</c:if>
-								<input type="button" value="목록" onclick="goBack()"/>
+								<input type="button" value="목록" onclick="goList()"/>
 							
 							</td>
 						</tr>
@@ -84,7 +124,7 @@
 			<input type="hidden" name="r_idx" value="${vo.r_idx }">
 			<input type="hidden" name="index" value=""/>
 <!-- 			<input type="submit" value="저장하기"/>  -->
-		</form>
+			</form>
 	
 <!-- 	댓글들<hr/> -->
 <%-- 		<c:forEach var="cvo" items="${vo.c_list }"> --%>
@@ -99,18 +139,18 @@
 	</div>
 	<!-- 콘텐츠 영역 끝-->
 	<!-- 하단 영역 -->
-<%-- 	<jsp:include page="../footer.jsp"/> --%>
+	
 	<!-- 하단 영역 끝 -->
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
+<script type="text/javascript" src="js/common.js"></script>
 <script>
-	function goBack(){
+	function goList(){
 		location.href="review?cPage=${param.cPage}";
 	}
 	
-	function editBbs(){
+	function editReview(){
 		document.frm.action = "edit";
 		document.frm.submit();
 	}
@@ -120,6 +160,23 @@
 		//get방식 한글처리를 하기 위해서는 톰켓의 server.xml에서 
 		//<Connector port="8080" protocol="HTTP/1.1"...URIEncoding="UTF-8" 추가
 		//<Connector port="8009" protocol=AJP/1.3"...URIEncoding="UTF-8" 추가 //다른 사람과 통신을 하기 위한. 현재 server.xml에는 주석처리 되어있으니 pass 
+	}
+	function delReview(){
+		
+		var r_idx = $("input[name=r_idx]").val();
+		
+		$.ajax({
+			url: "del",
+			data: "r_idx="+r_idx,
+			dataType: "json",
+			
+		}).done(function(data){
+			
+			if(data.chk == "0"){
+				alert("삭제가 완료되었습니다.");
+				location.href="/review?bname=${vo.bname}&cPage=${param.cPage}";
+			}
+		});
 	}
 </script>
 </body>
