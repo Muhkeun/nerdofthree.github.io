@@ -43,7 +43,7 @@ public class signInController {
     	if(mvo != null) {
     		System.out.println("로그인 성공");
     		httpSession.setAttribute("mvo", mvo);
-    		httpSession.setAttribute("f_key", mvo.getF_key());
+    		
     		SurveyVO svo = (SurveyVO) httpSession.getAttribute("svo");
     		map.put("res", "1");
     		map.put("mvo", mvo);

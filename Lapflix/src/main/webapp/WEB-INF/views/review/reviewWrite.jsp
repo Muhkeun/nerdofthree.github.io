@@ -90,6 +90,11 @@
 	.empty{
 		height: 50px;
 	}
+	#p_img{
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+	}
 </style>
 </head>
 <body>

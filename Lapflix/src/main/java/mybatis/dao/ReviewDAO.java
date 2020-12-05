@@ -17,12 +17,17 @@ public class ReviewDAO {
 	private SqlSessionTemplate sst;
 	
 	//페이징을 위한 목록 기능
-	public ReviewVO[] getList(int begin, int end, String bname) {
+	public ReviewVO[] getList(int begin, int end, String bname, String searchType, String searchValue) {
 		Map<String, String> map = new HashMap<String, String>();
 		
 		map.put("begin", String.valueOf(begin));
 		map.put("end", String.valueOf(end));
 		map.put("bname", bname);
+		
+		if(searchType != null && searchValue != null) {
+			map.put("searchType", searchType);
+			map.put("searchValue", searchValue);
+		}
 		
 		List<ReviewVO> list = sst.selectList("review.reviewList", map);
 		
@@ -36,8 +41,13 @@ public class ReviewDAO {
 	}
 	
 	//전체 게시물의 수를 반환하는 기능
-	public int totalCount(String bname) {
-		int cnt = sst.selectOne("review.totalCount", bname);
+	public int totalCount(String bname, String searchType, String searchValue) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("bname", bname);
+		map.put("searchType", searchType);
+		map.put("searchValue", searchValue);
+		
+		int cnt = sst.selectOne("review.totalCount", map);
 		
 		return cnt;
 	}

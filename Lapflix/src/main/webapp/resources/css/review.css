@@ -26,13 +26,6 @@
 	    padding:4px 10px;
 	    color: red;
 	}
-	
-	.no {width:15%}
-	.subject {width:30%}
-	.writer {width:20%}
-	.reg {width:20%}
-	.hit {width:15%}
-	.odd {background:silver}
 	/* paging */
 	
 	table tfoot ol.paging {

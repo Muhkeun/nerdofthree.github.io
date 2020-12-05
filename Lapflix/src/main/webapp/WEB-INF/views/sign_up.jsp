@@ -27,9 +27,9 @@
         </div>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Survey</a></li>
-            <li><a href="#">My favorite</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="/">Survey</a></li>
+            <li><a href="javascript:f_list()">My favorite</a></li>
+            <li><a href="review">Review</a></li>
             <label for="chk1" class="menu-close">
                 <i class="fas fa-times" aria-hidden="true"></i>
             </label>
@@ -91,12 +91,13 @@
             </form>
         </div>
     </section>
+    <script type="text/javascript" src="js/common.js"></script>
     <script>
-    function backTo(frm) {
-
-        frm.submit();
-
-    }
+	    function backTo(frm) {
+	
+	        frm.submit();
+	
+	    }
 </script>
 </body>
 </html>

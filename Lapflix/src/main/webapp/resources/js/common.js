@@ -13,6 +13,7 @@ function logout(){
 		
 		if(data.res == "0"){
 			alert("정상적으로 로그아웃 처리되었습니다.");
+			sessionStorage.removeItem("f_key");
 			location.href="/result?laptop_MonitorSize="+data.svo.laptop_MonitorSize+"&laptop_OS="+data.svo.laptop_OS+"&program_Name="+data.svo.program_Name+
 			"&status="+data.svo.status+"&laptop_Weight="+data.svo.laptop_Weight+"&laptop_Price="+data.svo.laptop_Price;		
 		}	

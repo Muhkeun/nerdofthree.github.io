@@ -13,12 +13,12 @@ public class Paging {
 	private boolean isPrePage; //이전 기능 가능여부. 이전으로 버튼 눌렀을 때
 	private boolean isNextPage; //다음 기능 가능여부. 다음으로 버튼 눌렀을 때
 	private String laptop_seq;
-	
+	private String searchType, searchValue;
 	
 	//JSP에서 표현할 페이징 HTML코드를 저장할 곳! list.jsp의 ol부분
 	private StringBuffer sb; //문자열 수정
 
-	public Paging(int nowPage, int rowTotal, int blockList, int blockPage) {
+	public Paging(int nowPage, int rowTotal, int blockList, int blockPage, String searchType, String searchValue) {
 		this.nowPage = nowPage;
 		this.rowTotal = rowTotal;
 		this.blockList = blockList;
@@ -66,42 +66,82 @@ public class Paging {
 		//HTML코드를 작성하여 StringBuffer에 저장하자!
 		sb = new StringBuffer("<ol class='paging'>");//쌍따옴표를 홑따옴표로
 		
-		if(isPrePage) {
-			sb.append("<li><a href='review?cPage=");
-			sb.append(startPage-blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
-			sb.append("'> &lt; </a></li>"); //&lt;는 꺾새기호
-		}else {
-			//이전기능 비활성화(startPage가 1인 경우)
-			sb.append("<li class='disable'> &lt; </li>");
-			
-		}
 		
-		//페이지 번호 출력하는 반복문(현재 페이지에는 now라는 css클래스 적용하자)
-		for(int i=startPage; i <= endPage; i++) {
-			//i의 값이 현재페이지(nowPage)와 같을 때를 구별하여 css클래스를 적용!
-			if(i == nowPage) {
-				sb.append("<li class='now'>");
-				sb.append(i);
-				sb.append("</li>");
-			}else {
+		//searchType과 searchValue의 유무
+		if(searchType == null && searchValue == null) {
+			if(isPrePage) {
 				sb.append("<li><a href='review?cPage=");
-				sb.append(i);
-				sb.append("'>");
-				sb.append(i);//화면에 표시되는 부분
-				sb.append("</a></li>");
+				sb.append(startPage-blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
+				sb.append("'> &lt; </a></li>"); //&lt;는 꺾새기호
+			}else {
+				//이전기능 비활성화(startPage가 1인 경우)
+				sb.append("<li class='disable'> &lt; </li>");
+				
 			}
-		}//for의 끝!
-		
-		//다음기능
-		if(isNextPage) {
-			sb.append("<li><a href='review?cPage=");
-			sb.append(startPage+blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
-			sb.append("'> &gt; </a></li>"); //&lt;는 꺾새기호
-		}else {
-			//이전기능 비활성화(startPage가 1인 경우)
-			sb.append("<li class='disable'> &gt; </li>");
+			//페이지 번호 출력하는 반복문(현재 페이지에는 now라는 css클래스 적용하자)
+			for(int i=startPage; i <= endPage; i++) {
+				//i의 값이 현재페이지(nowPage)와 같을 때를 구별하여 css클래스를 적용!
+				if(i == nowPage) {
+					sb.append("<li class='now'>");
+					sb.append(i);
+					sb.append("</li>");
+				}else {
+					sb.append("<li><a href='review?cPage=");
+					sb.append(i);
+					sb.append("'>");
+					sb.append(i);//화면에 표시되는 부분
+					sb.append("</a></li>");
+				}
+			}//for의 끝!
 			
+			//다음기능
+			if(isNextPage) {
+				sb.append("<li><a href='review?cPage=");
+				sb.append(startPage+blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
+				sb.append("'> &gt; </a></li>"); //&lt;는 꺾새기호
+			}else {
+				//이전기능 비활성화(startPage가 1인 경우)
+				sb.append("<li class='disable'> &gt; </li>");
+				
+			}
+		}else if(searchType != null && searchValue != null) {
+			if(isPrePage) {
+				sb.append("<li><a href='review?searchType="+searchType+"&searchValue="+searchValue+"&cPage=");
+				sb.append(startPage-blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
+				sb.append("'> &lt; </a></li>"); //&lt;는 꺾새기호
+			}else {
+				//이전기능 비활성화(startPage가 1인 경우)
+				sb.append("<li class='disable'> &lt; </li>");
+				
+			}
+			
+			//페이지 번호 출력하는 반복문(현재 페이지에는 now라는 css클래스 적용하자)
+			for(int i=startPage; i <= endPage; i++) {
+				//i의 값이 현재페이지(nowPage)와 같을 때를 구별하여 css클래스를 적용!
+				if(i == nowPage) {
+					sb.append("<li class='now'>");
+					sb.append(i);
+					sb.append("</li>");
+				}else {
+					sb.append("<li><a href='review?searchType="+searchType+"&searchValue="+searchValue+"&cPage=");
+					sb.append(i);
+					sb.append("'>");
+					sb.append(i);//화면에 표시되는 부분
+					sb.append("</a></li>");
+				}
+			}//for의 끝!
+			
+			//다음기능
+			if(isNextPage) {
+				sb.append("<li><a href='review?searchType="+searchType+"&searchValue="+searchValue+"&cPage=");
+				sb.append(startPage+blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
+				sb.append("'> &gt; </a></li>"); //&lt;는 꺾새기호
+			}else {
+				//이전기능 비활성화(startPage가 1인 경우)
+				sb.append("<li class='disable'> &gt; </li>");
+			}
 		}
+		
 		sb.append("</ol>");
 	}
 
@@ -207,5 +247,22 @@ public class Paging {
 
 	public void setSb(StringBuffer sb) {
 		this.sb = sb;
+	}
+
+	public String getSearchType() {
+		return searchType;
+	}
+
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
+
+	public String getSearchValue() {
+		return searchValue;
+	}
+
+	public void setSearchValue(String searchValue) {
+		this.searchValue = searchValue;
 	}	
+	
 }

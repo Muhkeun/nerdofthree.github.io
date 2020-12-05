@@ -25,6 +25,7 @@ $(button).bind('click', function(){
 	}).done(function(data){
 		if(data.res == "1" && data.svo != null){
 			alert(data.mvo.member_name+"님 환영합니다. 결과화면으로 이동합니다.");
+			sessionStorage.setItem("f_key",data.mvo.f_key);
 			location.href="/result?laptop_MonitorSize="+data.svo.laptop_MonitorSize+"&laptop_OS="+data.svo.laptop_OS+"&program_Name="+data.svo.program_Name+
 													"&status="+data.svo.status+"&laptop_Weight="+data.svo.laptop_Weight+"&laptop_Price="+data.svo.laptop_Price;
 		}else if(data.res == "0"){

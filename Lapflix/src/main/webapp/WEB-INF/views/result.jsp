@@ -22,9 +22,6 @@
 		width: 30px;
 		height: 30px;
 	}
-	.fa-star{
-		
-	}
 </style> 
 </head>
 <body>
@@ -45,13 +42,7 @@
           
          <c:if test="${sessionScope.mvo ne null }">
         	<li id = "logout"><a href="javascript:logout_ok()" ><img id="p_img" src="/upload/${sessionScope.mvo.profile_image }"/></a></li>
-        </c:if>  
-        
-        <!-- 	로그인 시 li 태그에 id만 부여, 
-        		버튼을 눌렀을 때 분만 아니라 첫 페이지 업로드 시 login/out 떠야하므로 c:if 유지
-        		j쿼리로 logout 클릭시 li 태그 안의 내용을 Login a태그로 변경한다.
-        -->
-     
+        </c:if> 
             <label for="chk1" class="menu-close">
                 <i class="fas fa-times" aria-hidden="true"></i>
             </label>
@@ -79,7 +70,6 @@
                     <p>PRICE: ${l_list.laptop_Price } won</p>
                     
                     <c:if test="${sessionScope.mvo ne null }">
-                  		<input type="hidden" name="f_key" value="${sessionScope.mvo.f_key }"/>
                   		<input type="hidden" name="${vs.index }" value="${l_list.laptop_seq }"/>
                         
                         <a href="javascript:favorite(${vs.index })">
@@ -126,7 +116,7 @@
         	
         	function favorite(idx){
         		
-        		var f_key = $("input[name=f_key]").val();
+        		var f_key = sessionStorage.getItem("f_key");
         		var laptop_seq = $("input[name="+idx+"]").val();
     			
         		$.ajax({

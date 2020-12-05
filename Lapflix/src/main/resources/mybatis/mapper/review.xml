@@ -21,12 +21,42 @@
 				SELECT * FROM review WHERE status = 0 AND bname = #{bname} ORDER BY r_idx DESC
 			) a
 		)
-		WHERE r_num BETWEEN #{begin} AND #{end}
+		WHERE (r_num BETWEEN #{begin} AND #{end})
+		<if test="searchType != null and searchValue != null">
+			<trim prefix="AND">
+				<choose>
+					<when test="searchType == 0">
+						LOWER(laptop_name) LIKE LOWER('%'||#{searchValue}||'%')
+					</when>
+					<when test="searchType == 1">
+						LOWER(subject) LIKE LOWER('%'||#{searchValue}||'%')
+					</when>
+					<when test="searchType == 2">
+						to_char(writer) = #{searchValue}
+					</when>
+				</choose>
+			</trim>
+		</if>
 	</select>
 	
 	<!-- 페이징 기법에 사용될 전체 페이지 수를 구하기 위해 전체 게시물의 수 반환 -->
-	<select id="totalCount" resultType="int" parameterType="String">
+	<select id="totalCount" resultType="int" parameterType="java.util.Map">
 		SELECT COUNT(*) FROM review WHERE status = 0 AND bname = #{bname}
+		<if test="searchType != null and searchValue != null">
+			<trim prefix="AND">
+				<choose>
+					<when test="searchType == 0">
+						LOWER(laptop_name) LIKE LOWER('%'||#{searchValue}||'%')
+					</when>
+					<when test="searchType == 1">
+						LOWER(subject) LIKE LOWER('%'||#{searchValue}||'%')
+					</when>
+					<when test="searchType == 2">
+						to_char(writer) = #{searchValue}
+					</when>
+				</choose>
+			</trim>
+		</if>
 	</select>
 	
 	<!-- 원글 저장 -->

@@ -10,6 +10,13 @@
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/header.css">
 <link type="text/css" rel="stylesheet" href="/css/review.css"/>
+<style>
+	#p_img{
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+	}
+</style>
 </head>
 <body>
 <div id="wrap">
@@ -58,9 +65,32 @@
 		<div class="bbs_area" id="bbs">
 			<table summary="게시판 목록">
 				<caption>게시판 목록</caption>
+				<colgroup>
+					<col width="5%"/>
+					<col width="20%"/>
+					<col width="40%"/>
+					<col width="10%"/>
+					<col width="20%"/>
+					<col width="5%"/>
+				</colgroup>
 				<thead>
+					<tr>
+						<td colspan="6">
+							<form action="/review" method="post">
+								<input type="hidden" name="type" value="search"/>
+								<select id="searchType" name="searchType">
+									<option value="0">노트북이름</option>
+									<option value="1">제목</option>
+									<option value="2">글쓴이</option>
+								</select>
+								<input type="text" id="searchValue" name="searchValue"/>
+								<input type="button" value="검색" onclick="search(this.form)"/>
+							</form>
+						</td>
+					</tr>
 					<tr class="title">
 						<th class="no">번호</th>
+						<th class="laptop_name">노트북이름</th>
 						<th class="subject">제목</th>
 						<th class="writer">글쓴이</th>
 						<th class="reg">날짜</th>
@@ -69,25 +99,25 @@
 				</thead>
 				
 				<tfoot>
-	                      <tr>
-	                          <td colspan="4">
-	                             ${p_code }
-	                          </td>
-							  <td>
-								<input type="button" value="글쓰기" id="write_btn"/>
-							  </td>
-	                      </tr>
-	                  </tfoot>
+                	<tr>
+                    	<td colspan="5">
+                           ${p_code }
+                        </td>
+				  		<td>
+							<input type="button" value="글쓰기" id="write_btn"/>
+				  		</td>
+                	</tr>
+                </tfoot>
 				<tbody>
 				<c:if test="${rar ne null }">
 					<c:forEach var="rvo" items="${rar }" varStatus="st">
 					<tr>
 						<td>${rowTotal - st.index - (blockList*(nowPage - 1)) }</td>
+						<td>${rvo.laptop_name }</td>
 						<td style="text-align: left">
 							<a href="view?cPage=${nowPage }&r_idx=${rvo.r_idx}">
 							${rvo.subject }
 							</a></td>
-						
 						<td>${rvo.writer }</td>
 						<td>
 						<c:if test="${rvo.write_date ne null }">
@@ -100,7 +130,7 @@
 				</c:if>
 				<c:if test="${rar eq null }">
 					<tr>
-						<td colspan="5" class="empty">
+						<td colspan="6" class="empty">
 							등록된 게시물이 없습니다.
 						</td>
 					</tr>
@@ -111,7 +141,6 @@
 	</div>
 	<!-- 콘텐츠 영역 끝-->
 	<!-- 하단 영역 -->
-<%-- 	<jsp:include page="../footer.jsp"/> --%>
 	<!-- 하단 영역 끝 -->
 </div>
 
@@ -133,6 +162,10 @@
 			});
 		});	
 	});
+	
+	function search(frm){
+		frm.submit();
+	}
 </script>
 </body>
 </html>

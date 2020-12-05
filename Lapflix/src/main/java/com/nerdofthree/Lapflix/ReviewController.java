@@ -46,7 +46,7 @@ public class ReviewController {
 	
 	//list
 	@RequestMapping("/review")
-	public ModelAndView reviewList(String bname, String cPage) {
+	public ModelAndView reviewList(String bname, String cPage, String searchType, String searchValue) {
 		ModelAndView mv = new ModelAndView();
 		
 		int c_page = 1;
@@ -57,12 +57,12 @@ public class ReviewController {
 		if(bname == null) {
 			bname = "review";
 		}
-		int rowTotal = r_dao.totalCount(bname);
+		int rowTotal = r_dao.totalCount(bname, searchType, searchValue);
 		
-		Paging page = new Paging(c_page, rowTotal, blockList, blockPage);
+		Paging page = new Paging(c_page, rowTotal, blockList, blockPage, searchType, searchValue);
 		
 		//목록을 얻어낸다.
-		ReviewVO[] rar = r_dao.getList(page.getBegin(), page.getEnd(), bname);
+		ReviewVO[] rar = r_dao.getList(page.getBegin(), page.getEnd(), bname, searchType, searchValue);
 		
 		mv.addObject("rar", rar);
 		mv.addObject("rowTotal", rowTotal);
@@ -73,7 +73,7 @@ public class ReviewController {
 		mv.setViewName("review/reviewList");
 		
 		return mv;
-	}
+	}	
 	
 	//write
 	@RequestMapping("/write")
