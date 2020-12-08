@@ -60,6 +60,6 @@
         </div>
     </section>
    	<script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/sign_in.js"></script>
 </body>
 </html>

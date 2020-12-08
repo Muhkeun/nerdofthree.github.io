@@ -22,42 +22,42 @@
 <div id="wrap">
 	<!-- 상단 영역 -->
 	<header>
-        <input type="checkbox" id="chk1">
-        <div class="logo">
-         	<h2>Lapflix</h2>
-        </div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="/">Survey</a></li>
-            <li><a href="javascript:f_list()">My favorite</a></li>
-            <li><a href="review">Review</a></li>            
-            
-        <c:if test="${sessionScope.mvo eq null }">
-            <li id="login"><a href="/signIn">Login</a></li>
-        </c:if>
-          
-         <c:if test="${sessionScope.mvo ne null }">
-        	<li id = "logout"><a href="javascript:logout_ok()" ><img id="p_img" src="/upload/${sessionScope.mvo.profile_image }"/></a></li>
-        </c:if>  
-        
-        <!-- 	로그인 시 li 태그에 id만 부여, 
-        		버튼을 눌렀을 때 분만 아니라 첫 페이지 업로드 시 login/out 떠야하므로 c:if 유지
-        		j쿼리로 logout 클릭시 li 태그 안의 내용을 Login a태그로 변경한다.
-        -->
-     
-            <label for="chk1" class="menu-close">
-                <i class="fas fa-times" aria-hidden="true"></i>
-            </label>
-        </ul>
-        <div class="search">
-            <input type="text" name="search" id="srch"
-             required placeholder="Enter your search">
-             <button type="submit">Search</button>
-        </div>
-        <label for="chk1" class="menu-open">
-            <i class="fas fa-bars" aria-hidden="true"></i>
-        </label>
-    </header>
+	    <input type="checkbox" id="chk1">
+	    <div class="logo">
+	     	<h2>Lapflix</h2>
+	    </div>
+	    <ul>
+	        <li><a href="#">Home</a></li>
+	        <li><a href="/">Survey</a></li>
+	        <li><a href="javascript:f_list()">My favorite</a></li>
+	        <li><a href="review">Review</a></li>
+	                    
+	    <!-- 로그인 여부 -->    
+	    <c:if test="${sessionScope.mvo eq null }">
+	        <li id="login"><a href="/signIn">SignIn</a></li>
+	    </c:if>
+	    <c:if test="${sessionScope.mvo ne null }">
+	     	<c:if test="${sessionScope.mvo.profile_image eq null }">
+	     		<li id = "signOut"><a href='javascript:signOut()'>SignOut</a></li>
+	     	</c:if>
+	     	<c:if test="${sessionScope.mvo.profile_image ne null }">
+	    		<li id = "signOut"><a href="javascript:signOut_ok()" ><img id="p_img" src="/upload/${sessionScope.mvo.profile_image }"/></a></li>
+	    	</c:if>
+	    </c:if>
+	     
+	        <label for="chk1" class="menu-close">
+	            <i class="fas fa-times" aria-hidden="true"></i>
+	        </label>
+	    </ul>
+	    <div class="search">
+	        <input type="text" name="search" id="srch"
+	         required placeholder="Enter your search">
+	         <button type="submit">Search</button>
+	    </div>
+	    <label for="chk1" class="menu-open">
+	        <i class="fas fa-bars" aria-hidden="true"></i>
+	    </label>
+	</header>
 	<!-- 상단 영역 끝 -->
 	<!-- 콘텐츠 영역 -->
 	<div id="contents_sub">

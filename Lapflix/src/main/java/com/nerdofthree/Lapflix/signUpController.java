@@ -17,8 +17,9 @@ import util.FileUploadUtil;
 
 @Controller
 public class signUpController {
+	
+	//업로드파일 위치
     private String uploadPath = "/resources/upload";
-    //업로드 파일 위치 미정
     
     @Autowired
     ServletContext application;
@@ -39,7 +40,7 @@ public class signUpController {
 		MultipartFile mf = vo.getFile();
 		
 		if(mf != null && mf.getSize() > 0) {
-			System.out.println("파일 입력 성공");
+			
 			String path = application.getRealPath(uploadPath);
 			
 			String profileImage = mf.getOriginalFilename();
@@ -49,7 +50,6 @@ public class signUpController {
 			mf.transferTo(new File(path, profileImage));
 			
 			vo.setProfile_image(profileImage);
-			//이미지 파일 위치 지정
 		}
 		m_dao.add(vo.getMember_name(), vo.getMember_age(), vo.getMember_gender(), vo.getEmail(), vo.getProfile_image() , vo.getPassword());
 		mv.setViewName("sign_in");

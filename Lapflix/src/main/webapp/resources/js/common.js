@@ -1,10 +1,10 @@
-function logout_ok(){
+function signOut_ok(){
 	
-	$("#logout").html("<a href='javascript:logout()'>logout</a>");
+	$("#signOut").html("<a href='javascript:signOut()'>SignOut</a>");
 	
 }
 
-function logout(){
+function signOut(){
 	
 	$.ajax({
 		url: "signOut",
