@@ -1,48 +1,28 @@
-﻿-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
-
+--last commit 2020.12.08 
+select * from tabs
+select * from gpu_bench
+select * from gpu_bench
 -- laptopmember Table Create SQL
+commit
 
-select * from cpu_bench
-drop table laptop
-desc laptop
-select * from laptop
-/
-CREATE TABLE laptop
+CREATE TABLE laptopmember
 (
-    laptop_Name           VARCHAR2(100)    NULL, 
-    cpu_Name              VARCHAR2(30)    NULL, 
-    gpu_Name              VARCHAR2(30)    NULL, 
-    laptop_Memory         VARCHAR2(20)    NULL, 
-    laptop_OS             VARCHAR2(20)    NULL, 
-    laptop_MonitorSize    VARCHAR2(30)    NULL, 
-    laptop_ImageURL       VARCHAR2(200)    NULL,
-    laptop_weight         NUMBER      NULL,
-    laptop_url              VARCHAR2(200)   NULL,
-    laptop_price           NUMBER              NULL,
-    f_key                  NUMBER               NULL,
-    constraint laptop_pk primary key (f_key)
-) 
-
-CREATE SEQUENCE laptop_SEQ
-START WITH 1
-INCREMENT BY 1;
-
-select gpu_name from laptop
-select * from gpu_bench where gpu_name like '%TRX%'
-select * from laptop where f_key < 30
-l join gpu_bench g on (g.gpu_name like '%'||l.gpu_name) 
-select gpu_name from laptop where gpu_name not like 'none'
-
-desc laptop
-
-drop table gpu_bench
-drop table laptop
-CREATE SEQUENCE SEQ
-START WITH 1
-INCREMENT BY 1;
+    password         VARCHAR2(80)    NULL, 
+    member_Name      VARCHAR2(20)    NULL, 
+    member_Age       INT             NULL, 
+    member_Gender    VARCHAR2(10)    NULL, 
+    f_key            INT             NULL, 
+    email            VARCHAR2(40)    NULL, 
+    profile_image    VARCHAR2(80)    NULL, 
+    CONSTRAINT LAPTOPMEMBER_PK PRIMARY KEY (email)
+)
 /
-/이미지 url의 크기가 커서 수정하였습니다.
+
 CREATE SEQUENCE laptopmember_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+CREATE SEQUENCE laptop_seq
 START WITH 1
 INCREMENT BY 1;
 /
@@ -55,92 +35,62 @@ BEGIN
     INTO :NEW.seq
     FROM DUAL;
 END;
-/
-
---DROP TRIGGER laptopmember_AI_TRG;
-/
-
---DROP SEQUENCE laptopmember_SEQ;
-/
-
 
 -- laptopmember Table Create SQL
+--drop table cpu_bench
 CREATE TABLE cpu_Bench
 (
-    cpu_Name     VARCHAR2(100)    NULL, 
+    cpu_Name     VARCHAR2(60)    NULL, 
     cpu_Point    INT             NULL   
 )
-/
-
 
 -- laptopmember Table Create SQL
 CREATE TABLE gpu_Bench
 (
-    gpu_Name     VARCHAR2(100)    NULL, 
+    gpu_Name     VARCHAR2(60)    NULL, 
     gpu_Point    INT             NULL   
 )
-/
-
 
 -- laptopmember Table Create SQL
 CREATE TABLE favorite
 (
     f_Key          INT             NULL, 
-    laptop_Name    VARCHAR2(70)    NULL   
+    laptop_seq   INT    	NULL   
 )
-/
 
-COMMENT ON COLUMN favorite.f_Key IS 'f_Key'
-/
-
-COMMENT ON COLUMN favorite.laptop_Name IS 'laptop_Name'
-/
-
-ALTER TABLE favorite
-    ADD CONSTRAINT FK_favorite_f_Key_laptopmember FOREIGN KEY (f_Key)
-        REFERENCES laptopmember (f_Key)
-/
-
-
+--INSERT INTO program_Bench (program_Name, program_Cpu_min, program_Cpu_rec,program_Gpu_min, program_Gpu_rec) VALUES ('Battleground', 4709, 6254, 4260, 9600)
+--INSERT INTO program_Bench (program_Name, program_Cpu_min, program_Cpu_rec,program_Gpu_min, program_Gpu_rec) VALUES ('PhotoShop', 3027, 3396, 6498, 12192)
+--INSERT INTO program_Bench (program_Name, program_Cpu_min, program_Cpu_rec) VALUES ('Premiere', 2296, 2521)
+--INSERT INTO program_Bench (program_Name, program_Cpu_min, program_Cpu_rec) VALUES ('WebSurfing', 1824, 2190)
+--INSERT INTO program_Bench (program_Name, program_Cpu_min, program_Cpu_rec) VALUES ('Programming', 3069, 7156)
+select * from program_bench
 -- laptopmember Table Create SQL
 CREATE TABLE program_Bench
 (
-    program_Name       INT    NULL, 
+    program_Name       VARCHAR(40)    NULL, 
     program_Cpu_min    INT    NULL, 
-    program_Cpu_max    INT    NULL, 
+    program_Cpu_rec    INT    NULL, 
     program_Gpu_min    INT    NULL, 
-    program_Gpu_max    INT    NULL   
+    program_Gpu_rec    INT    NULL   
 )
-/
+--drop table program_bench
 
+--drop table program_bench
 
 -- laptopmember Table Create SQL
+--drop table laptop
+--select * from laptop
 CREATE TABLE laptop
 (
-    laptop_Name           VARCHAR2(70)    NULL, 
-    cpu_Name              VARCHAR2(30)    NULL, 
-    gpu_Name              VARCHAR2(30)    NULL, 
-    laptop_Memory         VARCHAR2(20)    NULL, 
-    laptop_OS             VARCHAR2(20)    NULL, 
+    laptop_seq            INT             NULL,
+    laptop_Name           VARCHAR2(100)    NULL, 
+    LAPTOP_PRICE	      NUMBER	      NULL, 
+    LAPTOP_URL		      VARCHAR2(150)	  NULL,
+    LAPTOP_WEIGHT		  NUMBER		  NULL,
+    cpu_Name              VARCHAR2(40)    NULL, 
+    gpu_Name              VARCHAR2(40)    NULL, 
+    laptop_Memory         VARCHAR2(30)    NULL, 
+    laptop_OS             VARCHAR2(40)    NULL, 
     laptop_MonitorSize    VARCHAR2(30)    NULL, 
-    laptop_ImageURL       VARCHAR2(200)    NULL   
-) 
-
-/
-
-ALTER TABLE laptop
-    ADD CONSTRAINT FK_laptop_laptop_Name_favorite FOREIGN KEY (laptop_Name)
-        REFERENCES favorite (laptop_Name)
-/
-
-ALTER TABLE laptop
-    ADD CONSTRAINT FK_laptop_cpu_Name_cpu_Bench_c FOREIGN KEY (cpu_Name)
-        REFERENCES cpu_Bench (cpu_Name)
-/
-
-ALTER TABLE laptop
-    ADD CONSTRAINT FK_laptop_gpu_Name_gpu_Bench_g FOREIGN KEY (gpu_Name)
-        REFERENCES gpu_Bench (gpu_Name)
-/
-
-
+    laptop_ImageURL       VARCHAR2(150)    NULL   
+)
