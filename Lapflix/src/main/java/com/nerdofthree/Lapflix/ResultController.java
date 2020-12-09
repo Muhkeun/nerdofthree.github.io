@@ -56,7 +56,7 @@ public class ResultController {
 			}
 			lvo.setLaptop_OS(svo.getLaptop_OS());
 			lvo.setLaptop_Weight(Float.parseFloat(svo.getLaptop_Weight()));
-			lvo.setLaptop_Price(svo.getLaptop_Price());
+			lvo.setLaptop_Price(Integer.parseInt(svo.getLaptop_Price()));
 			
 			List<LaptopVO> l_list = l_dao.getLaptopList(lvo);
 			

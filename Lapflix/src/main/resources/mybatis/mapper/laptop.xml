@@ -19,11 +19,11 @@
 			</when>
 		</choose>
 		
-		cpu_Point <![CDATA[>=]]> #{cpu_Point} AND 
+		cpu_Point <![CDATA[>=]]> #{cpu_Point}
 		
 		<!-- OS -->
 		<if test="laptop_OS != null">
-			<trim suffix="AND">
+			<trim prefix="AND">
 				<choose>
 					<when test="laptop_OS == '윈도우10'">
 						(laptop_OS LIKE #{laptop_OS}||'%' OR laptop_OS = '미포함')
@@ -40,7 +40,7 @@
 		
 		<!-- 모니터 사이즈 -->
 		<if test="laptop_MonitorSize != null">
-			<trim suffix="AND">
+			<trim prefix="AND">
 				<choose>
 					<when test="laptop_MonitorSize == '0'">
 						laptop_MonitorSize <![CDATA[<]]> 13 
@@ -57,7 +57,7 @@
 		
 		<!-- laptop 무게 -->
 		<if test="laptop_Weight != null">
-			<trim suffix="AND">
+			<trim prefix="AND">
 				<choose>
 					<when test="laptop_Weight == 0.0">
 						laptop_Weight <![CDATA[<]]> 1.5
@@ -74,20 +74,22 @@
 		
 		<!-- laptop의 가격 -->
 		<if test="laptop_Price != null">
-			<choose>
-				<when test="laptop_Price == '0'">
-					laptop_Price <![CDATA[<]]> 500000
-				</when>
-				<when test="laptop_Price == '1'">
-					laptop_Price <![CDATA[<]]> 800000
-				</when>
-				<when test="laptop_Price == '2'">
-					laptop_Price <![CDATA[<]]> 1100000
-				</when>
-				<when test="laptop_Price == '3'">
-					laptop_Price <![CDATA[>=]]> 1100000
-				</when>
-			</choose>
+			<trim prefix="AND">
+				<choose>
+					<when test="laptop_Price == 0">
+						laptop_Price <![CDATA[<]]> 500000
+					</when>
+					<when test="laptop_Price == 1">
+						laptop_Price <![CDATA[<]]> 800000
+					</when>
+					<when test="laptop_Price == 2">
+						laptop_Price <![CDATA[<]]> 1100000
+					</when>
+					<when test="laptop_Price == 3">
+						laptop_Price <![CDATA[>=]]> 1100000
+					</when>
+				</choose>
+			</trim>
 		</if>
 		
 		ORDER BY laptop_Price		

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +76,7 @@
                     <p>CPU: ${l_list.cpu_Name }</p>
                     <p>GPU: ${l_list.gpu_Name }</p>
                     <p>WEIGHT: ${l_list.laptop_Weight } kg</p>
-                    <p>PRICE: ${l_list.laptop_Price } won</p>
+                    <p>PRICE: <fmt:formatNumber value="${l_list.laptop_Price }" pattern="####,###"/>won</p>
                     
                 <c:if test="${sessionScope.mvo ne null }">
               		<input type="hidden" name="${vs.index }" value="${l_list.laptop_seq }"/>

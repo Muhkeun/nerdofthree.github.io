@@ -9,11 +9,11 @@ public class LaptopVO {
     		laptop_OS, 
     		laptop_MonitorSize,
     		laptop_ImageURL,
-    		laptop_url,
-    		laptop_Price;
+    		laptop_url;
 	
 	private int cpu_Point,
-				gpu_Point;
+				gpu_Point,
+				laptop_Price;
 
 	private float laptop_Weight;
 
@@ -113,12 +113,14 @@ public class LaptopVO {
 		this.laptop_Weight = laptop_Weight;
 	}
 
-	public String getLaptop_Price() {
+	public int getLaptop_Price() {
 		return laptop_Price;
 	}
 
-	public void setLaptop_Price(String laptop_Price) {
+	public void setLaptop_Price(int laptop_Price) {
 		this.laptop_Price = laptop_Price;
 	}
+
+	
 
 }
