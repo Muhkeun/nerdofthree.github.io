@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Myeongjo:wght@700&family=Nanum+Pen+Script&display=swap');
 /* section */
 section{
   position: relative;
@@ -45,6 +46,7 @@ section{
   line-height: 1.4;
   margin: 10px 0;
 }
+
 .content a{
   display: inline-block;
   text-decoration: none;
@@ -67,6 +69,13 @@ section{
 .row h2 {
   color: red;
   letter-spacing: 2px;
+}
+.row h3{
+  color: white;
+  font-family: 'Gamja Flower', cursive;
+  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Nanum Pen Script', cursive;
+  
 }
 .nav {
   width: 100%;
