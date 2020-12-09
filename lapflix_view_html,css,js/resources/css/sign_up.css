@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Myeongjo:wght@700&family=Nanum+Pen+Script&display=swap');
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section h2{
+    color: white;
+    margin-bottom: 10px;
+}
+.login-form{
+    position: relative;
+}
+/* input */
+.int-area{
+    position: relative;
+    width: 400px;
+    margin-top: 20px;
+}
+.int-area h4{
+    color: #fd262698;
+   
+}
+.int-area:first-child{
+    margin-top: 0px;
+}
+.int-area input{
+    width: 100%;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    border:none;
+    border-bottom: 1px solid #999;
+    font-size: 1.5em;
+    color: #fff;
+    outline: none;
+}
+.int-area label:not(.gender-label){
+    position: absolute;
+    left:10px; top: -1px;
+    font-size: 1em; color: #116cea;
+}
+
+/* gender */
+.gender-area{
+        padding-bottom: 10px;
+        border-bottom: 1px solid #999;
+}
+.int-area .gender{
+    position: relative;
+    color:white;
+}
+.int-area .fas{
+    position: absolute;
+    left: 150px;
+    z-index: 99;
+    color:white;
+}
+/* profile-image */
+.btn-file *{
+    font-family: 'Gamja Flower', cursive;
+    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Nanum Pen Script', cursive;
+}
+.btn-file {
+    
+    font-family: 'Gamja Flower', cursive;
+    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Nanum Pen Script', cursive;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    background-color: #cccccc49;
+}
+.btn-file input[type=file]{
+    font-size: 14px;
+    text-align: right;
+    outline: none;
+    background-attachment: white;
+    cursor: inherit;
+    display: block;
+    
+}
+/* button */
+.btn-area{
+    margin-top: 10px;
+}
+.btn-area button{
+    width: 100%;
+    height: 50px;
+    background: #116cea;
+    color: #fff;
+    font-size:  1em;
+    border: none;
+    border-radius: 20px;
+}
+.btn-area{
+    margin-top: 10px;
+}
+.btn-area button{
+    width: 100%;
+    height: 50px;
+    background: #116cea;
+    color: #fff;
+    font-size:  1em;
+    border: none;
+    border-radius: 20px;
+}
+/* responsive */
+@media(max-width: 550px){
+    .int-area{
+        
+        width: 200px;
+        
+    }
+}

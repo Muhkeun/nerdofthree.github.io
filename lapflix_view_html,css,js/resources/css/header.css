@@ -1,0 +1,130 @@
+/* header */
+header {
+    width: 100%;
+    min-height: 80px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #111;
+    position: relative;
+  }
+  .logo {
+    font-size: 2em;
+    color: red;
+    margin-left: 100px;
+  }
+  .logo h2 {
+    letter-spacing: 2px;
+  }
+  ul {
+    flex: 2;
+    text-align: right;
+    margin-right: 50px;
+  }
+  ul li {
+    list-style: none;
+    display: inline-block;
+  }
+  ul li a {
+    color: whitesmoke;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+  }
+  ul li a:hover {
+    color: red;
+  }
+  .search {
+    max-width: 250px;
+    width: 100%;
+    height: 30px;
+    margin-right: 100px;
+  }
+  .search input {
+    width: 200px;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+  }
+  .search button {
+    width: 45px;
+    height: 100%;
+    border: 100%;
+    cursor: pointer;
+    outline: none;
+    background: white;
+  }
+  .menu-close{
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    font-size: 2em;
+    display: none;
+  }
+  .menu-open{
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 2em;
+    display: none;
+  }
+  /* resposive */
+@media (max-width: 1110px){
+    .logo{
+      margin-left: 50px;
+    }
+    .search{
+      margin-right: 10px;
+    }
+    ul{
+      margin-right: 10px;
+    }
+  }
+  @media (max-width: 960px){
+    ul{
+      position: fixed;
+      top: 0;
+      left: -100%;
+      background: #111;
+      width: 100%;
+      height: 100vh;
+      z-index: 99;
+      padding-top: 80px;
+      text-align: center;
+      overflow: auto;
+      transition: 0.5s linear;
+    }
+    ul li{
+      display: block;
+      padding: 20px 50px;
+    }
+    .menu-close, .menu-open{
+      display: block;
+      cursor: pointer;
+    }
+  }
+  #chk1:checked ~ ul{
+    left: 0;
+  }
+  #chk1{
+    display: none;
+  }
+  @media(max-width: 550px){
+    .search{
+      position: fixed;
+      top: 20px;
+      z-index: 99;
+      left: -100%;
+      transform: translateX(-50%);
+      transition: 0.5s linear;
+    } 
+  }
+  #chk1:checked ~ .search{
+    left: 50%;
+  }
