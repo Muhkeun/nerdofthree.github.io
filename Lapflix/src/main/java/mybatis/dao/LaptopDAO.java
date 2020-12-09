@@ -20,6 +20,7 @@ public class LaptopDAO {
 	private SqlSessionTemplate sst;
 	
 	public List<LaptopVO> getLaptopList(LaptopVO lvo){
+		System.out.println("가격: "+lvo.getLaptop_Price());
 		List<LaptopVO> list = sst.selectList("laptop.list", lvo);	
 		
 		return list;		

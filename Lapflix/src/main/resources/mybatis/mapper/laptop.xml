@@ -75,16 +75,16 @@
 		<!-- laptop의 가격 -->
 		<if test="laptop_Price != null">
 			<choose>
-				<when test="laptop_Price == 0">
+				<when test="laptop_Price == '0'">
 					laptop_Price <![CDATA[<]]> 500000
 				</when>
-				<when test="laptop_Price == 1">
+				<when test="laptop_Price == '1'">
 					laptop_Price <![CDATA[<]]> 800000
 				</when>
-				<when test="laptop_Price == 2">
+				<when test="laptop_Price == '2'">
 					laptop_Price <![CDATA[<]]> 1100000
 				</when>
-				<when test="laptop_Price == 3">
+				<when test="laptop_Price == '3'">
 					laptop_Price <![CDATA[>=]]> 1100000
 				</when>
 			</choose>

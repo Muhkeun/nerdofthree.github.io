@@ -162,7 +162,7 @@
                         <input type="radio" name="laptop_Price" value="0"/>1. 50만원 미만</br>
 		                <input type="radio" name="laptop_Price" value="1"/>2. 80만원 미만</br>
 		                <input type="radio" name="laptop_Price" value="2"/>3. 110만원 미만</br>
-		                <input type="radio" name="laptop_Price" value="3"/>3. 110만원 이상</br>
+		                <input type="radio" name="laptop_Price" value="3"/>4. 110만원 이상</br>
                     </form>
                 </div>
                 
