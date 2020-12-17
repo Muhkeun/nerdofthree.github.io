@@ -1,6 +1,6 @@
 package com.nerdofthree.Lapflix;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +27,7 @@ public class FavoriteController {
 	@RequestMapping("/favorite")
 	@ResponseBody
 	public Map<String, String> favorite(FavoriteVO fvo) {
-		Map<String, String> map = new Hashtable<String, String>();
+		Map<String, String> map = new HashMap<String, String>();
 		
 		String key = fvo.getF_key();
 		String seq = fvo.getLaptop_seq();
@@ -51,11 +51,11 @@ public class FavoriteController {
 	
 	@RequestMapping("/getFavoriteList")
 	@ResponseBody
-	public void getFavoriteList(String f_key) {
+	public Map<String, Object> getFavoriteList(String f_key) {
 		
 		List<LaptopVO> f_list = f_dao.getFavoriteList(f_key);
-				
-		Map<String, Object> map = new Hashtable<String, Object>();
+		
+		Map<String, Object> map = new HashMap<String, Object>();
 		
 		//리스트를 배열로 변환
 		LaptopVO[] far = null;
@@ -63,12 +63,10 @@ public class FavoriteController {
 			far = new LaptopVO[f_list.size()];
 			f_list.toArray(far);
 		}
-		httpSession.setAttribute("far", far);
+		map.put("far", far);
 		
-	}
-	
-	@RequestMapping("/favoriteList")
-	public String foavoriteList() {
-		return "favorite";
+		return map;
+		
+		
 	}
 }

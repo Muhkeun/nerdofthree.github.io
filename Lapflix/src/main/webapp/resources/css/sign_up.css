@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Myeongjo:wght@700&family=Nanum+Pen+Script&display=swap');
+
 section{
     display: flex;
     justify-content: center;
@@ -40,9 +42,12 @@ section h2{
 }
 
 /* gender */
-.int-area .Gender{
+.gender-area{
+        padding-bottom: 10px;
+        border-bottom: 1px solid #999;
+}
+.int-area .gender{
     position: relative;
-
     color:white;
 }
 .int-area .fas{
@@ -51,7 +56,33 @@ section h2{
     z-index: 99;
     color:white;
 }
-
+/* profile-image */
+.btn-file *{
+    font-family: 'Gamja Flower', cursive;
+    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Nanum Pen Script', cursive;
+}
+.btn-file {
+    
+    font-family: 'Gamja Flower', cursive;
+    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Nanum Pen Script', cursive;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    background-color: #cccccc49;
+}
+.btn-file input[type=file]{
+    font-size: 14px;
+    text-align: right;
+    outline: none;
+    background-attachment: white;
+    cursor: inherit;
+    display: block;
+    
+}
 /* button */
 .btn-area{
     margin-top: 10px;

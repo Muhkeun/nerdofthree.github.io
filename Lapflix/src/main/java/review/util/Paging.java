@@ -64,85 +64,86 @@ public class Paging {
 		
 		//이제 현재페이지 값도 알고, 시작페이지와 끝페이지 값을 알았으니 페이징 기법에 사용할
 		//HTML코드를 작성하여 StringBuffer에 저장하자!
-		sb = new StringBuffer("<ol class='paging'>");//쌍따옴표를 홑따옴표로
+		sb = new StringBuffer();//쌍따옴표를 홑따옴표로
 		
 		
 		//searchType과 searchValue의 유무
 		if(searchType == null && searchValue == null) {
 			if(isPrePage) {
-				sb.append("<li><a href='review?cPage=");
+				sb.append("<a class='pagebtn' href='review'>첫 페이지</a>");
+				sb.append("<a class='pagebtn' href='review?cPage=");
 				sb.append(startPage-blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
-				sb.append("'> &lt; </a></li>"); //&lt;는 꺾새기호
+				sb.append("'>이전 페이지</a>");
 			}else {
 				//이전기능 비활성화(startPage가 1인 경우)
-				sb.append("<li class='disable'> &lt; </li>");
+				sb.append("<a class='disable'>첫 페이지</a>");
+				sb.append("<a class='disable'>이전 페이지</a>");
 				
 			}
 			//페이지 번호 출력하는 반복문(현재 페이지에는 now라는 css클래스 적용하자)
 			for(int i=startPage; i <= endPage; i++) {
 				//i의 값이 현재페이지(nowPage)와 같을 때를 구별하여 css클래스를 적용!
 				if(i == nowPage) {
-					sb.append("<li class='now'>");
+					sb.append("<a class='pageNum on'>");
 					sb.append(i);
-					sb.append("</li>");
+					sb.append("</a>");
 				}else {
-					sb.append("<li><a href='review?cPage=");
+					sb.append("<a class='pageNum' href='review?cPage=");
 					sb.append(i);
 					sb.append("'>");
 					sb.append(i);//화면에 표시되는 부분
-					sb.append("</a></li>");
+					sb.append("</a>");
 				}
 			}//for의 끝!
 			
 			//다음기능
 			if(isNextPage) {
-				sb.append("<li><a href='review?cPage=");
+				sb.append("<a class='pagebtn' href='review?cPage=");
 				sb.append(startPage+blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
-				sb.append("'> &gt; </a></li>"); //&lt;는 꺾새기호
-			}else {
-				//이전기능 비활성화(startPage가 1인 경우)
-				sb.append("<li class='disable'> &gt; </li>");
+				sb.append("'>다음 페이지</a>"); //&lt;는 꺾새기호
 				
+				//마지막 페이지
+				sb.append("<a class='pagebtn' href='review?cPage=");
+				sb.append(totalPage);
+				sb.append("'>마지막 페이지</a>");
+			}else {
+				sb.append("<a class='disable'>다음 페이지</a>");
+				sb.append("<a class='disable'>마지막 페이지</a>");
 			}
 		}else if(searchType != null && searchValue != null) {
 			if(isPrePage) {
-				sb.append("<li><a href='review?searchType="+searchType+"&searchValue="+searchValue+"&cPage=");
+				sb.append("<a class='pagebtn' href='review?searchType="+searchType+"&searchValue="+searchValue+"&cPage=");
 				sb.append(startPage-blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
-				sb.append("'> &lt; </a></li>"); //&lt;는 꺾새기호
-			}else {
-				//이전기능 비활성화(startPage가 1인 경우)
-				sb.append("<li class='disable'> &lt; </li>");
-				
+				sb.append("'>이전 페이지</a>"); //&lt;는 꺾새기호
+			}else {				
+				sb.append("<a class='disable'>이전 페이지</a>");
 			}
 			
 			//페이지 번호 출력하는 반복문(현재 페이지에는 now라는 css클래스 적용하자)
 			for(int i=startPage; i <= endPage; i++) {
 				//i의 값이 현재페이지(nowPage)와 같을 때를 구별하여 css클래스를 적용!
 				if(i == nowPage) {
-					sb.append("<li class='now'>");
+					sb.append("<a class='pageNum on'>");
 					sb.append(i);
-					sb.append("</li>");
+					sb.append("</a>");
 				}else {
-					sb.append("<li><a href='review?searchType="+searchType+"&searchValue="+searchValue+"&cPage=");
+					sb.append("<a class='pageNum' href='review?searchType="+searchType+"&searchValue="+searchValue+"&cPage=");
 					sb.append(i);
 					sb.append("'>");
 					sb.append(i);//화면에 표시되는 부분
-					sb.append("</a></li>");
+					sb.append("</a>");
 				}
 			}//for의 끝!
 			
 			//다음기능
 			if(isNextPage) {
-				sb.append("<li><a href='review?searchType="+searchType+"&searchValue="+searchValue+"&cPage=");
+				sb.append("<a class='pagebtn' href='review?searchType="+searchType+"&searchValue="+searchValue+"&cPage=");
 				sb.append(startPage+blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
-				sb.append("'> &gt; </a></li>"); //&lt;는 꺾새기호
+				sb.append("'>다음 페이지</a>"); //&lt;는 꺾새기호
 			}else {
-				//이전기능 비활성화(startPage가 1인 경우)
-				sb.append("<li class='disable'> &gt; </li>");
+				sb.append("<a class='disable'>다음 페이지</a>");
 			}
 		}
-		
-		sb.append("</ol>");
 	}
 
 	public int getNowPage() {

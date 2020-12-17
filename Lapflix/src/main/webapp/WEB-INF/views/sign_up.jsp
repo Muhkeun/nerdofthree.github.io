@@ -74,9 +74,11 @@
                     <input type="radio" name="member_gender" class="Gender" value="male"><i class="fas fa-mars"></i>
                     <input type="radio" name="member_gender" class="Gender" value="female"><i class="fas fa-venus"></i>
                 </div>
-                <div>
-                	<label>첨부파일: </label>
-                	<input type="file" name="file"/>
+                <div class="int-area">
+                	<label>Profile Image</label><br/>
+                	<div class="btn-file">이미지를 업로드하세요.
+                		<input type="file" name="file">
+                	</div>
                 </div>
                 <div class="btn-area">
                 	<button id="btn" type="submit">SIGN-UP</button>

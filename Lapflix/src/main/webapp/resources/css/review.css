@@ -113,3 +113,8 @@ caption{
     color: white;
     
 }
+.board_list_wrap .paging a.disable{
+	border: 2px solid #f5f6f7;
+    background: #f5f6f7;
+    color: grey;
+}
