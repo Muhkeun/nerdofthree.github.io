@@ -89,7 +89,7 @@ body{
     outline: none;
     cursor: pointer;
     color: grey;
-    font-size: 20px;
+    font-size: 30px;
 
 }
 .scrollBtn > .scrollBtn_Btn:hover{
@@ -110,4 +110,9 @@ body{
 }
 .downToBtn_img:hover{
     filter: invert(100%)
+}
+@media(max-width: 550px){
+    .btn-area button{
+        font-size: 10px;
+    }
 }

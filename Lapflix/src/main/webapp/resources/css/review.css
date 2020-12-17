@@ -1,70 +1,115 @@
-@charset "UTF-8";
-	#contents_sub>h1{
-		padding-left: 80px;
-		color: white;
-	}
-	#bbs table {
-	    width:800px;
-	    margin: auto;
-		border: 1px solid white;
-	    border-collapse:collapse;
-	    font-size:14px;
-	    
-	}
-	
-	#bbs table caption {
-	    font-size:20px;
-	    font-weight:bold;
-	    margin-bottom:10px;
-	    color: white;
-	}
-	
-	#bbs table th,#bbs table td {
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@500&display=swap');
 
-	    text-align:center;
-		border:1px solid white;
-	    padding:4px 10px;
-	    color: red;
-	}
-	/* paging */
-	
-	table tfoot ol.paging {
-	    list-style:none;
-	}
-	
-	table tfoot ol.paging li {
-	    float:left;
-	    margin-right:8px;
-	}
-	
-	table tfoot ol.paging li a {
-	    display:block;
-	    padding:3px 7px;
-	    border:1px solid #00B3DC;
-	    color:#2f313e;
-	    font-weight:bold;
-	}
-	
-	table tfoot ol.paging li a:hover {
-	    background:#00B3DC;
-	    color:white;
-	    font-weight:bold;
-	}
-	
-	.disable {
-	    padding:3px 7px;
-	    border:1px solid silver;
-	    color:silver;
-	}
-	
-	.now {
-	   padding:3px 7px;
-	    border:1px solid #ff4aa5;
-	    background:#ff4aa5;
-	    color:white;
-	    font-weight:bold;
-	}
-	
-	.empty{
-		height: 50px;
-	}
+/*               body              */
+section *{
+    font-family: 'Sunflower', sans-serif;
+}
+table{
+    border-collapse: collapse;
+    color: white;
+}
+a{
+    text-decoration: none;
+    color: inherit;    
+}
+caption{
+    display: none;
+}
+/*               board             */
+.board_list_wrap{
+    margin: 0 auto;
+    padding: 50px;   
+    width: 80%;
+}
+
+.board_list{
+    width: 100%;
+    border-top: 2px solid red;
+ 
+}
+.board_list tr{
+    border-bottom: 1px solid #ccc;
+   
+}
+.board_list th,
+.board_list td{
+    padding: 10px;
+    font-size: 14px;
+  
+}
+.board_list td{
+    text-align: center;
+}
+
+.board_list .title{
+    text-align: left;
+}
+.board_list tbody tr:hover{
+    
+        background-color: #ccc;
+
+    
+}
+/*              write                 */
+.board_list_wrap .write{
+    margin-top: 10px;
+    font-size: 0; 
+    /* text-align: right; */
+    position: relative;
+    text-align: right;
+}
+.board_list_wrap .write a{
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+}
+.board_list_wrap .write a.writebtn{
+    border: 2px solid #f5f6f7;
+    background: #f5f6f7;
+}
+.board_list_wrap .write a.writebtn:hover{
+    border: 2px solid #ccc;
+    background: #ccc;
+}
+
+/*              paging                */
+.board_list_wrap .paging{
+    margin-top: 20px;
+    font-size: 0; 
+    text-align: center;
+}
+.board_list_wrap .paging a{
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+    
+}
+.board_list_wrap .paging a:first-child{
+    margin-left:0;
+}
+.board_list_wrap .paging a.pagebtn{
+    border: 2px solid #f5f6f7;
+    background: #f5f6f7;
+}
+.board_list_wrap .paging a.pagebtn:hover{
+    border: 2px solid #ccc;
+    background: #ccc;
+}
+.board_list_wrap .paging a.pageNum{
+    border: 2px solid #f56403;
+    font-weight: 600;
+    color: white;
+}
+.board_list_wrap .paging a.pageNum:hover{
+    background: #f56403;
+}
+.board_list_wrap .paging a.pageNum.on{
+    background: red;
+    border: 2px solid  red;
+    color: white;
+    
+}

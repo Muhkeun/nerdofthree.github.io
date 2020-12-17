@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/result.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/modal.css">
     <script src="https://kit.fontawesome.com/aa5b301900.js" crossorigin="anonymous"></script>
 <style>
 	.content h2, p{
@@ -35,7 +36,7 @@
 	    <ul>
 	        <li><a href="#">Home</a></li>
 	        <li><a href="/">Survey</a></li>
-	        <li><a href="javascript:f_list()">My favorite</a></li>
+	        <li><a href="javascript:f_list()" id="modal-btn">My favorite</a></li>
 	        <li><a href="review">Review</a></li>
 	                    
 	    <!-- 로그인 여부 -->    
@@ -117,6 +118,38 @@
                 <div class="next">></div>
         </div>
 	</section>
+	<div class="modal" id="modal">
+    	<div class="modal-content">
+        	<span class="close">&times;</span>                                                               
+            	<h1><i class="far fa-star"></i>    Favorite</h1>
+                	<div class="fav-container">
+                    	<div class="fav-slides">
+                        	<img src="http://img.danawa.com/prod_img/500000/022/100/img/10100022_1.jpg?shrink=130:130&_v=20200306133943" alt="">
+                        	<div class="fav-content">
+                            	<h2>Laptop name</h2>
+                            	<p>Laptop detail</p>
+                            	<a href="#">
+                                	<i class="far fa-star"></i>       
+                                	Favorite
+                            	</a>
+                        	</div>
+                    	</div>
+					</div>                    	
+                    <div class="fav-container">
+                        <div class="fav-slides">
+                        	<img src="http://img.danawa.com/prod_img/500000/022/100/img/10100022_1.jpg?shrink=130:130&_v=20200306133943" alt="">
+                            <div class="fav-content">
+                                <h2>Laptop name</h2>
+                                <p>Laptop detail</p>
+                                <a href="#">
+                                    <i class="far fa-star"></i>       
+                                    Favorite
+                                </a>
+                            </div>
+                        </div>
+                	</div>
+		</div>
+	</div>
 <script type="text/javascript" src="js/slide.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>

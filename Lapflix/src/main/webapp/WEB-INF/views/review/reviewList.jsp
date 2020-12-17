@@ -27,7 +27,6 @@
 	     	<h2>Lapflix</h2>
 	    </div>
 	    <ul>
-	        <li><a href="#">Home</a></li>
 	        <li><a href="/">Survey</a></li>
 	        <li><a href="javascript:f_list()">My favorite</a></li>
 	        <li><a href="review">Review</a></li>

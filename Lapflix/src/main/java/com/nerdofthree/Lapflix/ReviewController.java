@@ -70,7 +70,7 @@ public class ReviewController {
 		mv.addObject("blockList", blockList);
 		mv.addObject("p_code", page.getSb().toString());
 		
-		mv.setViewName("review/reviewList");
+		mv.setViewName("review/review");
 		
 		return mv;
 	}	
