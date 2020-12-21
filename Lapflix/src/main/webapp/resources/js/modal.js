@@ -26,7 +26,7 @@ btn.onclick = function getFavoriteList(){
 		if(data.far != null){
 			var str = "";
 			for(var i=0; i <data.far.length; i++){
-				str += "<img src='"+data.far[i].laptop_ImageURL+"?shrink=130:130&_v=20200306133943' alt=''><div class='fav-content'><h2>"+data.far[i].laptop_Name+
+				str += "<img src='"+data.far[i].laptop_ImageURL+"?shrink=50:50&_v=20200306133943' alt=''><div class='fav-content'><h2>"+data.far[i].laptop_Name+
 					"</h2><p>"+data.far[i].laptop_Weight+"kg</p><a href=javascript:delFavorite("+data.f_key+","+data.far[i].laptop_seq+")><i class='far fa-star'></i></a></div>";
 			}
 			$(".fav-slides").html(str);
