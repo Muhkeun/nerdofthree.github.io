@@ -25,7 +25,8 @@ public class ResultController {
 		
 		@RequestMapping("result")
 		public ModelAndView result(SurveyVO svo, String search) {
-						if(search == null) {
+			
+			if(search == null) {
 				ModelAndView mv = new ModelAndView();
 				
 				//설문값 세션에 저장
@@ -35,6 +36,7 @@ public class ResultController {
 				Program_BenchVO point = l_dao.getPoint(svo.getProgram_Name());
 				int cpu_Point = -1;
 				int gpu_Point = -1;
+				
 				if(svo.getStatus().equals("noob") || svo.getStatus().equals("")) {
 					cpu_Point = point.getProgram_Cpu_min();
 					gpu_Point = point.getProgram_Gpu_min();
@@ -61,8 +63,6 @@ public class ResultController {
 				List<LaptopVO> l_list = l_dao.getLaptopList(lvo);
 				
 				//리스트를 배열로 변환
-				
-				
 				if(l_list != null && l_list.size() > 0) {
 					ar = new LaptopVO[l_list.size()];
 					
@@ -74,19 +74,17 @@ public class ResultController {
 				mv.setViewName("result");			
 				
 				return mv;
-		}else{ //전체 데이터 받아와서 검색으로 수정
-			search = search.toLowerCase();
-						
+			}else{ //전체 데이터 받아와서 검색으로 수정
+				search = search.toLowerCase();
 				List<LaptopVO> l_list = l_dao.getAllLaptopList();
-				
+					
 				//리스트를 배열로 변환
-				
 				if(l_list != null && l_list.size() > 0) {
 					ar = new LaptopVO[l_list.size()];
 					
 					l_list.toArray(ar);
 				}
-			ModelAndView mv = new ModelAndView();
+				ModelAndView mv = new ModelAndView();
 			
 			//설문값 세션에 저장
 			httpSession.setAttribute("svo", svo);

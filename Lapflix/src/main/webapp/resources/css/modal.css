@@ -40,6 +40,12 @@
     background: #0009;
     padding: 3px 5px;
   }
-  .fav-content a:hover{
-    background: chocolate;
-  }
+.fav-content a:hover{
+	background: chocolate;
+}
+
+img{
+	width: 30%;
+	height: 30%;
+	object-fit: scale-down;
+}

@@ -119,7 +119,7 @@
             <div class="background"><img src="res/5.jpg"/></div>
             
             <div class="qna">
-                <div class="question"><h1>해당 프로그램을 사용함에 있어 어느 정도의 수준으로 작업하실 생각입니까?</h1></div>
+                <div class="question"><h1>어느 정도의 수준으로 작업하실 생각입니까?</h1></div>
                     
                 <div class="answer">
                     <form action="">

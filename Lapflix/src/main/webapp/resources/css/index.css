@@ -54,7 +54,17 @@ body{
 .qna .logo h2{
     font-family: "Bebas Neue", cursive;
 }
-
+form{
+	font-size: 2em;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	
+}
+form input[type="radio"]{
+	border: 0px;
+	width: 1.4em;
+	height: 1.4em;
+	margin-right: 5px;
+}
 .btn-area button{
     font-family: "Bebas Neue", cursive;
     margin-top: 30px;
