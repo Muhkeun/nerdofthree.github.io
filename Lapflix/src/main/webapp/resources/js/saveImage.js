@@ -1,25 +1,25 @@
 $(function(){
-			
-	$("#content").summernote({
-		 height: 300,
-		 maxHeight: 400,
-		 minHeight: 200,
-		 tabSize: 10,
-		 width: 715,
-		 focus: true,
-		 lang: "ko-KR",
 
-		 callbacks:{
-			 onImageUpload: function(files, editor){
+	$("#content").summernote({
+		height: 300,
+		maxHeight: 400,
+		minHeight: 200,
+		width: 1000,
+		tabSize: 10,
+		focus: true,
+		lang: "ko-KR",
+		placeholder: '음란물, 차별, 비하, 혐오 및 초상권, 저작권 침해 게시물은 민, 형사상의 책임을 질 수 있습니다.',
+		callbacks:{
+			onImageUpload: function(files, editor){
 				 
-				 for(var i=0; i<files.length; i++){
-					 sendFile(files[i], editor);
-				 }
-			 },
-		 }
+				for(var i=0; i<files.length; i++){
+					sendFile(files[i], editor);
+				}
+			},
+		}
 	});
 	
-//	$("#content").summernote("lineHeight", 0.7);	
+	$("#content").summernote("lineHeight", 1.5);	
 });
 	
 function sendFile(file, editor){

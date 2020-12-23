@@ -39,8 +39,8 @@ public class ReviewController {
 	@Autowired
 	private HttpServletRequest request;
 	
-	private int blockList = 2; //한 페이지에 보여질 게시물 수
-	private int blockPage = 3; //한 블럭당 보여질 페이지 수
+	private int blockList = 10; //한 페이지에 보여질 게시물 수
+	private int blockPage = 5; //한 블럭당 보여질 페이지 수
 	
 	private String uploadPath = "/resources/upload";
 	

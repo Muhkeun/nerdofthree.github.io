@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+section {
+  text-align: center;
+  align-items: center;
+  position: relative;
+}
+.board_list_wrap {
+  margin: 0 auto;
+  padding: 50px;
+  width: 70%;
+}
+caption {
+  display: none;
+}
+.board_list {
+  width: 100%;
+  border-top: 2px solid red;
+}
+.board_list_wrap .write a:hover {
+  border: 2px solid #ccc;
+  background: #ccc;
+}
+table {
+  border-collapse: collapse;
+  color: white;
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+section *{
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+table th,
+td {
+  text-align: center;
+  border: 1px solid #9797976c;  
+  position: relative;
+}
+textarea{
+  resize: none;
+  width: 100%;
+  height: 200px;
+  
+}
+textarea::-webkit-input-placeholder { text-align: center;}
+textarea::-moz-placeholder { text-align: center }
+textarea:-ms-input-placeholder { text-align: center;}
+textarea:-moz-placeholder { text-align: center; }
+textarea::placeholder { text-align: center;}
+
+div .write{
+  margin-top: 10px;
+  height: 40px;
+}
+
+
+#subject,
+#laptop_name {
+  outline: none;
+  display: inline-block;
+  width: 100%;
+  height: 2em;
+  
+}
+#file{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  height: auto;
+}
+
+.board_list_wrap .write a {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 100px;
+  font-size: 12px;
+  border: 2px solid #f5f6f7;
+  background: #f5f6f7;
+}
+
+input:not(#file), textarea{
+  border: 2px solid #ccc;
+  
+}

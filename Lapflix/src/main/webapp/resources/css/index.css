@@ -1,128 +1,122 @@
-@import  url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-body{
-    overflow: hidden;
-    background-color: black;
-    margin: auto;
-    height: 600vh;
-    width: 100%;
-    position: relative;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow: hidden;
+  background-color: black;
+  margin: auto;
+  height: 600vh;
+  width: 100%;
+  position: relative;
 }
 /* 페이지 */
-.index{
-    position: relative;
+.index {
+  position: relative;
 }
-.question{
-    margin-bottom: 20px;
+.question {
+  margin-bottom: 20px;
 }
-.answer{
-    margin-bottom: 50px;
+.answer {
+  margin-bottom: 50px;
 }
-.index .qna{
-    position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate( -50%, -50% );
-    text-align: center;
-    position: flex;
-    color:#ffff;
-
+.index .qna {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  position: flex;
+  color: #ffff;
 }
-.answer input{
-    margin-bottom: 10px;
+.answer input {
+  margin-bottom: 10px;
 }
-.background>img{
-    width:100%;
-    height: 100vh;
-    opacity: 80%;
-    vertical-align: middle;
-    object-fit: fill;
-    
+.background > img {
+  width: 100%;
+  height: 100vh;
+  opacity: 80%;
+  vertical-align: middle;
+  object-fit: fill;
 }
-.question h1{
-    color: yellow;
+.question h1 {
+  color: yellow;
 }
-.qna .logo{
-    transform: translate( 80%, -100% );
-    top: 100;
-    position: absolute;
+.qna .logo {
+  transform: translate(80%, -100%);
+  top: 100;
+  position: absolute;
 }
-.qna .logo h2{
-    font-family: "Bebas Neue", cursive;
-}
-form{
-	font-size: 2em;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-	
-}
-form input[type="radio"]{
-	border: 0px;
-	width: 1.4em;
-	height: 1.4em;
-	margin-right: 5px;
-}
-.btn-area button{
-    font-family: "Bebas Neue", cursive;
-    margin-top: 30px;
-    width: 300px;
-    height: 30px;
-    background: #116cea;
-    color: #fff;
-    font-size:  1em;
-    border: none;
-    border-radius: 20px;
+.qna .logo h2 {
+  font-family: "Bebas Neue", cursive;
 }
 
+.btn-area button {
+  font-family: "Bebas Neue", cursive;
+  margin-top: 30px;
+  width: 300px;
+  height: 30px;
+  background: #116cea;
+  color: #fff;
+  font-size: 1em;
+  border: none;
+  border-radius: 20px;
+}
+form {
+  font-size: 2em;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+form input[type="radio"] {
+  border: 0px;
+  width: 1.4em;
+  height: 1.4em;
+  margin-right: 5px;
+}
 /* 스크롤바 */
-.scrollBtn{
-    width: fit-content;
-    height: fit-content;
-    position: fixed;
-    display: block;
-    z-index: 2;
-    top: 30vh;
-    right: 2vw;
-    background-color: white;
-    opacity: 60%;
-    border-radius: 20px;
-    
+.scrollBtn {
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  display: block;
+  z-index: 2;
+  top: 30vh;
+  right: 2vw;
+  background-color: white;
+  opacity: 60%;
+  border-radius: 20px;
 }
 
-.scrollBtn > .scrollBtn_Btn{
-  
-    background-color: transparent; 
-    border:none;
-    outline: none;
-    cursor: pointer;
-    color: grey;
-    font-size: 30px;
-
+.scrollBtn > .scrollBtn_Btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: grey;
+  font-size: 30px;
 }
-.scrollBtn > .scrollBtn_Btn:hover{
-    color: black;
+.scrollBtn > .scrollBtn_Btn:hover {
+  color: black;
 }
-.downToBtn{
-    background-color: transparent; 
-    background-position: 0px 0px;
-    border:none;
-    outline: none;
-    cursor: pointer;
+.downToBtn {
+  background-color: transparent;
+  background-position: 0px 0px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
-.downToBtn_img{
-    object-fit: cover;
-    height: 3em;
-    width: 3em;
-    filter: invert(70%)
+.downToBtn_img {
+  object-fit: cover;
+  height: 3em;
+  width: 3em;
+  filter: invert(70%);
 }
-.downToBtn_img:hover{
-    filter: invert(100%)
+.downToBtn_img:hover {
+  filter: invert(100%);
 }
-@media(max-width: 550px){
-    .btn-area button{
-        font-size: 10px;
-    }
+@media (max-width: 550px) {
+  .btn-area button {
+    font-size: 10px;
+  }
 }
