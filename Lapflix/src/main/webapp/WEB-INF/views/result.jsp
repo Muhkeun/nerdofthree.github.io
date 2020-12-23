@@ -34,7 +34,6 @@
 	     	<h2>Lapflix</h2>
 	    </div>
 	    <ul>
-	        <li><a href="#">Home</a></li>
 	        <li><a href="/">Survey</a></li>
 	        <li><a href="#" id="modal-btn">My favorite</a></li>
 	        <li><a href="review">Review</a></li>

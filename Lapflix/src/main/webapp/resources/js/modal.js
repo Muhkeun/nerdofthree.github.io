@@ -27,7 +27,7 @@ btn.onclick = function getFavoriteList(){
 			var str = "";
 			for(var i=0; i <data.far.length; i++){
 				str += "<img src='"+data.far[i].laptop_ImageURL+"?shrink=130:130&_v=20200306133943' alt=''><div class='fav-content'><h2>"+data.far[i].laptop_Name+
-					"</h2><p>"+data.far[i].laptop_Weight+"kg</p><a href=javascript:delFavorite("+data.f_key+","+data.far[i].laptop_seq+")><i class='far fa-star'></i></a></div>";
+					"</h2><p>"+data.far[i].laptop_Price+"kg</p><p>"+data.far[i].laptop_url+"</p><a href=javascript:delFavorite("+data.f_key+","+data.far[i].laptop_seq+")><i class='far fa-star'></i></a></div>";
 			}
 			$(".fav-slides").html(str);
 		}else{
@@ -84,7 +84,7 @@ function delFavorite(key, seq){
 					var str = "";
 					for(var i=0; i <data.far.length; i++){
 						str += "<img src='"+data.far[i].laptop_ImageURL+"?shrink=130:130&_v=20200306133943' alt=''><div class='fav-content'><h2>"+data.far[i].laptop_Name+
-							"</h2><p>"+data.far[i].laptop_Weight+"kg</p><a href=javascript:delFavorite("+data.f_key+","+data.far[i].laptop_seq+")><i class='far fa-star'></i></a></div>";
+							"</h2><p>"+data.far[i].laptop_Price+"kg</p><p>"+data.far[i].laptop_url+"</p><a href=javascript:delFavorite("+data.f_key+","+data.far[i].laptop_seq+")><i class='far fa-star'></i></a></div>";
 					}
 					$(".fav-slides").html(str);
 				}else{

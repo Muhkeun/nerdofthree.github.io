@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/review.css">
     <script src="https://kit.fontawesome.com/aa5b301900.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/common.js"></script>
 </head>
 <body>
     <header>
@@ -22,7 +23,7 @@
         </div>
         <ul>
 	        <li><a href="/">Survey</a></li>
-	        <li><a href="javascript:f_list()">My favorite</a></li>
+	        <li><a href="#" id="modal-btn">Result</a></li>
 	        <li><a href="review">Review</a></li>
 	                    
 	    <!-- 로그인 여부 -->    
@@ -55,6 +56,17 @@
         <div class="board_list_wrap">
             <table class="board_list">
                 <caption>리뷰 목록</caption>
+                	<form action="/review" method="post">
+						<input type="hidden" name="type" value="search"/>
+						<select id="searchType" name="searchType">
+							<option value="0">모델명</option>
+							<option value="1">제목</option>
+							<option value="2">글쓴이</option>
+						</select>
+						<input type="text" id="searchValue" name="searchValue"/>
+						<input type="button" value="검색" onclick="search(this.form)"/>
+					</form>
+
                 <thead>
                     <tr>
                         <th>번호</th>
@@ -97,21 +109,32 @@
             </table>
             
             <div class="write">
-                <a href="#" class="writebtn">글쓰기</a>
+                <a href="#" class="write_btn">글쓰기</a>
             </div>
             
             <div class="paging">
             	${p_code }
-<!--                 <a href="#" class="pagebtn">첫페이지</a> -->
-<!--                 <a href="#" class="pagebtn">이전 페이지</a> -->
-<!--                 <a href="#" class="pageNum on">1</a> -->
-<!--                 <a href="#" class="pageNum">2</a> -->
-<!--                 <a href="#" class="pageNum">3</a> -->
-<!--                 <a href="#" class="pagebtn">다음 페이지</a> -->
-<!--                 <a href="#" class="pagebtn">마지막페이지</a> -->
             </div>
         </div>
     </section>
-<script type="text/javascript" src="js/common.js"></script>
+<script>
+	$(function(){
+		$(".write_btn").bind("click", function(){
+			$.ajax({
+				url: "write",
+				dataType: "json",
+			}).done(function(data){
+				if(data.chk == "0"){
+					alert("로그인이 필요합니다.");
+				}
+				location.href = data.url;
+			});
+		});
+	});
+	
+	function search(frm){
+		frm.submit();
+	}
+</script>
 </body>
 </html>
