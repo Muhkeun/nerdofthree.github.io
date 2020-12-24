@@ -149,6 +149,13 @@
 
 <script>
 	
+	//save survey parameter
+	$(document).ready(function(){
+		var surveyURL = document.location.href.split("?");
+		sessionStorage.setItem("surveyURL", surveyURL[1]);
+	});
+	
+	//favorite add & delete
 	function favorite(idx){
 		
 		var f_key = sessionStorage.getItem("f_key");
@@ -168,6 +175,8 @@
 			}
 		});  
 	}
+	
+	//search
 	function submit(frm){
 		frm.submit();
 	}

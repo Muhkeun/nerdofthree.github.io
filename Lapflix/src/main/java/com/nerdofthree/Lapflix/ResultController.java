@@ -20,16 +20,10 @@ public class ResultController {
 		@Autowired
 		private LaptopDAO l_dao;
 		
-		@Autowired
-		private HttpSession httpSession;
-		
 		@RequestMapping("result")
 		public ModelAndView result(SurveyVO svo, String search) {
 			
 			ModelAndView mv = new ModelAndView();
-			
-			//설문값 세션에 저장
-			httpSession.setAttribute("svo", svo);
 			
 			if(search == null) {
 			

@@ -44,12 +44,8 @@ public class signInController {
     		System.out.println("로그인 성공");
     		httpSession.setAttribute("mvo", mvo);
     		
-    		SurveyVO svo = (SurveyVO) httpSession.getAttribute("svo");
     		map.put("res", "1");
     		map.put("mvo", mvo);
-    		
-    		if(svo != null)
-    			map.put("svo", svo);
 
     	}else {
     		System.out.println("로그인 실패");
@@ -67,9 +63,6 @@ public class signInController {
     	
     	Map<String, Object> map = new Hashtable<String, Object>();
     	map.put("res", "0");
-    	
-    	SurveyVO svo = (SurveyVO) httpSession.getAttribute("svo");
-    	map.put("svo", svo);
     	
     	return map;
     }
