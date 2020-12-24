@@ -32,8 +32,6 @@ public class FavoriteController {
 		String key = fvo.getF_key();
 		String seq = fvo.getLaptop_seq();
 		
-		//System.out.println(key+"/"+seq);
-		
 		FavoriteVO f = f_dao.getFavorite(key, seq);
 		
 		if(f == null) {
@@ -72,7 +70,6 @@ public class FavoriteController {
 			f_list.toArray(far);
 		}
 		map.put("far", far);
-		map.put("f_key", f_key);
 		
 		return map;
 		

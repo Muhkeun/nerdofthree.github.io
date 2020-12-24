@@ -7,7 +7,6 @@
 	<div class="logo">
     	<h2>Lapflix</h2>
 	</div>
-	<input type="hidden" value="${sessionScope.svo }" id="svo"/>
 	<ul>
 		<li><a href="/">Survey</a></li>
 		<li><a href="javascript:result()">Result</a>

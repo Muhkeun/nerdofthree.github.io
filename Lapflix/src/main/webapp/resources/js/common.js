@@ -21,10 +21,14 @@ function signOut(){
 }
 
 function result(){
+	var laptop_MonitorSize = sessionStorage.getItem("laptop_MonitorSize");
+	var laptop_OS = sessionStorage.getItem("laptop_OS");
+	var program_Name = sessionStorage.getItem("program_Name");
+	var status = sessionStorage.getItem("status");
+	var laptop_Weight = sessionStorage.getItem("laptop_Weight");
+	var laptop_Price = sessionStorage.getItem("laptop_Price");
 	
-	var svo = document.getElementById("svo").value;
-	
-	location.href = "/result?laptop_MonitorSize="+svo.laptop_MonitorSize+"&laptop_OS="+svo.laptop_OS+
-			"&program_Name="+svo.program_Name+"&status="+svo.status+"&laptop_Weight="+svo.laptop_Weight+"&laptop_Price="+svo.laptop_Price;
+	location.href = "/result?laptop_MonitorSize="+laptop_MonitorSize+"&laptop_OS="+laptop_OS+
+			"&program_Name="+program_Name+"&status="+status+"&laptop_Weight="+laptop_Weight+"&laptop_Price="+laptop_Price;
 };
 
