@@ -7,12 +7,13 @@
 	<div class="logo">
     	<h2>Lapflix</h2>
 	</div>
+	<input type="hidden" value="${sessionScope.svo }" id="svo"/>
 	<ul>
 		<li><a href="/">Survey</a></li>
-		<li><a href="#">Result</a></li>
-		<li><a href="review">Review</a></li>
-            
-<!-- 로그인 여부 -->    
+		<li><a href="javascript:result()">Result</a>
+		<li><a href="review">Review</a></li>     
+      
+	<%--로그인 --%>  
 	<c:if test="${sessionScope.mvo eq null }">
 		<li id="login"><a href="/signIn">SignIn</a></li>
 	</c:if>

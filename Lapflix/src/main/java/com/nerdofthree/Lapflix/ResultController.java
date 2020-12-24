@@ -26,12 +26,13 @@ public class ResultController {
 		@RequestMapping("result")
 		public ModelAndView result(SurveyVO svo, String search) {
 			
+			ModelAndView mv = new ModelAndView();
+			
+			//설문값 세션에 저장
+			httpSession.setAttribute("svo", svo);
+			
 			if(search == null) {
-				ModelAndView mv = new ModelAndView();
-				
-				//설문값 세션에 저장
-				httpSession.setAttribute("svo", svo);
-				
+			
 				//프로그램 최저/권장 밴치점수 구하기
 				Program_BenchVO point = l_dao.getPoint(svo.getProgram_Name());
 				int cpu_Point = -1;
@@ -71,9 +72,6 @@ public class ResultController {
 				
 				mv.addObject("ar", ar);		
 				
-				mv.setViewName("result");			
-				
-				return mv;
 			}else{ //전체 데이터 받아와서 검색으로 수정
 				search = search.toLowerCase();
 				List<LaptopVO> l_list = l_dao.getAllLaptopList();
@@ -84,36 +82,33 @@ public class ResultController {
 					
 					l_list.toArray(ar);
 				}
-				ModelAndView mv = new ModelAndView();
-			
-			//설문값 세션에 저장
-			httpSession.setAttribute("svo", svo);
-			
-			int cnt = 0;
-			for(LaptopVO sar : ar) {
-				int isSearched = sar.getLaptop_Name().toLowerCase().indexOf(search);
-				if(isSearched != -1) {//검색됐다
-					cnt += 1;
+				
+				int cnt = 0;
+				for(LaptopVO sar : ar) {
+					int isSearched = sar.getLaptop_Name().toLowerCase().indexOf(search);
+					if(isSearched != -1) {//검색됐다
+						cnt += 1;
+					}
 				}
-			}
 			
 		
-			LaptopVO[] search_ar = new LaptopVO[cnt];
-			cnt = 0;
-			for(int i=0; i<ar.length; i++) {
-				int isSearched = ar[i].getLaptop_Name().toLowerCase().indexOf(search);
-				if(isSearched != -1) {//검색됐다
-					search_ar[cnt] = ar[i];
-					cnt += 1;
+				LaptopVO[] search_ar = new LaptopVO[cnt];
+				cnt = 0;
+				for(int i=0; i<ar.length; i++) {
+					int isSearched = ar[i].getLaptop_Name().toLowerCase().indexOf(search);
+					if(isSearched != -1) {//검색됐다
+						search_ar[cnt] = ar[i];
+						cnt += 1;
+					}
 				}
-			}
 
 		
-			mv.addObject("ar", search_ar);		
+				mv.addObject("ar", search_ar);		
 			
+			}
+
 			mv.setViewName("result");			
 			
 			return mv;
-		}
 		}
 }

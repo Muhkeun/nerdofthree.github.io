@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/review.css">
     <script src="https://kit.fontawesome.com/aa5b301900.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/common.js"></script>
+    
 </head>
 <body>
     <!-- 상단 -->
@@ -84,6 +84,7 @@
             </div>
         </div>
     </section>
+<script type="text/javascript" src="js/common.js"></script>
 <script>
 	$(function(){
 		$(".write_btn").bind("click", function(){
@@ -102,6 +103,7 @@
 	function search(frm){
 		frm.submit();
 	}
+
 </script>
 </body>
 </html>

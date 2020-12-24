@@ -18,7 +18,13 @@ function signOut(){
 			"&status="+data.svo.status+"&laptop_Weight="+data.svo.laptop_Weight+"&laptop_Price="+data.svo.laptop_Price;		
 		}	
 	});
+}
+
+function result(){
+	
+	var svo = document.getElementById("svo").value;
+	
+	location.href = "/result?laptop_MonitorSize="+svo.laptop_MonitorSize+"&laptop_OS="+svo.laptop_OS+
+			"&program_Name="+svo.program_Name+"&status="+svo.status+"&laptop_Weight="+svo.laptop_Weight+"&laptop_Price="+svo.laptop_Price;
 };
-
-
 

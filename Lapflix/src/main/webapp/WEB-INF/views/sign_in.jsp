@@ -10,31 +10,12 @@
     <link rel="stylesheet" href="css/sign_in.css">
     <script src="https://kit.fontawesome.com/aa5b301900.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    
 </head>
 <body>
-    <header>
-        <input type="checkbox" id="chk1">
-        <div class="logo">
-            <h2>Lapflix</h2>
-        </div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="/">Survey</a></li>
-            <li><a href="javascript:f_list()">My favorite</a></li>
-            <li><a href="review">Review</a></li>
-            <label for="chk1" class="menu-close">
-                <i class="fas fa-times" aria-hidden="true"></i>
-            </label>
-        </ul>
-        <div class="search">
-            <input type="text" name="search" id="srch"
-             required placeholder="Enter your search">
-             <button type="submit">Search</button>
-        </div>
-        <label for="chk1" class="menu-open">
-            <i class="fas fa-bars" aria-hidden="true"></i>
-        </label>
-    </header>
+    <!-- 상단영역 -->
+    <jsp:include page="review/reviewHeader.jsp"/>
+    <!-- 상단영역 끝 -->
     <section>
         <div  class="login_form">
             <div class="center-logo">
@@ -59,7 +40,7 @@
             
         </div>
     </section>
-   	<script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/sign_in.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/sign_in.js"></script>  	
 </body>
 </html>

@@ -55,11 +55,22 @@
 	            <i class="fas fa-times" aria-hidden="true"></i>
 	        </label>
 	    </ul>
+	    <form action="result">
 	    <div class="search">
+	    	
+	    	<input type = "hidden" name = "laptop_MonitorSize" value = "${svo.laptop_MonitorSize}">
+        	<input type = "hidden" name = "laptop_OS" value ="${svo.laptop_OS}">
+        	<input type = "hidden" name = "program_Name" value ="${svo.program_Name}">
+        	<input type = "hidden" name = "status" value ="${svo.status}">
+        	<input type = "hidden" name = "laptop_Weight" value ="${svo.laptop_Weight}">
+        	<input type = "hidden" name = "laptop_Price" value ="${svo.laptop_Price}">
+        	
 	        <input type="text" name="search" id="srch"
 	         required placeholder="Enter your search">
-	         <button type="submit">Search</button>
+	         <button type="javascript:submit(this.form)">Search</button>
 	    </div>
+	    </form>
+	    
 	    <label for="chk1" class="menu-open">
 	        <i class="fas fa-bars" aria-hidden="true"></i>
 	    </label>
@@ -156,7 +167,10 @@
 				alert("즐겨찾기 목록에서 삭제되었습니다");
 			}
 		});  
-	}	
+	}
+	function submit(frm){
+		frm.submit();
+	}
 </script>
 </body>
 </html>
