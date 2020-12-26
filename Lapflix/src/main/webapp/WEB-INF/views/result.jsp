@@ -48,7 +48,7 @@
 	     		<li id = "signOut"><a href='javascript:signOut()'>SignOut</a></li>
 	     	</c:if>
 	     	<c:if test="${sessionScope.mvo.profile_image ne null }">
-	    		<li id = "signOut"><a href="javascript:signOut_ok()" ><img id="p_img" src="/upload/${sessionScope.mvo.profile_image }"/></a></li>
+	    		<li id = "signOut_Profile"><a href="javascript:signOut_Profile()" ><img id="p_img" src="/upload/${sessionScope.mvo.profile_image }"/></a></li>
 	    	</c:if>
 	    </c:if>
 	     

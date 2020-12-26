@@ -25,14 +25,14 @@
 	<c:if test="${sessionScope.mvo eq null }">
 		<li id="login"><a href="/signIn">SignIn</a></li>
 	</c:if>
-	<c:if test="${sessionScope.mvo ne null }">
+<c:if test="${sessionScope.mvo ne null }">
 	<c:if test="${sessionScope.mvo.profile_image eq null }">
 		<li id = "signOut"><a href='javascript:signOut()'>SignOut</a></li>
 	</c:if>
 	<c:if test="${sessionScope.mvo.profile_image ne null }">
-		<li id = "signOut"><a href="javascript:signOut_ok()" ><img id="p_img" src="/upload/${sessionScope.mvo.profile_image }"/></a></li>
+		<li id = "signOut_Profile"><a href="javascript:signOut_Profile()" ><img id="p_img" src="/upload/${sessionScope.mvo.profile_image }"/></a></li>
 	</c:if>
-	</c:if>
+</c:if>
 	<label for="chk1" class="menu-close">
 		<i class="fas fa-times" aria-hidden="true"></i>
 	</label>

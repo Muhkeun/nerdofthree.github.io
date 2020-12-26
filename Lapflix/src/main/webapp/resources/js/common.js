@@ -1,6 +1,6 @@
-function signOut_ok(){
+function signOut_Profile(){
 	
-	$("#signOut").html("<a href='javascript:signOut()'>SignOut</a>");
+	$("#signOut_Profile").html("<a href='javascript:signOut()'>SignOut</a>");
 	
 }
 
