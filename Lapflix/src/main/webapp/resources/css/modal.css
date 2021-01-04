@@ -34,7 +34,7 @@
   text-decoration: none;
   cursor: pointer;
 }
-.fav-content a {
+.fav-content p a{
   display: inline-block;
   text-decoration: none;
   font-size: 0.4em;
@@ -42,7 +42,7 @@
   background: #0009;
   padding: 3px 5px;
 }
-.fav-content a:hover {
+.fav-content p a:hover {
   background: chocolate;
 }
 .fav-slides {

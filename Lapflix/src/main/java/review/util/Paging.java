@@ -72,17 +72,15 @@ public class Paging {
 			if(isPrePage) {
 				sb.append("<a class='pagebtn' href='review'>첫 페이지</a>");
 				sb.append("<a class='pagebtn' href='review?cPage=");
-				sb.append(startPage-blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
+				sb.append(startPage-blockPage);
 				sb.append("'>이전 페이지</a>");
 			}else {
-				//이전기능 비활성화(startPage가 1인 경우)
 				sb.append("<a class='disable'>첫 페이지</a>");
 				sb.append("<a class='disable'>이전 페이지</a>");
 				
 			}
-			//페이지 번호 출력하는 반복문(현재 페이지에는 now라는 css클래스 적용하자)
+			//페이지 번호 출력하는 반복문
 			for(int i=startPage; i <= endPage; i++) {
-				//i의 값이 현재페이지(nowPage)와 같을 때를 구별하여 css클래스를 적용!
 				if(i == nowPage) {
 					sb.append("<a class='pageNum on'>");
 					sb.append(i);
@@ -99,8 +97,8 @@ public class Paging {
 			//다음기능
 			if(isNextPage) {
 				sb.append("<a class='pagebtn' href='review?cPage=");
-				sb.append(startPage+blockPage);//항상 블록페이지가 넘어갈 때 시작페이지로 간다.
-				sb.append("'>다음 페이지</a>"); //&lt;는 꺾새기호
+				sb.append(startPage+blockPage);
+				sb.append("'>다음 페이지</a>");
 				
 				//마지막 페이지
 				sb.append("<a class='pagebtn' href='review?cPage=");

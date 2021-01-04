@@ -16,7 +16,7 @@
     <script src="https://kit.fontawesome.com/aa5b301900.js" crossorigin="anonymous"></script>
 <style>
 	.content h2, p{
-		font-family:'Times New Roman';
+		font-family:'Nanum Gothic';
 	}
 	
 	#p_img{
@@ -25,6 +25,18 @@
 		height: 30px;
 		vertical-align: middle;
 	}
+/* 	table{ */
+/* 		border: 1px solid black; */
+/* 		border-collapse: collapse; */
+/* 		display: inline-block; */
+/* 		width: 700px; */
+/* 	} */
+	
+/* 	table td{ */
+/* 		border: 1px solid black; */
+/* 		border-collapse: collapse; */
+/* 		text-align: center; */
+/* 	} */
 </style> 
 </head>
 <body>
@@ -136,7 +148,7 @@
                 <h1><i class="far fa-star"></i>    Favorite</h1>
                 <div class="fav-container">
                     <div class="fav-slides">
-
+						
                     </div>
                 </div>                    
             </div>
