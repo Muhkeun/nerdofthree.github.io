@@ -4,7 +4,7 @@ $(function(){
 		height: 300,
 		maxHeight: 400,
 		minHeight: 200,
-		width: 1000,
+		width: 900,
 		tabSize: 10,
 		focus: true,
 		lang: "ko-KR",

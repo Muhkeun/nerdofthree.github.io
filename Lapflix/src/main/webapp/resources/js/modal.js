@@ -31,7 +31,7 @@ function getFavoriteList(){
 			var str = "";
 			for(var i=0; i <data.far.length; i++){
 				str += "<img src='"+data.far[i].laptop_ImageURL+"><div class='fav-content'><h2>"+data.far[i].laptop_Name+
-					"</h2><p>"+data.far[i].laptop_Price+"</p><p><a href=javascript:delFavorite("+f_key+","+data.far[i].laptop_seq+
+					"</h2><p>"+data.far[i].laptop_Price+" won</p><p><a href=javascript:delFavorite("+f_key+","+data.far[i].laptop_seq+
 					")><i class='far fa-star'></i></a><a href='"+data.far[i].laptop_url+"'><i class='fas fa-shopping-cart'></i></a></p></div>";
 			}
 			$(".fav-slides").html(str);
